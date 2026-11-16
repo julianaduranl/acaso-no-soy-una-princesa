@@ -1,0 +1,9 @@
+:root {
+  --night:#17111f; --night2:#251629; --plum:#4c2d42;
+  --plum-soft:#70445a; --blush:#c9979f; --rose:#eac8be;
+  --paper:#f4eadc; --paper-light:#fff8eb; --ink:#372a31;
+  --muted:#806c6e; --gold:#d4ac70; --gold-light:#f3d9a0;
+  --sans:'Manrope',sans-serif; --serif:'Italiana','Times New Roman',serif;
+  --gutter:clamp(22px,5.2vw,88px);
+  --max:1440px;
+}

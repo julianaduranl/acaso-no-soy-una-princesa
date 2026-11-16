@@ -1,0 +1,57 @@
+/* THE OPENING EXPERIENCE - a real dimensional 3D book, not a flat video */
+.book-gate{height:max(780px,100svh);position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column;background:radial-gradient(ellipse at 48% 53%,#4d3146 0%,#261a2d 38%,#140f1b 78%);overflow:hidden;padding:70px 20px 25px;isolation:isolate}
+.book-gate::before{content:"";position:absolute;inset:18px;border:1px solid #dcb78145;pointer-events:none;z-index:5}
+.book-gate::after{content:"";position:absolute;inset:31px;border:1px solid #dcb7811e;pointer-events:none;z-index:5}
+.gate-noise{position:absolute;inset:0;pointer-events:none;opacity:.21;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.64' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");mix-blend-mode:screen}
+.gate-stars{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.gate-stars i{position:absolute;width:3px;height:3px;background:#e6c58c;border-radius:50%;opacity:.55;box-shadow:0 0 12px 3px #ebc88c35;animation:twinkle var(--dur,4s) ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.13;transform:scale(.6)}to{opacity:.95;transform:scale(1.4)}}
+.corner-ornament{position:absolute;font-family:var(--serif);font-size:37px;color:#d1ad77a3}.corner-ornament--tl{left:41px;top:36px}.corner-ornament--tr{right:41px;top:36px}
+.gate-topline,.gate-bottomline{position:absolute;left:var(--gutter);right:var(--gutter);display:flex;justify-content:space-between;font-size:.6rem;font-weight:700;letter-spacing:.25em;color:#d4b68c;z-index:6}.gate-topline{top:89px}.gate-bottomline{bottom:29px;justify-content:center;gap:23px;opacity:.65}
+.gate-kicker{position:relative;top:5px;font-size:.6rem;letter-spacing:.28em;color:#eac9a0;z-index:2;margin-bottom:10px}
+.book-world{width:min(90vw,540px);height:clamp(395px,59svh,615px);perspective:1550px;position:relative;flex-shrink:0;z-index:2;transform:translateX(0)}
+.book-shadow{position:absolute;bottom:2px;left:1%;width:98%;height:32px;background:#000b;filter:blur(27px);border-radius:50%;transform:scaleX(1.2)}
+.storybook{width:74%;height:95%;position:absolute;left:13%;top:1%;transform-style:preserve-3d;transform:rotateX(5deg) rotateY(-7deg) rotateZ(-1deg);transition:transform 1s cubic-bezier(.2,.75,.2,1)}
+.storybook.is-open{transform:translateX(17%) rotateX(2deg) rotateY(0deg) rotateZ(0)}
+.book-back{position:absolute;inset:0;background:#3b2838;border:5px solid #9b714c;border-radius:5px 13px 13px 5px;box-shadow:3px 18px 35px #0008,8px 0 0 #e8d2ab,12px 0 0 #614b4d}
+.book-pages{position:absolute;inset:8px 7px 8px 10px;background:repeating-linear-gradient(to bottom,#f6eaca 0,#f6eaca 4px,#e8dbc2 5px,#fbedd1 6px);border-radius:2px 10px 10px 2px;box-shadow:6px 2px 8px #0005}
+.book-inside{position:absolute;inset:11px 9px 10px 10px;overflow:hidden;background:#efe0c2;border-radius:2px 8px 8px 2px;box-shadow:inset 13px 0 23px #8d654a4b,inset -1px 0 5px #75482d28}
+.book-inside__paper{position:absolute;inset:14px;border:1px solid #b89a7452;display:flex;flex-direction:column;align-items:center;text-align:center;padding:clamp(13px,2svh,24px) 14px;overflow:hidden;color:#664b49}
+.inside-kicker{font-weight:700;letter-spacing:.2em;font-size:clamp(.49rem,.8svh,.65rem);margin:0 0 5px}
+.inside-crown{width:62%;height:auto;max-height:65px;object-fit:contain;filter:brightness(.65)}
+.inside-story{font-family:var(--serif);font-size:clamp(1rem,2.5svh,1.65rem);line-height:1.06;margin:7px 0;color:#6d4e49}
+.inside-portrait{flex:1;width:80%;min-height:0;overflow:hidden;mask-image:linear-gradient(to bottom,#000 83%,transparent 100%);filter:saturate(.72)}
+.inside-portrait img{width:100%;height:100%;object-fit:cover;object-position:top}
+.inside-end{font-family:var(--serif);font-style:italic;font-size:clamp(.9rem,2.1svh,1.4rem);line-height:1.07;margin:4px 0;max-width:240px}
+.book-cover{position:absolute;inset:-2px -1px -2px -2px;z-index:4;transform-origin:left center;transform-style:preserve-3d;background:linear-gradient(106deg,#30172d 0%,#652e4a 5%,#652e4a 11%,#482039 13%,#5a2b42 60%,#6f3f54 96%,#3c1e34 100%);border:2px solid #b9915e;border-radius:5px 11px 11px 5px;box-shadow:inset 7px 0 8px #100b1e80,inset 0 0 25px #0006,4px 8px 18px #130d17aa;transition:transform 1.55s cubic-bezier(.16,.86,.29,1),filter .9s;will-change:transform}
+.storybook.is-open .book-cover{transform:rotateY(-158deg);filter:brightness(.75)}
+.cover-edge{position:absolute;left:12px;top:0;bottom:0;width:12px;border-right:1px solid #e2b67177;border-left:1px solid #10091f80}
+.cover-inset{position:absolute;inset:23px 22px 23px 34px;border:1px solid #d7b47a;padding:20px 12px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;color:#f1deb8}
+.cover-inset::before,.cover-inset::after{content:"";position:absolute;inset:6px;border:1px solid #ad805363;pointer-events:none}
+.cover-small,.cover-footer{font-family:var(--sans);font-size:clamp(.5rem,1.1svh,.7rem);font-weight:700;letter-spacing:.25em}
+.cover-decoration{font-size:24px;color:#d4af76}
+.cover-crown{width:86%;height:120px;object-fit:contain;margin-top:auto}
+.cover-title{font-family:var(--serif);font-size:clamp(2.2rem,5.25svh,4.25rem);line-height:1.06;color:#f6deb4;margin:14px 0 0;letter-spacing:-.015em}
+.cover-title em{font-size:1.02em}
+.cover-flourish{font-size:32px;color:#d0a06e;margin:auto 0}
+.cover-footer{line-height:1.9}
+.book-actions{position:relative;z-index:4;text-align:center;margin-top:6px}
+.gold-button{background:var(--gold-light);border:1px solid #f4dfbb;color:#382334;padding:15px 24px 15px 29px;min-width:238px;box-shadow:0 10px 35px #07030d80;font-weight:700;font-size:.71rem;letter-spacing:.17em;display:inline-flex;align-items:center;justify-content:space-between;gap:27px;transition:transform .3s,background .3s}
+.gold-button:hover{transform:translateY(-4px);background:#fff1cf}.gold-button:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.button-arrow{font-size:1.25rem;font-weight:400;line-height:.6}
+.book-instruction{font-family:var(--serif);font-style:italic;letter-spacing:.03em;color:#d8b9b4;font-size:1.06rem;margin:10px 0 0}
+.book-gate .gold-button.is-opened{background:#d5a3ad}
+@media(max-height:800px){.book-gate{height:790px}.book-world{height:505px}.gate-kicker{margin-bottom:0}.book-instruction{font-size:.91rem}}
+.book-sparkles{position:absolute;left:50%;top:50%;z-index:12;pointer-events:none}
+.book-sparkles i{position:absolute;left:0;top:0;display:block;width:6px;height:6px;background:#f6d79b;border-radius:50%;box-shadow:0 0 12px 4px #f6d79b71;opacity:0;animation:burst 1.25s var(--delay,0ms) ease-out forwards}
+@keyframes burst{0%{transform:translate(0,0) scale(.1);opacity:0}15%{opacity:1}75%{opacity:.9}100%{transform:translate(var(--tx),var(--ty)) scale(.4);opacity:0}}
+
+.book-cover-back{position:absolute;inset:0;background:linear-gradient(135deg,#f3e4c5,#e9d7b4);color:#624e4a;backface-visibility:hidden;transform:rotateY(180deg) translateZ(2px);display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;padding:12% 10%;border:12px solid #ead7b2;box-shadow:inset 0 0 0 1px #b8976e}
+.book-cover-back:after{content:'';position:absolute;inset:15px;border:1px solid #af846a6b;pointer-events:none}
+.book-cover-back span:first-child,.book-cover-back small{font-size:.56rem;font-weight:700;letter-spacing:.18em}
+.book-cover-back strong{font-family:var(--serif);font-weight:400;font-size:clamp(2.1rem,5svh,3.6rem);line-height:1.05}
+.book-cover-back strong em{color:#9b6575;font-style:normal}
+.book-cover-back>span:nth-of-type(2){font-size:2rem;color:#b8985b}
+.book-cover-back p{font-family:var(--serif);font-size:1.25rem;line-height:1.25}
+.cover-inset,.cover-edge{backface-visibility:hidden}
+@media(max-width:720px){.book-cover-back{padding:12% 7%;border-width:7px}.book-cover-back strong{font-size:clamp(1.5rem,4svh,2.4rem)}.book-cover-back p{font-size:.9rem}.book-cover-back span:first-child,.book-cover-back small{font-size:.4rem}}

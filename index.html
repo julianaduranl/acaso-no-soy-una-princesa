@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#17111f">
+  <meta name="description" content="¿Acaso no soy una princesa? Un ensayo multimedia sobre cabello crespo, cine, publicidad, belleza y libertad de elegir.">
+  <title>¿Acaso no soy una princesa? · La belleza que nos enseñaron a esconder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/book.css">
+  <link rel="stylesheet" href="css/chapters.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al ensayo</a>
+  <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+  <header class="topbar" id="topbar">
+    <a class="monogram" href="#cuento" aria-label="Volver al cuento">✦ <span>LA BELLEZA ESCONDIDA</span></a>
+    <nav class="desktop-nav" aria-label="Capítulos">
+      <a href="#mia">El comienzo</a>
+      <a href="#pasado">El pasado</a>
+      <a href="#espejo">Mi historia</a>
+      <a href="#cambio">El cambio</a>
+      <a href="#final">El final</a>
+    </nav>
+    <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Navegación móvil" hidden>
+    <a href="#mia">El comienzo</a><a href="#pasado">El pasado</a><a href="#espejo">Mi historia</a><a href="#cambio">El cambio</a><a href="#final">El final</a>
+  </nav>
+  <main id="contenido">
+    <!-- PORTADA: interacción inicial, sin desplazamiento forzado -->
+    <section class="book-gate" id="cuento" aria-labelledby="cover-title">
+      <div class="gate-noise" aria-hidden="true"></div>
+      <div class="gate-stars" id="gate-stars" aria-hidden="true"></div>
+      <span class="corner-ornament corner-ornament--tl" aria-hidden="true">✧</span>
+      <span class="corner-ornament corner-ornament--tr" aria-hidden="true">✧</span>
+      <div class="gate-topline"><span>UN ENSAYO MULTIMEDIA</span><span>2026 · NUEVOS MEDIOS</span></div>
+      <div class="gate-kicker">UNA HISTORIA QUE CREÍAMOS CONOCER</div>
+      <div class="book-world" id="book-world">
+        <div class="book-shadow" aria-hidden="true"></div>
+        <div class="storybook" id="storybook">
+          <div class="book-back" aria-hidden="true"></div>
+          <div class="book-pages" aria-hidden="true"></div>
+          <div class="book-inside" aria-hidden="true">
+            <div class="book-inside__paper">
+              <p class="inside-kicker">CAPÍTULO PRIMERO</p>
+              <img src="assets/illustrations/crown-ornament.svg" alt="" class="inside-crown">
+              <p class="inside-story">Había una vez una niña que descubrió que era una princesa...</p>
+              <div class="inside-portrait"><img src="assets/illustrations/curly-portrait.svg" alt="Ilustración editorial de una mujer con cabello crespo"></div>
+              <p class="inside-end">Pero le dijeron que antes tenía que cambiar.</p>
+            </div>
+          </div>
+          <div class="book-cover" id="book-cover" aria-hidden="true">
+            <div class="book-cover-back"><span>EL PRINCIPIO DE TODO</span><strong>Mia ya era<br><em>una princesa.</em></strong><span>✦</span><p>¿Por qué tenía que cambiar<br>para parecerlo?</p><small>THE PRINCESS DIARIES · 2001</small></div>
+            <div class="cover-edge"></div>
+            <div class="cover-inset">
+              <span class="cover-small">ÉRASE UNA VEZ...</span>
+              <span class="cover-decoration">✦</span>
+              <img src="assets/illustrations/crown-ornament.svg" alt="" class="cover-crown">
+              <h1 id="cover-title" class="cover-title">UN CUENTO<br>DE <em>PRINCESAS</em></h1>
+              <span class="cover-flourish">❦</span>
+              <span class="cover-footer">Y UNA BELLEZA ESCONDIDA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="book-actions">
+        <button type="button" id="open-book" class="gold-button"><span id="book-action-label">ABRIR EL CUENTO</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+        <p class="book-instruction" id="book-instruction">Una historia sobre las imágenes que aprendimos a creer.</p>
+      </div>
+      <div class="gate-bottomline"><span>✦</span><span>PARA MIRARLA DE NUEVO, HAY QUE ABRIR EL LIBRO.</span><span>✦</span></div>
+    </section>
+
+    <!-- ESCENA 1: EL HOOK DE MIA Y LA PREGUNTA -->
+    <section class="mia-scene story-section" id="mia" aria-labelledby="mia-title">
+      <div class="cinema-grain" aria-hidden="true"></div>
+      <div class="mia-heading reveal">
+        <span class="eyebrow">PRÓLOGO / 2001 / THE PRINCESS DIARIES</span>
+        <h2 id="mia-title">¿Acaso no soy<br><em>una princesa?</em></h2>
+        <p>¿Qué necesita una niña para convertirse en princesa?<br>¿Una corona? ¿Un castillo? <strong>¿O el pelo liso?</strong></p>
+      </div>
+      <div class="mia-visual mia-visual--interactive reveal" data-compare style="--split:50%">
+        <div class="mia-art mia-art--left photo-region" data-image="assets/images/mia-antes.jpg">
+          <img src="assets/illustrations/curly-portrait.svg" alt="Ilustración provisional de cabello crespo; reemplazar por fotograma de Mia antes de la transformación">
+          <span class="image-tag">ANTES DEL CAMBIO</span>
+        </div>
+        <div class="mia-center-line" aria-hidden="true"></div>
+        <div class="mia-center-stamp" aria-hidden="true">↔</div>
+        <div class="mia-art mia-art--right photo-region" data-image="assets/images/mia-despues.jpg">
+          <img src="assets/illustrations/straight-portrait.svg" alt="Ilustración provisional de cabello liso; reemplazar por fotograma de Mia después de la transformación">
+          <span class="image-tag">DESPUÉS DEL CAMBIO</span>
+        </div>
+        <label class="visually-hidden" for="mia-slider">Comparar la apariencia de Mia antes y después de la transformación</label>
+        <input type="range" id="mia-slider" class="mia-compare-range" min="0" max="100" value="50" aria-valuetext="50 % de la imagen posterior visible">
+      </div>
+      <p class="art-disclaimer">Desliza la imagen para explorar el antes y el después. Ilustraciones conceptuales originales. Los fotogramas de la película se incorporarán con su crédito y análisis.</p>
+      <div class="mia-narration prose reveal">
+        <p>En <cite>El diario de la princesa</cite>, Mia Thermopolis descubre que pertenece a la realeza. Pero, antes de ser presentada ante el mundo, necesita una transformación.</p>
+        <p>Le cambian la ropa, las gafas, las cejas. <em>Y le alisan el pelo.</em></p>
+        <blockquote>La película nunca tiene que decir que el pelo crespo es feo. Basta con incluirlo entre las cosas que había que cambiar.</blockquote>
+        <p>Desde la teoría de la representación de <a href="#fuentes">Stuart Hall (1997)</a>, las imágenes no solo reflejan significados culturales: también participan en su construcción. ¿Qué nos dice este montaje sobre la apariencia que se espera de una princesa?</p>
+      </div>
+      <div class="question-break reveal"><span>LA PREGUNTA</span><p>¿Quién nos enseñó que el pelo crespo necesitaba cambiar para ser bonito?</p><a href="#pasado" class="inline-arrow">Viajemos al pasado <span>↘</span></a></div>
+    </section>
+
+    <!-- CAPÍTULO HISTÓRICO: ANUNCIOS REALES SE AGREGARÁN EN REEMPLAZOS -->
+    <section class="history-opening story-section" id="pasado" aria-labelledby="history-heading">
+      <div class="history-opening__huge" aria-hidden="true">1900</div>
+      <div class="history-opening__content reveal"><span class="eyebrow">CAPÍTULO I / ANTES DE MIA</span><h2 id="history-heading">La belleza que<br><em>debía corregirse.</em></h2><p>Mucho antes del salón de Mia, los anuncios ya proponían reglas sobre lo que significaba tener el cabello «bonito», «elegante» o «presentable».</p></div>
+    </section>
+    <section class="archive-section story-section" aria-label="Recorrido histórico de anuncios y representaciones">
+      <div class="archive-heading"><span class="eyebrow">ARCHIVO DE IMÁGENES</span><p>Un recorrido por el poder de las representaciones. Los carteles ilustrados son <strong>recreaciones conceptuales</strong>, no anuncios históricos reales. La versión final incluirá fuentes primarias verificadas.</p></div>
+      <article class="era era--1915" data-era="1915">
+        <div class="era__copy reveal"><span class="era__index">01 / 04</span><span class="era__year">1915</span><h3>La belleza como<br><em>promesa social.</em></h3><p>En el comienzo del siglo XX, la industria del cuidado capilar convivía con normas raciales y sociales sobre la apariencia. Elegir un peinado podía tener significados muy distintos según el contexto.</p><p class="author-note"><strong>Emma Dabiri (2019)</strong> examina el vínculo histórico entre cabello afro, identidad y poder.</p><a class="source-inline" href="https://nmaahc.si.edu/object/nmaahc_2011.170.2" target="_blank" rel="noopener noreferrer">Documento Poro, Smithsonian ↗</a></div>
+        <div class="era__visual reveal"><div class="poster poster--vintage photo-region" data-image="assets/images/anuncio-1915.jpg"><span class="poster-top">BEAUTY & CULTURE / 1915</span><span class="poster-frame"><img src="assets/illustrations/straight-portrait.svg" alt="Ilustración conceptual de una mujer con cabello liso"></span><strong class="poster-heading">¿QUIÉN DEFINE<br>LA <em>BELLEZA?</em></strong><span class="poster-bottom">RECREACIÓN CONCEPTUAL — NO ES UN ANUNCIO HISTÓRICO</span></div><p class="visual-caption">Agregar aquí un anuncio original y documentar su contexto; no atribuir estas palabras a una campaña real.</p></div>
+      </article>
+      <article class="era era--1960" data-era="1960">
+        <div class="era__copy reveal"><span class="era__index">02 / 04</span><span class="era__year">1960s</span><h3>El pelo natural<br><em>también fue resistencia.</em></h3><p>Los movimientos de reivindicación de la identidad negra desafiaron la idea de que acercarse a un ideal de cabello liso fuera la única manera de verse presentable. El cabello afro también se convirtió en un símbolo de orgullo y autonomía.</p><p class="author-note">La historia de la aceptación no empezó en TikTok: tiene raíces profundas en movimientos afrodescendientes.</p></div>
+        <div class="era__visual reveal"><div class="poster poster--resistance photo-region" data-image="assets/images/archivo-1960.jpg"><span class="poster-top">CAMBIO / REIVINDICACIÓN</span><span class="poster-frame"><img src="assets/illustrations/curly-portrait.svg" alt="Ilustración conceptual de una mujer con cabello natural"></span><strong class="poster-heading">NATURAL<br><em>IS POWER</em></strong><span class="poster-bottom">RECREACIÓN CONCEPTUAL — NO ES UN CARTEL DE ÉPOCA</span></div><p class="visual-caption">En la versión final: usar y citar fotografías o anuncios auténticos del movimiento.</p></div>
+      </article>
+      <article class="era era--2000" data-era="2000">
+        <div class="era__copy reveal"><span class="era__index">03 / 04</span><span class="era__year">2000s</span><h3>El problema que<br><em>debíamos controlar.</em></h3><p>Las campañas de alisadores y productos anti-frizz prometían suavidad, control y manejabilidad. <strong>Frizz y cabello crespo no son equivalentes</strong>, pero investigar el lenguaje de estos anuncios permite cuestionar cuándo una característica natural se convierte en un «problema» de consumo.</p><p class="author-note"><strong>Marshall McLuhan (1964)</strong> ayuda a estudiar cómo los distintos medios influyen en nuestra relación con esas imágenes.</p></div>
+        <div class="era__visual reveal"><div class="poster poster--control photo-region" data-image="assets/images/anuncio-frizz.jpg"><span class="poster-top">EL LENGUAJE DEL CONTROL</span><span class="poster-frame"><img src="assets/illustrations/straight-portrait.svg" alt="Ilustración conceptual de un peinado liso"></span><strong class="poster-heading">¿FRIZZ O<br><em>PROBLEMA?</em></strong><span class="poster-bottom">RECREACIÓN CONCEPTUAL — SUSTITUIR CON ANUNCIO REAL</span></div><p class="visual-caption">Analizaremos marca, año, público, palabras e imagen de un anuncio anti-frizz concreto.</p></div>
+      </article>
+      <article class="era era--2001" data-era="2001">
+        <div class="era__copy reveal"><span class="era__index">04 / 04</span><span class="era__year">2001</span><h3>Y entonces apareció<br><em>Mia Thermopolis.</em></h3><p>Su transformación no surgió de la nada. Era comprensible dentro de una cultura visual que durante años había relacionado la elegancia con determinadas apariencias.</p><p>La pregunta no es si estaba mal que Mia usara el pelo liso. Es por qué <strong>el cambio hacia ese peinado</strong> formaba parte de la transformación que la película nos pedía celebrar.</p></div>
+        <div class="era__visual reveal"><div class="poster poster--princess photo-region" data-image="assets/images/anuncio-mia.jpg"><span class="poster-top">REGRESAMOS AL COMIENZO</span><span class="poster-frame"><img src="assets/illustrations/curly-portrait.svg" alt="Ilustración conceptual de cabello crespo"></span><strong class="poster-heading">EL CUENTO<br><em>QUE APRENDIMOS.</em></strong><span class="poster-bottom">IMAGEN CONCEPTUAL · THE PRINCESS DIARIES (2001)</span></div></div>
+      </article>
+    </section>
+
+    <!-- CAPÍTULO PERSONAL -->
+    <section class="mirror-section story-section" id="espejo" aria-labelledby="mirror-heading">
+      <div class="mirror-intro reveal"><span class="eyebrow">CAPÍTULO II / FRENTE AL ESPEJO</span><h2 id="mirror-heading">Yo también creí<br>que tenía que <em>cambiar.</em></h2><p>No fui la única que creció viendo estos ideales. Las imágenes también me acompañaron cuando aprendí a mirar mi propio cabello.</p></div>
+      <div class="memory-frames">
+        <figure class="memory-card memory-card--before reveal"><div class="memory-card__inner photo-region" data-image="assets/images/yo-alisado.jpg"><img src="assets/illustrations/straight-portrait.svg" alt="Ilustración provisional para una fotografía personal con el pelo alisado"><span class="memory-sticker">TU FOTO AQUÍ</span></div><figcaption><span>CAPÍTULO PERSONAL / ANTES</span><strong>El pelo que creía necesitar.</strong></figcaption></figure>
+        <div class="memory-between reveal" aria-hidden="true"><span>≠</span><p>NO ES UN<br>ANTES Y DESPUÉS<br>DE BELLEZA.</p></div>
+        <figure class="memory-card memory-card--after reveal"><div class="memory-card__inner photo-region" data-image="assets/images/yo-crespos.jpg"><img src="assets/illustrations/curly-portrait.svg" alt="Ilustración provisional para una fotografía personal con el pelo crespo"><span class="memory-sticker">TU FOTO AQUÍ</span></div><figcaption><span>CAPÍTULO PERSONAL / HOY</span><strong>El pelo que aprendí a amar.</strong></figcaption></figure>
+      </div>
+      <div class="prose prose--dark memory-narrative reveal"><p>Durante una etapa de mi vida prefería alisarme el pelo porque no me gustaban mis crespos. Ahora puedo mirar esas decisiones de otra manera: no para juzgar a la niña que fui, sino para reconocer las ideas sobre belleza con las que creció.</p><blockquote>El problema nunca fue alisarme el pelo.<br>Fue sentir que debía hacerlo para ser bonita.</blockquote><p><strong>Ingrid Banks (2000)</strong> recuerda que las decisiones sobre el cabello también hablan de identidad, preferencias y libertad. Alisarse no es, por sí mismo, rechazar el cabello natural.</p><p class="edit-note">ESPACIO PARA AÑADIR UN RECUERDO TUYO: ¿QUÉ SENTÍAS AL SALIR CON EL PELO ALISADO? ¿CUÁNDO CAMBIÓ ESA RELACIÓN?</p></div>
+    </section>
+
+    <!-- GIRO: NUEVAS REPRESENTACIONES -->
+    <section class="turning-point story-section" id="cambio" aria-labelledby="turn-title">
+      <div class="turning-light" aria-hidden="true"></div>
+      <div class="turning-point__text reveal"><span class="eyebrow">CAPÍTULO III / UN CAMBIO DE MIRADA</span><h2 id="turn-title">Y poco a poco,<br>el cuento <em>cambió.</em></h2><p>Las representaciones comenzaron a abrir espacio para otras formas de belleza. No fue un cambio instantáneo, ni borró las presiones anteriores.</p></div>
+      <div class="change-cards">
+        <article class="change-card reveal"><div class="change-card__art photo-region" data-image="assets/images/valiente.jpg"><img src="assets/illustrations/curly-portrait.svg" alt="Ilustración provisional de cabello rizado para analizar Valiente"><span class="card-date">2012</span></div><span class="eyebrow">CINE / VALIENTE</span><h3>Una princesa con rizos.</h3><p>Mérida lleva su cabello abundante como una parte reconocible de su identidad. Ya no es una característica que el relato deba necesariamente «arreglar».</p></article>
+        <article class="change-card reveal"><div class="change-card__art photo-region" data-image="assets/images/dove-curls.jpg"><img src="assets/illustrations/curly-portrait.svg" alt="Ilustración provisional para la campaña Love Your Curls"><span class="card-date">2015</span></div><span class="eyebrow">PUBLICIDAD / DOVE</span><h3>Love Your Curls.</h3><p>Una campaña celebra los rizos. Podemos analizar a la vez el avance de la representación y el hecho de que la aceptación también se convirtió en un mensaje comercial.</p><a href="https://www.prnewswire.com/news-releases/dove-hair-launches-poetic-tribute-to-curls-inspired-by-stories-from-real-women-300084598.html" target="_blank" rel="noopener noreferrer" class="source-inline">Ver campaña ↗</a></article>
+        <article class="change-card reveal"><div class="change-card__art photo-region" data-image="assets/images/encanto.jpg"><img src="assets/illustrations/curly-portrait.svg" alt="Ilustración provisional de cabello rizado para analizar Encanto"><span class="card-date">2021</span></div><span class="eyebrow">CINE / ENCANTO</span><h3>Una protagonista colombiana.</h3><p>Mirabel tiene rizos naturales. Y la historia permite conectar distintas representaciones del cabello con el contexto colombiano.</p></article>
+      </div>
+      <div class="colombia-note reveal"><span class="eyebrow">EL CONTEXTO COLOMBIANO</span><p>La investigación <strong>Entre rizo y rizo</strong> (González Herrera, 2019) ayuda a estudiar cómo la publicidad, las revistas y las comunidades digitales reflejan y cuestionan los ideales de cabello en Colombia.</p><a href="https://intellectum.unisabana.edu.co/entities/publication/4f61ed3e-6c40-4f83-93f4-ee7e6a35af96" target="_blank" rel="noopener noreferrer">Consultar investigación ↗</a></div>
+    </section>
+
+    <!-- CONTRAARGUMENTO: CLEAN GIRL -->
+    <section class="clean-scene story-section" id="clean-girl" aria-labelledby="clean-title">
+      <div class="clean-scene__header reveal"><span class="eyebrow">CAPÍTULO IV / ¿DE VERDAD CAMBIÓ TODO?</span><h2 id="clean-title">Los estándares no siempre desaparecen.<br><em>A veces cambian de nombre.</em></h2></div>
+      <div class="clean-layout">
+        <div class="phone-stage reveal"><div class="phone-shell"><div class="phone-speaker"></div><div class="phone-screen"><span class="phone-brand">TU FEED · UNA MIRADA CRÍTICA</span><div class="phone-photo photo-region" data-image="assets/images/clean-girl.jpg"><img src="assets/illustrations/bun-portrait.svg" alt="Ilustración conceptual de un peinado recogido y pulido"></div><div class="phone-overlay"><strong>#CleanGirl</strong><span>Una estética visual de redes</span></div></div></div><span class="phone-caption">COMPOSICIÓN ILUSTRATIVA · NO ES UNA PUBLICACIÓN REAL</span></div>
+        <div class="clean-copy reveal"><span class="eyebrow">LAS REDES / 2020s</span><h3>¿La belleza natural tiene que verse siempre «controlada»?</h3><p>El <em>Clean Girl Look</em> popularizó peinados pulidos, recogidos y una apariencia aparentemente «sin esfuerzo». No hay nada malo con hacerse un moño o alisarse: la pregunta es por qué una estética se presenta como sinónimo de verse «limpia» y arreglada.</p><p><strong>Marta Ezquerra Fernández (2026)</strong> analiza la estandarización visual y las expectativas de feminidad en cien videos de TikTok. Su estudio nos permite investigar nuevas presiones sin asumir que todas las usuarias interpretan los contenidos igual.</p><a href="https://firstmonday.org/ojs/index.php/fm/article/view/14323" target="_blank" rel="noopener noreferrer" class="source-inline">Ver estudio académico ↗</a></div>
+      </div>
+      <div class="clean-question reveal">¿Y si el problema nunca fue <em>cómo llevamos el pelo</em>, sino quién decide qué apariencia merece ser considerada bonita?</div>
+    </section>
+
+    <!-- EPÍLOGO: CÍRCULO COMPLETO -->
+    <section class="final-section story-section" id="final" aria-labelledby="final-heading">
+      <div class="ending-stars" aria-hidden="true">✦ ✧ ✦</div>
+      <div class="final-lead reveal"><span class="eyebrow">EPÍLOGO / 2026</span><h2 id="final-heading">Veinticinco años después,<br><em>miramos el mismo cuento.</em></h2><p>En 2026, Anne Hathaway reflexionó sobre cómo los rizos de Mia se utilizaron para contrastar el antes y después de su transformación. Reconoció que esa decisión transmitió una interpretación negativa que no habían buscado.</p><a class="source-inline source-inline--light" href="https://people.com/anne-hathaway-the-princess-diaries-worlds-most-beautiful-exclusive-11954368" target="_blank" rel="noopener noreferrer">Leer entrevista en PEOPLE ↗</a></div>
+      <div class="ending-photo photo-region reveal" data-image="assets/images/yo-crespos-final.jpg"><img src="assets/illustrations/curly-portrait.svg" alt="Ilustración conceptual, para reemplazar por tu fotografía actual"><span class="ending-photo__tag">AQUÍ VA TU FOTO ACTUAL</span></div>
+      <div class="last-words reveal"><span class="eyebrow">EL FINAL QUE YO ELIJO</span><p>El pelo liso es bonito. El pelo crespo también. Alisarlo o llevarlo natural debería ser una elección, nunca una condición para sentirnos bonitas o aceptadas.</p><h2>Mia siempre fue<br>una princesa.<br><em>Y yo también.</em></h2><span class="last-flourish">❦</span></div>
+    </section>
+
+    <!-- REFERENCIAS -->
+    <section class="bibliography story-section" id="fuentes" aria-labelledby="sources-heading"><div class="bibliography__inner"><span class="eyebrow">NOTAS, FUENTES Y CRÉDITOS</span><h2 id="sources-heading">La historia detrás<br><em>de las imágenes.</em></h2><p>Fuentes de trabajo. Antes de la entrega deben completarse las referencias exactas de cada anuncio, fotograma y fotografía de archivo, junto con su fecha y procedencia.</p>
+      <ol class="bibliography-list">
+        <li>Hall, S. (Ed.). (1997). <cite>Representation: Cultural Representations and Signifying Practices.</cite> SAGE.</li>
+        <li>McLuhan, M. (1964). <cite>Understanding Media: The Extensions of Man.</cite></li>
+        <li>Dabiri, E. (2019). <cite>Don't Touch My Hair.</cite></li>
+        <li>Banks, I. (2000). <cite>Hair Matters: Beauty, Power, and Black Women's Consciousness.</cite> NYU Press.</li>
+        <li>González Herrera, M. P. (2019). <cite>Entre rizo y rizo.</cite> Universidad de La Sabana. <a href="https://intellectum.unisabana.edu.co/entities/publication/4f61ed3e-6c40-4f83-93f4-ee7e6a35af96" target="_blank" rel="noopener noreferrer">Ver fuente ↗</a></li>
+        <li>Ezquerra Fernández, M. (2026). <cite>Clean Girl aesthetic and neoliberal femininity performance on TikTok.</cite> <em>First Monday.</em> <a href="https://firstmonday.org/ojs/index.php/fm/article/view/14323" target="_blank" rel="noopener noreferrer">Ver fuente ↗</a></li>
+        <li>Marshall, G. (Dir.). (2001). <cite>The Princess Diaries.</cite> Walt Disney Pictures.</li>
+        <li>Hathaway, A. (2026). Entrevista en <cite>PEOPLE.</cite> <a href="https://people.com/anne-hathaway-the-princess-diaries-worlds-most-beautiful-exclusive-11954368" target="_blank" rel="noopener noreferrer">Ver fuente ↗</a></li>
+        <li>Smithsonian National Museum of African American History and Culture. Documento de Poro College (1915). <a href="https://nmaahc.si.edu/object/nmaahc_2011.170.2" target="_blank" rel="noopener noreferrer">Ver archivo ↗</a></li>
+        <li>Dove (2015). <cite>Love Your Curls</cite> [campaña]. <a href="https://www.prnewswire.com/news-releases/dove-hair-launches-poetic-tribute-to-curls-inspired-by-stories-from-real-women-300084598.html" target="_blank" rel="noopener noreferrer">Ver campaña ↗</a></li>
+      </ol><div class="ai-note"><strong>Declaración pendiente:</strong> documentar herramientas de IA utilizadas, prompts y reflexión crítica sobre sesgos y limitaciones, como solicita el curso. Las ilustraciones conceptuales no se deben presentar como anuncios históricos.</div>
+    </div></section>
+  </main>
+  <footer class="site-footer"><p>¿Acaso no soy una princesa? <span>✦</span> Nuevos Medios · 2026</p><a href="#cuento">Volver al principio ↑</a></footer>
+</body>
+</html>
