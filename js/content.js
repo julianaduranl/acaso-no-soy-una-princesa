@@ -501,6 +501,116 @@ page(
     `
   ),
 
+  // ==========================================
+  // PÁGINA 3 — MI PROPIA TRANSFORMACIÓN
+  // ==========================================
+
+  page(
+    'el-espejo',
+    'Capítulo II · La transformación',
+    'Y así comenzó mi transformación.',
+    `
+    <p class="story dropcap">
+      Desde aquel día, decidí que
+      <strong>quería tener el pelo liso.</strong>
+      Si así era como Mia se había convertido
+      en una princesa, yo también quería
+      verme de esa manera.
+    </p>
+
+    <p class="story">
+      Además, parecía mucho más fácil
+      de manejar. Dejé de intentar entender
+      mis crespos y empecé a buscar maneras
+      de mantenerlos bajo control.
+    </p>
+
+    <p class="story">
+      A veces me hacía trenzas.
+      Otras veces me alisaba el pelo.
+      Con el tiempo, llegué a hacerme
+      tratamientos de queratina.
+    </p>
+
+    <p class="story">
+      Lo hice durante años, tantos que
+      terminé dañando mi cabello
+      en el intento de transformarlo.
+    </p>
+
+    <div class="ornament-line">✦</div>
+
+    <p class="narrative-quote">
+      Pasé años intentando cambiar
+      el pelo que tenía, para conseguir
+      el pelo que creía que debía tener.
+    </p>
+
+    <p class="story">
+      Y durante todo ese tiempo,
+      nunca me detuve a preguntarme
+      de dónde había salido aquella idea.
+    </p>
+    `
+  ),
+
+  // ==========================================
+  // PÁGINA 4 — NO ERA LA ÚNICA
+  // ==========================================
+
+  page(
+    'transformacion',
+    'Capítulo II · La transformación',
+    'Pero yo no era la única...',
+    `
+    <p class="story dropcap">
+      Lo que Juliana no sabía era que
+      <strong>su historia no era la única.</strong>
+    </p>
+
+    <p class="story">
+      Mucho antes de que ella naciera,
+      e incluso antes de que Mia Thermopolis
+      apareciera en el cine, generaciones
+      de mujeres habían crecido rodeadas
+      de ideales sobre cómo debía verse
+      su cabello.
+    </p>
+
+    <p class="story">
+      Durante décadas, la publicidad
+      presentó ciertos tipos de cabello
+      como elegantes, arreglados y deseables,
+      mientras ofrecía productos para
+      alisar, controlar o transformar otros.
+    </p>
+
+    <p class="story">
+      No todas las mujeres se alisaban
+      por las mismas razones. Pero aquellas
+      imágenes ayudaron a construir
+      una idea de belleza que se repitió
+      de generación en generación.
+    </p>
+
+    <div class="ornament-line">✦</div>
+
+    <p class="narrative-quote">
+      Porque antes de que Juliana
+      quisiera cambiar sus crespos,
+      el mundo llevaba mucho tiempo
+      diciéndole a las mujeres
+      cómo debía verse su pelo.
+    </p>
+
+    <p class="story">
+      Para entender cómo nació esta idea,
+      nuestro cuento tendrá que
+      <em>retroceder en el tiempo...</em>
+    </p>
+    `
+  ),
+
   // ==================================================
   // CAPÍTULO II
   // ==================================================
