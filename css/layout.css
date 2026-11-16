@@ -1,0 +1,57 @@
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { min-height:100dvh; margin:0; overflow-x:hidden; color:#f4e9e4; background:radial-gradient(ellipse 70% 80% at 50% 49%,#3c2c47 0%,#20182c 58%,#15111e 100%); font-family:var(--font-sans); }
+button { font:inherit; cursor:pointer; }
+button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible { outline:3px solid #d8a6ba; outline-offset:4px; }
+a { color:inherit; }
+.ambient { position:fixed; pointer-events:none; z-index:-1; width:50vw; height:50vw; border-radius:50%; filter:blur(100px); opacity:.14; }
+.ambient--one { background:#c48a97; top:-26vw; left:-17vw; animation:drift 22s ease-in-out infinite alternate; }
+.ambient--two { background:#b87bce; bottom:-30vw; right:-17vw; animation:drift 26s ease-in-out infinite alternate-reverse; }
+.ambient-stars { position:fixed; inset:0; z-index:-1; opacity:.58; pointer-events:none; background-image:radial-gradient(circle at 10% 22%,#f8dda5 1px,transparent 2px),radial-gradient(circle at 74% 13%,#f8dda5 1px,transparent 2px),radial-gradient(circle at 88% 75%,#f8dda5 1px,transparent 2px),radial-gradient(circle at 25% 85%,#f8dda5 1px,transparent 2px),radial-gradient(circle at 50% 19%,#f8dda5 1px,transparent 2px),radial-gradient(circle at 9% 61%,#f8dda5 1px,transparent 2px); background-size:100% 100%; animation:twinkle 8s ease-in-out infinite alternate; }
+.site-header { display:flex; align-items:center; justify-content:space-between; height:74px; padding:0 clamp(18px,4vw,70px); position:relative; z-index:8; }
+.site-brand,.site-kicker,.index-button,.chapter-indicator,.site-footer,.keyboard-hint { font-size:10px; letter-spacing:.18em; font-weight:700; }
+.site-brand { color:#f6e1b9; display:flex; align-items:center; gap:9px; }
+.site-brand:first-letter {font-size:22px}
+.site-kicker { color:#ab98b0; }
+.index-button { color:var(--gold); background:#3b2a44; border:1px solid #80657b; border-radius:30px; padding:12px 18px; display:flex; gap:10px; align-items:center; }
+.index-button:hover { background:#563b58; }
+.experience { max-width:1480px; min-height:calc(100dvh - 125px); margin:0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:4px 30px 26px; }
+.chapter-indicator { color:var(--gold); display:flex; gap:14px; align-items:center; justify-content:center; margin-bottom:12px; text-align:center; }
+.chapter-indicator .sparkle { font-size:20px; }
+.book-stage { width:min(100%,1260px); height:calc(var(--page-height) + 45px); position:relative; display:flex; align-items:center; justify-content:center; perspective:2000px; }
+.stage-orbit { position:absolute; width:67%; aspect-ratio:1; border:1px solid rgba(216,174,133,.1); border-radius:50%; pointer-events:none; }
+.stage-orbit--a { transform:rotate(-25deg) scale(1.26); }
+.stage-orbit--b { transform:rotate(27deg) scale(1.05); }
+.book-ambient-glow { position:absolute; width:65%; height:60%; background:#bd8b90; filter:blur(110px); opacity:.10; pointer-events:none; z-index:-1; }
+.book-controls { display:flex; align-items:center; justify-content:space-between; width:min(100%,990px); margin:4px auto 0; gap:24px; position:relative; z-index:5; }
+.page-control { display:flex; gap:12px; align-items:center; background:none; color:#e9d8c5; border:1px solid #68546b; padding:12px 20px; border-radius:50px; font-size:10px; font-weight:700; letter-spacing:.12em; transition:background .2s,border-color .2s,transform .2s; white-space:nowrap; }
+.page-control:not(:disabled):hover { background:#47314c; border-color:#ba9f82; transform:translateY(-2px); }
+.page-control:disabled { opacity:.28; cursor:not-allowed; }
+.page-control--next { background:#d7b58b; color:#261a26; border-color:#d7b58b; }
+.page-control--next:not(:disabled):hover { background:#f0d5a7; }
+.page-control span:first-child:is(.arrow) { font-size:15px; }
+.book-controls__center { width:240px; text-align:center; display:flex; flex-direction:column; gap:9px; }
+.reading-track { height:2px; background:rgba(255,255,255,.23); overflow:hidden; }
+.reading-track__fill { width:3%; height:100%; background:var(--gold); transition:width .7s ease; }
+.reading-label { font-size:10px; letter-spacing:.08em; color:#c4b0bc; }
+.keyboard-hint { color:#897a91; font-weight:400; letter-spacing:.04em; text-align:center; margin:18px 0 0; }
+kbd { font-family:var(--font-sans); font-size:10px; color:#c6b8ca; border:1px solid #66566e; padding:2px 5px; border-radius:3px; }
+.site-footer { display:flex; justify-content:space-between; gap:20px; padding:20px 5%; color:#796a84; }
+.skip-link,.visually-hidden { position:absolute!important; width:1px; height:1px; padding:0; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.skip-link:focus { clip:auto; width:auto; height:auto; background:#fff; color:#000; padding:12px; z-index:999; }
+.chapter-drawer[hidden] { display:none; }
+.chapter-drawer { position:fixed; inset:0; z-index:100; }
+.drawer-backdrop { position:absolute; inset:0; background:rgba(8,5,12,.74); backdrop-filter:blur(8px); }
+.drawer-panel { position:absolute; right:0; top:0; bottom:0; width:min(430px,100vw); background:#f5e9d5; color:#382634; padding:28px clamp(20px,4vw,44px); box-shadow:-20px 0 70px #0008; overflow-y:auto; }
+.drawer-panel__head { display:flex; justify-content:space-between; align-items:center; font-size:11px; letter-spacing:.14em; color:#a17853; font-weight:700; }
+.drawer-panel__head button { background:none; border:0; font-size:35px; color:#58394a; }
+.drawer-panel h2 { font:400 clamp(34px,4vw,48px)/1.15 var(--font-display); margin:40px 0 18px; }
+.drawer-panel h2 em { color:#9a6374; }
+.drawer-panel p { line-height:1.6; font-size:13px; }
+.chapter-list { display:grid; gap:8px; margin-top:30px; }
+.chapter-list button { background:#ffffff82; border:1px solid #d9cab6; padding:15px; color:#392638; text-align:left; cursor:pointer; display:flex; gap:12px; align-items:center; transition:transform .2s, background .2s; }
+.chapter-list button:hover { background:white; transform:translateX(-3px); }
+.chapter-list button span { color:#a88152; font:24px var(--font-poetic); min-width:30px; }
+.drawer-footnote { margin-top:24px; color:#7b6b74; font-size:12px!important; }
+@keyframes drift {to { transform:translate(10vw,7vw) scale(1.2); }}
+@keyframes twinkle {to { opacity:.21; }}

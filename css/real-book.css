@@ -1,0 +1,123 @@
+/* DOS HOJAS REALES · StPageFlip 2.0.7 — Loaded last to override immersive.css. */
+:root { --reader-ink:#493241; }
+html, body { height:100%; overflow:hidden!important; overscroll-behavior:none; }
+.reader-stage {
+  position:fixed; inset:74px 0 86px; display:flex; align-items:center; justify-content:center;
+  z-index:28; visibility:hidden; opacity:0; pointer-events:none;
+  transform:scale(.93); transition:opacity .4s ease, transform .65s cubic-bezier(.2,.85,.2,1), visibility .4s;
+}
+.reader-stage.is-visible { visibility:visible; opacity:1; pointer-events:auto; transform:scale(1); }
+.reader-stage__halo { position:absolute; left:50%; top:54%; width:min(1000px,90vw); height:58vh;
+  transform:translate(-50%,-50%); background:#bc7b8b22; filter:blur(90px); border-radius:50%; pointer-events:none;
+}
+#flipbook { position:relative; width:calc(var(--leaf-width) * var(--visible-leaves, 2)); height:var(--leaf-height); filter:drop-shadow(0 24px 26px #03010880); isolation:isolate; }
+#flipbook::after { display:none; } /* StPageFlip paints the natural fold and shadows. */
+/* Never override StPageFlip wrapper overflow: it is needed for page curl clipping. */
+#flipbook .page { position:absolute; width:var(--leaf-width)!important;height:var(--leaf-height)!important; inset:auto;display:block;flex:none;overflow:hidden;
+  background:linear-gradient(110deg,#faf2e5,#f5e7d0 48%,#f9efdf) !important;
+  box-shadow:inset 0 0 25px #77593822; border-radius:0; color:var(--paper-text); }
+#flipbook .page--cover { background:linear-gradient(110deg,#4b2343,#6a3558 45%,#351c37) !important; }
+#flipbook .page--backcover {background:linear-gradient(125deg,#382039,#592a47,#291829)!important;}
+#flipbook .page--chapter { background:#39283c!important; }
+#flipbook .page--chapter .paper-inner { background:#39283c; }
+#flipbook .page--chapter .page-title,#flipbook .page--chapter .page-kicker,#flipbook .page--chapter .page-footer { color:#edd8c9; }
+#flipbook .page::before { inset:12px; border:1px solid #c39c6a69; }
+#flipbook .paper-inner { width:100%!important;height:100%;margin:0;padding:clamp(21px,3.5vh,35px) clamp(23px,3vw,43px) 23px; min-height:0; }
+#flipbook .paper-inner:not(.paper-inner--cover)::before {font-size:13px;margin:0 0 5px;}
+#flipbook .paper-scroll {flex:1;min-height:0;overflow:hidden!important;scrollbar-width:none;padding:0;overscroll-behavior:none;}
+#flipbook .leaf-content {transform-origin:top left;max-width:none!important;}
+#flipbook .page-kicker {font-size:9px;letter-spacing:.14em;margin:0 0 7px;}
+#flipbook .page-title {font-size:clamp(21px,2vw,30px);line-height:1.15;margin:0 0 13px;}
+#flipbook .page p,#flipbook .page li {font-size:12px;line-height:1.52;margin-bottom:9px;}
+#flipbook .page .story {font-size:clamp(14px,1.06vw,17px);line-height:1.55;}
+#flipbook .page .lead {font-size:16px;}
+#flipbook .page .narrative-quote {font-size:20px;margin:14px 0;padding:8px 0 8px 12px;}
+#flipbook .page .paper-note {padding:10px 13px;margin:10px 0;}
+#flipbook .page .paper-note p {font-size:11px;line-height:1.48;}
+#flipbook .page .small,#flipbook .page .refs li {font-size:10px;line-height:1.42;}
+#flipbook .page .refs li {margin-bottom:6px;}
+#flipbook .page .photo-hole {height:215px;max-width:85%;margin:8px auto;}
+#flipbook .page .photo-hole--full {height:260px;}
+#flipbook .page .story-portrait {height:205px;width:65%;margin:5px auto 8px;}
+#flipbook .page .story-portrait--small {height:175px;width:52%;}
+#flipbook .page .media-duo {gap:8px;}
+#flipbook .page .media-duo img {height:195px;}
+#flipbook .page .magazine-ad {height:198px;margin:8px 0;}
+#flipbook .page .magazine-ad .ad-headline {font-size:30px;}
+#flipbook .page .social-card {width:64%;margin:6px auto;}
+#flipbook .page .social-card img {height:185px;}
+#flipbook .page .historic-year {font-size:95px;}
+#flipbook .page .thesis-page {padding:12px 16px;margin:9px 0;}
+#flipbook .page .thesis-page h3 {font-size:25px;margin:4px 0 9px;}
+#flipbook .page .thesis-page p {font-size:13px;line-height:1.6;}
+#flipbook .page .chapter-opener h2 {font-size:42px;}
+#flipbook .page .chapter-opener p {font-size:15px;}
+#flipbook .page .grand-ending {font-size:31px;}
+#flipbook .page .page-footer {font-size:8px;margin-top:7px;padding-top:6px;}
+#flipbook .page--cover .cover-inner {padding:25px;}
+#flipbook .page--cover .cover-title {font-size:clamp(43px,4.5vw,67px);}
+#flipbook .page--cover .cover-crown {max-width:230px;}
+#flipbook .chapter-opener--midnight {margin:0;padding:30px;}
+#flipbook .quiet-leaf {display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;height:100%;font:italic 23px/1.8 var(--font-display);color:#a97183;}
+#flipbook .quiet-leaf span {font-size:55px;color:#b38d63;}
+.page-measure-sandbox {position:fixed;left:-100000px;top:0;z-index:-100;display:flex;flex-direction:column;visibility:hidden;pointer-events:none;}
+.page-measure-sandbox .page {position:relative;width:var(--measure-width)!important;height:var(--measure-height)!important;flex:none;}
+.page-measure-sandbox .paper-inner {display:flex;flex-direction:column;width:100%;height:100%;padding:clamp(21px,3.5vh,35px) clamp(23px,3vw,43px) 23px;}
+.page-measure-sandbox .paper-scroll {flex:1;min-height:0;overflow:hidden;}
+.page-measure-sandbox .leaf-content {transform-origin:top left;}
+/* Hide original intro as the camera moves into the open book. */
+body.is-opening #book-stage {transform:scale(1.07);opacity:0;transition:transform .65s ease,opacity .4s ease;}
+body.is-reading #book-stage {opacity:0;visibility:hidden;pointer-events:none;}
+body.is-reading .experience {background:transparent;}
+body.is-reading .site-header {background:linear-gradient(180deg,#1d1327f2 0%,#1d132700 100%);color:#f4e3d6;}
+body.is-reading .site-brand,body.is-reading .site-kicker {color:#f0d6bb;}
+body.is-reading .index-button {background:#483148;color:#f7dfad;border-color:#80657b;}
+body.is-reading .book-controls {position:fixed;left:5vw;right:5vw;bottom:18px;z-index:55;}
+body.is-reading .reading-label {color:#f3e1d5;text-shadow:none;}
+body.is-reading .reading-track {background:#655065;}
+body.is-reading .page-control {background:#422b43;border-color:#78576b;color:#f7e7dc;}
+body.is-reading .page-control--next {background:#e4bb83;border-color:#e4bb83;color:#392638;}
+body.is-reading .page-control:disabled {opacity:.3;}
+.library-error:not([hidden]) {position:fixed;z-index:100;top:100px;left:50%;transform:translateX(-50%);padding:16px 22px;background:#fff0e9;color:#5b2433;border-radius:10px;max-width:85vw;text-align:center;}
+@media(max-width:760px){
+  .reader-stage{inset:63px 0 68px;}
+  #flipbook::after {display:none;}
+  #flipbook .paper-inner {padding:20px 20px 16px;}
+  #flipbook .page-title {font-size:25px;}
+  #flipbook .page .story {font-size:16px;}
+  body.is-reading .book-controls {left:10px;right:10px;bottom:6px;}
+}
+@media(prefers-reduced-motion:reduce){.reader-stage,body.is-opening #book-stage{transition:none!important;}}
+/* Keep special storybook compositions vertically centered in their leaves. */
+#flipbook .page--cover .leaf-content,
+#flipbook .page--backcover .leaf-content,
+#flipbook .page--chapter .leaf-content,
+.page-measure-sandbox .page--cover .leaf-content,
+.page-measure-sandbox .page--backcover .leaf-content,
+.page-measure-sandbox .page--chapter .leaf-content {height:100%;}
+#flipbook .page--chapter .chapter-opener {height:100%;}
+
+/* V4 geometry and motion: a leaf has its own width, never 100% of the spread. */
+#flipbook .page.page-leaf,
+#flipbook .page.page--single {
+  box-sizing:border-box;
+  width:var(--leaf-width)!important;
+  height:var(--leaf-height)!important;
+  max-width:var(--leaf-width)!important;
+  min-width:var(--leaf-width)!important;
+  right:auto;
+  bottom:auto;
+  overflow:hidden;
+}
+#flipbook .paper-inner,
+#flipbook .paper-scroll,
+#flipbook .leaf-content { box-sizing:border-box; }
+#flipbook .leaf-content { min-width:0; overflow-wrap:break-word; }
+#flipbook .page .story,
+#flipbook .page p,
+#flipbook .page .narrative-quote { max-width:100%; overflow-wrap:break-word; }
+#flipbook .page img {max-width:100%;}
+/* Only StPageFlip turns the cover: never run a competing CSS flip. */
+body.is-opening .spread--top {animation:none!important;}
+body.is-opening .book-frame {transition:filter .45s ease,opacity .45s ease;}
+body.is-reading .reader-stage {transition-timing-function:cubic-bezier(.2,.8,.2,1);}
