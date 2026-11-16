@@ -887,3 +887,178 @@ body.is-opening .book-frame {
     max-height: 19vh;
   }
 }
+
+/* ========================================
+   PRIMERAS DOS PÁGINAS DEL CUENTO
+   ======================================== */
+
+/* Fotografía de Juliana cuando era niña */
+
+#flipbook .cuento-imagen {
+  width: 82%;
+  margin: 12px auto;
+  text-align: center;
+}
+
+#flipbook .cuento-imagen__marco {
+  height: 190px;
+  width: 100%;
+
+  background: linear-gradient(
+    145deg,
+    #edd9d1,
+    #d7b7be
+  );
+
+  border: 1px solid #bd939f;
+  border-radius: 46% 46% 5px 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: #805167;
+
+  overflow: hidden;
+}
+
+#flipbook .cuento-imagen__marco > span {
+  font-size: 25px;
+  color: #b28a58;
+}
+
+#flipbook .cuento-imagen__marco p {
+  font-family: var(--font-display), Georgia, serif;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.3;
+  margin: 8px 0;
+}
+
+#flipbook .cuento-imagen__marco small {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 9px;
+  letter-spacing: .12em;
+}
+
+#flipbook .cuento-imagen figcaption,
+#flipbook .cuento-video figcaption {
+  margin-top: 6px;
+  font-size: 10px;
+  text-align: center;
+  color: #8e7471;
+  font-style: italic;
+}
+
+/* Video de Mia */
+
+#flipbook .cuento-video {
+  width: 100%;
+  margin: 12px auto;
+}
+
+#flipbook .cuento-video iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+
+  border: 3px solid #fdf6e8;
+  outline: 1px solid #c8a57e;
+
+  border-radius: 3px;
+  background: #302330;
+}
+
+#flipbook .cuento-pregunta {
+  margin: 10px 0;
+  padding: 8px 12px;
+
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.4;
+
+  color: #91536e;
+  border-left: 2px solid #b9829a;
+}
+
+#flipbook .cuento-video-link {
+  display: inline-block;
+  margin-top: 2px;
+
+  font-size: 10px;
+  color: #986684;
+  text-decoration: underline;
+}
+
+/* El espacio de la fotografía también se
+   podrá reemplazar por una imagen real. */
+
+#flipbook .cuento-imagen__marco img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Páginas más pequeñas */
+
+@media (max-height: 750px) {
+  #flipbook .cuento-imagen__marco {
+    height: 145px;
+  }
+
+  #flipbook .cuento-video iframe {
+    max-height: 170px;
+  }
+}
+
+/* Las dos primeras páginas del cuento:
+   mismo color, sin degradados */
+
+#flipbook .page[data-page-id="erase-una-vez"],
+#flipbook .page[data-page-id="princesa-mia"] {
+  background: #f8eddb !important;
+  background-image: none !important;
+}
+
+#flipbook .page[data-page-id="erase-una-vez"] .paper-inner,
+#flipbook .page[data-page-id="princesa-mia"] .paper-inner {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+
+/* Primera página: ilustración completa y centrada */
+
+#flipbook .page[data-page-id="erase-una-vez"]
+.cuento-imagen--sin-marco {
+  width: 100%;
+  margin: 5px auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+#flipbook .page[data-page-id="erase-una-vez"]
+.cuento-imagen--sin-marco img {
+  display: block;
+  width: 100%;
+  height: 145px;
+  max-height: 145px;
+  object-fit: contain;
+  object-position: center;
+  margin: 0 auto;
+}
+
+#flipbook .page .cuento-cierre {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  color: #955c77;
+  text-align: center;
+  margin: 8px 0 0;
+}

@@ -386,69 +386,118 @@ export const pages = [
     "cover"
   ),
 
-  // ==================================================
-  // CAPÍTULO I
-  // ==================================================
+
+  
+  // PÁGINA 1 — ÉRASE UNA VEZ JULIANA
+
+
+page(
+  'erase-una-vez',
+  'Capítulo I · Había una vez',
+  'Érase una vez... Juliana.',
+  `
+  <p class="story dropcap">
+    Había una vez una niña llamada
+    <strong>Juliana</strong>, que creció
+    rodeada de cuentos de hadas,
+    películas y princesas.
+  </p>
+
+  <p class="story">
+    Su papá tenía el pelo crespo y su mamá
+    lo tenía liso. El suyo parecía estar
+    justo en la mitad: no era completamente
+    liso ni completamente crespo.
+  </p>
+
+  <p class="story">
+    Era esponjado, con mucho volumen,
+    y Juliana nunca sabía muy bien cómo
+    peinarlo. Como su mamá tenía el pelo
+    liso, tampoco sabía a quién acudir
+    para aprender a manejar el suyo.
+  </p>
+
+  <figure class="cuento-imagen cuento-imagen--sin-marco">
+    <img
+      src="assets/images/juliana-nina.png"
+      alt="Ilustración de Juliana cuando era pequeña"
+    >
+  </figure>
+
+  <p class="cuento-cierre">
+    Hasta que un día, una película
+    pareció darle la respuesta...
+  </p>
+  `
+),
+
+
+  // PÁGINA 2 — LA PELÍCULA
 
   page(
-    "erase-una-vez",
-    "Capítulo I · Había una vez",
-    "Érase una vez...",
+    'princesa-mia',
+    'Capítulo I · Había una vez',
+    'La película que cambió mi cuento.',
     `
-    <p class="story dropcap">
-      Había una vez una niña a la que le contaron que
-      las princesas vivían en castillos, usaban vestidos
-      preciosos y tenían el pelo perfectamente peinado.
+    <p class="story">
+      Un día vi <em>El diario de la princesa</em>
+      (2001), donde Mia Thermopolis
+      descubre que es una princesa.
     </p>
 
     <p class="story">
-      Aquella niña todavía no sabía mucho sobre el mundo.
-      Pero ya estaba aprendiendo una regla silenciosa:
+      Mia tenía un pelo muy parecido al mío:
+      esponjado, voluminoso y difícil de
+      controlar. Pero para parecer una
+      princesa, tenía que pasar por una
+      transformación.
     </p>
 
-    <p class="narrative-quote">
-      Para ser vista como princesa,
-      primero había que parecerlo.
-    </p>
+    <figure class="cuento-video">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/LqYlBS7LUoE?start=90"
+        title="Transformación de Mia Thermopolis"
+        loading="lazy"
+        allow="accelerometer; autoplay; encrypted-media; picture-in-picture; fullscreen"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
 
-    <div class="ornament-line">✦</div>
-
-    <p class="small">
-      Este comienzo utiliza deliberadamente la forma
-      de un cuento de hadas. Las páginas siguientes
-      analizan una película real y las ideas culturales
-      que permite cuestionar.
-    </p>
-    `
-  ),
-
-  page(
-    "princesa-mia",
-    "Capítulo I · Había una vez",
-    "La niña tenía un nombre.",
-    `
-    <p class="story">
-      Se llamaba <strong>Mia Thermopolis</strong>.
-      Era adolescente, vivía en San Francisco y
-      descubrió que, aunque nunca lo hubiera imaginado,
-      era heredera de un reino.
-    </p>
-
-    ${img(
-      "curly-portrait",
-      "story-portrait",
-      "Ilustración editorial provisional de una niña crespa"
-    )}
+      <figcaption>
+        The Princess Diaries (2001).
+        Escena compartida por Disney UK.
+      </figcaption>
+    </figure>
 
     <p class="story">
-      No llevaba corona ni se parecía a las princesas
-      de los cuentos. Su cabello era abundante,
-      con rizos y volumen.
+      Le cambiaron la ropa, las gafas
+      y, sobre todo,
+      <strong>le alisaron el pelo.</strong>
     </p>
 
-    <p class="small">
-      El diario de la princesa · The Princess Diaries · 2001
+    <p class="story">
+      Ese día entendí algo que se quedaría
+      conmigo durante años: si quería
+      ser bonita, si quería parecer
+      una princesa, tenía que tener
+      el pelo liso.
     </p>
+
+    <p class="cuento-pregunta">
+      Pero Mia ya era una princesa
+      antes de que le alisaran el pelo.
+      Entonces, ¿por qué tenía que cambiar?
+    </p>
+
+    <a
+      class="cuento-video-link"
+      href="https://www.youtube.com/watch?v=LqYlBS7LUoE&t=90s"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Ver escena en YouTube ↗
+    </a>
     `
   ),
 
