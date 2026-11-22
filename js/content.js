@@ -229,6 +229,35 @@ page(
   }
 }
 
+
+/* Recortes originales con cinta adhesiva: siete dobles páginas cronológicas */
+#flipbook .collage-epoca{position:relative;width:100%;height:min(405px,57vh);max-height:405px;margin:9px auto 5px;overflow:visible;isolation:isolate}
+#flipbook .collage-epoca .image-scrap{position:absolute;box-sizing:border-box;display:flex;flex-direction:column;padding:5px 5px 9px;background:#eee0ca;border:4px solid #eee0ca;box-shadow:5px 7px 15px #47322e57;min-width:0;min-height:0;transition:transform .2s}
+#flipbook .collage-epoca .image-scrap::before{content:"";width:63px;height:20px;position:absolute;top:-12px;left:31%;z-index:7;background:repeating-linear-gradient(115deg,#e0d0a9c2 0,#f1e1b8c2 11px,#d5bd95c2 23px);border:1px solid #cbb58f91;transform:rotate(7deg);box-shadow:0 1px 3px #493e3440;pointer-events:none}
+#flipbook .collage-epoca .image-scrap .scrap-photo__picture{width:100%;height:100%;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#f3e8d6}
+#flipbook .collage-epoca .image-scrap img{display:block;width:100%;height:100%;object-fit:contain;max-width:100%;max-height:100%;filter:none;border:0;box-shadow:none}
+#flipbook .collage-epoca .image-scrap .scrap-photo__label{display:block;flex:0 0 auto;font:700 8px/1.2 var(--font-sans),sans-serif;text-align:center;color:#665248;margin:4px 0 0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;max-width:100%}
+#flipbook .collage-epoca .scrap-photo--one{top:5%;left:0;width:59%;height:66%;transform:rotate(-8deg);z-index:2}
+#flipbook .collage-epoca .scrap-photo--two{top:12%;right:0;width:55%;height:65%;transform:rotate(8deg);z-index:3}
+#flipbook .collage-epoca .scrap-photo--three{bottom:0;left:18%;width:59%;height:52%;transform:rotate(-5deg);z-index:4}
+#flipbook .collage-epoca .scrap-photo--four{bottom:2%;right:0;width:43%;height:44%;transform:rotate(5deg);z-index:5}
+#flipbook .collage-epoca .image-scrap:hover,#flipbook .collage-epoca .image-scrap:focus-visible{z-index:15;transform:rotate(0deg) scale(1.07);box-shadow:7px 12px 22px #50373766}
+#flipbook .collage-epoca .archive-collage__stamp{top:-7px;right:0;font-size:9px;z-index:1}
+#flipbook .page[data-page-id^="collage-"] .page-title,#flipbook .page[data-page-id^="analisis-"] .page-title{font-size:clamp(22px,2.1vw,30px);line-height:1.13;margin-bottom:7px}
+#flipbook .page[data-page-id^="collage-"] .archive-collage__note{font-size:10px;line-height:1.3;margin:3px 0}
+#flipbook .page[data-page-id^="analisis-"] .story{font-size:clamp(13px,1vw,16px);line-height:1.5;margin-bottom:10px}
+#flipbook .page[data-page-id^="analisis-"] .study-note{font-size:11px;line-height:1.4;margin:7px 0}
+#flipbook .page[data-page-id^="analisis-"] .archive-source{font-size:10px}
+#flipbook .page[data-page-id^="collage-"],#flipbook .page[data-page-id^="analisis-"]{background:#f8eddb!important;background-image:none!important}
+#flipbook .page[data-page-id^="collage-"] .paper-inner,#flipbook .page[data-page-id^="analisis-"] .paper-inner{background:transparent!important;background-image:none!important}
+#flipbook .era-summary{padding:12px 17px;background:#eee0cf;border-left:3px solid #a87991;margin:9px 0}
+#flipbook .era-summary p{font:13px/1.4 Georgia,serif;margin:8px 0;color:#473742}
+#flipbook .era-summary strong{color:#763c57}
+#flipbook .page[data-page-id="la-tesis"] .tesis-formal{padding:13px 16px;margin:8px 0}
+#flipbook .page[data-page-id="la-tesis"] .tesis-formal p{font-size:13px;line-height:1.45}
+@media(max-height:760px){#flipbook .collage-epoca{height:282px;max-height:282px}#flipbook .page[data-page-id^="analisis-"] .story{font-size:12px;margin-bottom:6px}#flipbook .page[data-page-id^="analisis-"] .study-note{font-size:10px}}
+@media(max-width:760px){#flipbook .collage-epoca{height:278px;max-height:278px}}
+@media(prefers-reduced-motion:reduce){#flipbook .collage-epoca .image-scrap{transition:none}}
 </style>
 
       <span class="cover-tiny">
@@ -519,270 +548,51 @@ page(
   // CAPÍTULO II
   // ==================================================
 
-page("la-tesis","Capítulo II · La transformación","La pregunta que cambió el cuento.",`
-<p class="story">Lo que ocurrió con Mia y con mi propio cabello plantea una pregunta más amplia sobre las imágenes con las que crecemos.</p>
-<div class="thesis-page tesis-formal">
-<h3>Pregunta central</h3>
-<p>¿Cómo han contribuido el cine, la publicidad y las redes sociales a construir y reproducir ideales de belleza asociados con determinadas texturas del cabello?</p>
-<h3>Tesis</h3>
-<p>Las representaciones mediáticas han contribuido históricamente a legitimar estándares que privilegian el cabello liso o controlado frente a otras texturas. Aunque las narrativas contemporáneas amplían las formas de belleza representadas, algunas tendencias digitales reformulan presiones semejantes. La belleza y la elegancia no dependen de la textura capilar; lo fundamental es poder elegir cómo llevar el cabello sin que esa elección condicione la aceptación social.</p>
-</div>
-<p class="small">Esta reflexión se apoya en una experiencia autobiográfica, fuentes publicitarias primarias y teorías de la representación, sin equiparar experiencias de discriminación racial distintas.</p>
-`,"story"),
+page("la-tesis","Capítulo II · La transformación","¿De dónde aprendí a odiar mis crespos?",`<p class="story dropcap">Yo pensaba que había aprendido a peinarme. Pero con los años entendí que también había aprendido a desconfiar de mi cabello natural.</p><div class="thesis-page tesis-formal"><h3>Pregunta de investigación</h3><p>¿Cómo contribuyeron las representaciones del cabello en el cine, la publicidad y otros medios a construir ideales de belleza que desvalorizaban algunas texturas?</p><h3>Tesis</h3><p>La repetición de mensajes que asociaban el cabello liso o controlado con belleza y respetabilidad contribuyó a naturalizar la idea de que los crespos necesitaban corrección. Esta representación, marcada por historias distintas de racismo y género, fue cuestionada y transformada por movimientos culturales y nuevas imágenes mediáticas.</p></div><p class="story">Para comprender lo que interioricé de niña, tenemos que recorrer <strong>qué se decía del pelo crespo en cada época</strong>.</p>`,"story"),
 
-page("reloj-atras","Capítulo III · Un hechizo muy antiguo","Antes de que comenzara el cuento...",`
-<div class="chapter-opener chapter-opener--midnight"><span class="num">✧ 1900 ✧</span><h2>Mucho antes de Mia,<br>la publicidad ya<br>escribía sus reglas.</h2><p>Volvamos al pasado. A la izquierda verás recortes publicitarios; a la derecha, aquello que estas imágenes nos permiten cuestionar.</p><span class="ornament">❦</span></div>`,"chapter"),
+page("reloj-atras","Capítulo III · ¿De dónde surgió el rechazo?","Antes de que naciera mi cuento.",`<div class="chapter-opener"><span class="num">1900 → 2025</span><h2>¿Cuándo empezó<br>el pelo crespo<br>a parecer un problema?</h2><p>Un recorrido por las palabras, imágenes e ideales que enseñaron a cambiar el cabello natural y por las voces que empezaron a cuestionarlos.</p><span class="ornament">✦</span></div>`,"chapter"),
 
-page("collage-1900","Capítulo III · Un hechizo muy antiguo","Recortes · 1900–1919",`<div class="archive-collage archive-collage--photographic" aria-label="Collage visual del periodo 1900–1919"><span class="archive-collage__stamp">1900–1919<br>ARCHIVO</span><a class="scrap-photo scrap-photo--one" href="https://www.haikudeck.com/garett-amorgan-education-presentation-8bf415c1cd" target="_blank" rel="noopener noreferrer" aria-label="Ver G. A. Morgan · peine alisador, 1906"><span class="scrap-photo__picture"><img src="https://img.haikudeck.com/mg/594583aca8_1456409780030.jpg?imageFilter=false&rasterSignature=815f5c92142b1100278555dd444388bf&theme=Five+Seven+Five" alt="Publicidad histórica del peine alisador G. A. Morgan" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">G. A. Morgan · peine alisador, 1906 ↗</span></a><a class="scrap-photo scrap-photo--two" href="https://texashistory.unt.edu/ark:/67531/metapth278255/m1/3/" target="_blank" rel="noopener noreferrer" aria-label="Ver Plough's · prensa, 1919"><span class="scrap-photo__picture"><img src="https://texashistory.unt.edu/ark:/67531/metapth278255/m1/3/thumbnail/" alt="Facsímil de página de prensa de 1919 con anuncio Plough's" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">Plough's · prensa, 1919 ↗</span></a><a class="scrap-photo scrap-photo--three scrap-photo--clipping" href="https://dangerouspress.org/papers/colored-american/1903-11-14" target="_blank" rel="noopener noreferrer"><span class="scrap-clipping__headline">WONDERFUL DISCOVERY</span><span class="scrap-clipping__quote">Ozonized Ox Marrow · 1903</span><span class="scrap-photo__label">Consultar anuncio original de 1903 ↗</span></a><span class="archive-collage__scribble" aria-hidden="true">✶</span></div><p class="archive-collage__note">Ozonized Ox Marrow está documentado en 1903. Su recorte original sigue pendiente de incorporación local; las otras imágenes proceden de archivos o reproducciones históricas.</p>`,"story"),
+page("collage-1900","Capítulo III · ¿De dónde surgió el rechazo?","1900–1919 · Los recortes",`<span class="archive-step">LA TEXTURA QUE HABÍA QUE CORREGIR</span><div class="archive-collage archive-collage--photographic collage-epoca"><span class="archive-collage__stamp">1900–1919<br>ARCHIVO</span><a class="scrap-photo scrap-photo--one image-scrap" href="https://dangerouspress.org/papers/colored-american/1903-11-14" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="assets/images/ozonized-ox-marrow-1903.png" alt="Anuncio histórico Wonderful Discovery, antes y después" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Ozonized Ox Marrow · 1903 ↗</span></a><a class="scrap-photo scrap-photo--two image-scrap" href="https://www.haikudeck.com/garett-amorgan-education-presentation-8bf415c1cd" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://img.haikudeck.com/mg/594583aca8_1456409780030.jpg?imageFilter=false&rasterSignature=815f5c92142b1100278555dd444388bf&theme=Five+Seven+Five" alt="Anuncio de un peine metálico caliente para alisar" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Peine caliente · 1906 ↗</span></a><a class="scrap-photo scrap-photo--three image-scrap" href="https://dangerouspress.org/papers/chicago-defender/1919-08-02" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="assets/images/ploughs-1919.png" alt="Anuncio Take Out the Kinks de 1919" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Plough's Hair Dressing · 1919 ↗</span></a><span class="archive-collage__scribble" aria-hidden="true">✶</span></div><p class="archive-collage__note">Los recortes originales que no estén disponibles en el proyecto se ocultan; consulta los anuncios completos desde sus archivos.</p>`,"story"),
 
-page("analisis-1900","Capítulo III · Un hechizo muy antiguo","1900–1919: ¿qué había que cambiar?",`<span class="archive-step">EL CABELLO CRESPO COMO PROBLEMA</span>
-<p class="story">En anuncios de principios del siglo XX, el cabello con textura afro podía aparecer asociado con algo que debía alisarse, corregirse o mejorar.</p>
-<p class="story">Las publicidades del peine caliente y de Plough’s se dirigían a un público afroamericano que vivía en un contexto de segregación y racismo en Estados Unidos.</p>
-<p class="story">Algunos anuncios usaban incluso palabras como <em>ugly</em> («feo») junto a descripciones de cabello rizado. De este modo, un prejuicio cultural se convertía en una oportunidad comercial.</p>
-<div class="study-note"><strong>Emma Dabiri (2019):</strong> comprender el cabello afro exige considerar su historia y las relaciones de poder que rodean su representación.</div>
-<p class="small">No todas las mujeres negras se alisaban por la misma razón. La elección individual y la presión social podían coexistir.</p>
-`,"story"),
+page("analisis-1900","Capítulo III · ¿De dónde surgió el rechazo?","1900–1919 · El pelo crespo: un supuesto defecto",`<span class="archive-step">ANÁLISIS HISTÓRICO · LA TEXTURA QUE HABÍA QUE CORREGIR</span><p class="story">En anuncios de principios del siglo XX, productos para el cabello afro prometían hacerlo liso mediante pomadas y <em>hot combs</em>, peines metálicos calentados.</p><p class="story">Plough's Hair Dressing llegó a incluir la palabra <em>ugly</em> («feo») junto a <em>kinky</em> y <em>curly</em>. <strong>La publicidad no descubría un defecto: ayudaba a construirlo para ofrecer una solución.</strong></p><p class="story">Este discurso circulaba en Estados Unidos bajo segregación y racismo. Para muchas mujeres negras, el cabello también tenía consecuencias sociales, aunque no todas eligieran alisarse por la misma razón.</p><div class="study-note"><strong>Emma Dabiri e Ingrid Banks:</strong> la historia del cabello afro se entrelaza con identidad, autonomía y relaciones de poder.</div><p class="archive-source"><a href="https://dangerouspress.org/papers/chicago-defender/1919-08-02" target="_blank" rel="noopener noreferrer">Ver Plough's en prensa de 1919 ↗</a></p>`,"story"),
 
-page("collage-1940","Capítulo III · Un hechizo muy antiguo","Recortes · 1940–1960",`<div class="archive-collage archive-collage--photographic" aria-label="Collage visual del periodo 1940–1960"><span class="archive-collage__stamp">1940–1960<br>ARCHIVO</span><a class="scrap-photo scrap-photo--one" href="https://medium.com/nappy-head-club/black-at-work-the-struggle-to-navigate-black-hair-in-the-workplace-is-far-from-over-a95330decb4a" target="_blank" rel="noopener noreferrer" aria-label="Ver Perma-Strate · fecha no confirmada"><span class="scrap-photo__picture"><img src="https://miro.medium.com/v2/resize%3Afit%3A1214/1%2AfKZgV-FVXegX_vj4Tj2O7Q.jpeg" alt="Anuncio histórico Fashion Demands Straight Hair" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">Perma-Strate · fecha no confirmada ↗</span></a><a class="scrap-photo scrap-photo--two" href="https://kissmyblackads.blogspot.com/2009/03/ebony-june-1960.html" target="_blank" rel="noopener noreferrer" aria-label="Ver Hair-Strate · 1960"><span class="scrap-photo__picture"><img src="https://1.bp.blogspot.com/_4ebKDFxiia8/ScelnGZzt5I/AAAAAAAACUo/ikRzDTFKHx0/s1600/Picture%2B24.png" alt="Anuncio de Hair-Strate en Ebony de 1960" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">Hair-Strate · 1960 ↗</span></a><a class="scrap-photo scrap-photo--three scrap-photo--clipping" href="https://msa.maryland.gov/megafile/ecpdata/webroot/msaref14/msa_sc5458_000045_000253/pdf/msa_afro_1948_01-0491.pdf" target="_blank" rel="noopener noreferrer"><span class="scrap-clipping__headline">PERMA-STRATE</span><span class="scrap-clipping__quote">Liso hasta por seis meses · anuncio 1948</span><span class="scrap-photo__label">Facsímil de periódico, 1948 ↗</span></a><span class="archive-collage__scribble" aria-hidden="true">✶</span></div><p class="archive-collage__note">La publicidad de «Fashion Demands» no tiene fecha exacta verificada; el archivo de 1948 es una pieza diferente.</p>`,"story"),
+page("collage-1940","Capítulo III · ¿De dónde surgió el rechazo?","1930–1960 · Los recortes",`<span class="archive-step">LO LISO Y LO PULIDO COMO IDEAL</span><div class="archive-collage archive-collage--photographic collage-epoca"><span class="archive-collage__stamp">1930–1960<br>ARCHIVO</span><a class="scrap-photo scrap-photo--one image-scrap" href="https://medium.com/nappy-head-club/black-at-work-the-struggle-to-navigate-black-hair-in-the-workplace-is-far-from-over-a95330decb4a" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://miro.medium.com/v2/resize%3Afit%3A1214/1%2AfKZgV-FVXegX_vj4Tj2O7Q.jpeg" alt="Anuncio Fashion Demands Straight Hair" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Perma-Strate · fecha sin confirmar ↗</span></a><a class="scrap-photo scrap-photo--two image-scrap" href="https://movies.disney.com/snow-white-and-the-seven-dwarfs" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://disneydorks.weebly.com/uploads/3/1/8/6/31863561/1354865_orig.jpg" alt="Póster de Blancanieves y los siete enanitos" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Blancanieves · 1937 ↗</span></a><a class="scrap-photo scrap-photo--three image-scrap" href="https://kissmyblackads.blogspot.com/2009/03/ebony-june-1960.html" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://1.bp.blogspot.com/_4ebKDFxiia8/ScelnGZzt5I/AAAAAAAACUo/ikRzDTFKHx0/s1600/Picture%2B24.png" alt="Publicidad Hair Strate con mujeres alisadas" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Hair-Strate · 1960 ↗</span></a><a class="scrap-photo scrap-photo--four image-scrap" href="https://commons.wikimedia.org/wiki/File:Hepburn_Kelly_Publicity_Photo_1956.jpg" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Hepburn_Kelly_Publicity_Photo_1956.jpg" alt="Fotografía publicitaria de Audrey Hepburn y Grace Kelly" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Actrices de Hollywood · 1956 ↗</span></a><span class="archive-collage__scribble" aria-hidden="true">✶</span></div><p class="archive-collage__note">Princesas, celebridades y anuncios aparecen juntos porque pertenecen al contexto visual de la época.</p>`,"story"),
 
-page("analisis-1940","Capítulo III · Un hechizo muy antiguo","1940–1960: la moda lo exigía.",`<span class="archive-step">EL ALISADO COMO CONDICIÓN</span>
-<p class="story">A mediados del siglo XX, Perma-Strate llegó a formular una exigencia: <strong>«Fashion Demands Straight Hair»</strong>. La frase convierte una preferencia estética en una aparente regla social.</p>
-<p class="story">En 1948 se publicitaban productos para mantener el cabello liso durante meses. Más tarde, Hair-Strate reforzó la promesa de que la textura no regresaría con el agua.</p>
-<p class="story">Pero la historia fue compleja: el cuidado capilar también creó negocios, conocimientos y espacios de autonomía para mujeres negras.</p>
-<div class="study-note"><strong>Ingrid Banks (2000):</strong> un peinado no tiene un significado único; puede expresar gusto personal, pertenencia, resistencia o una negociación con las expectativas sociales.</div>
-`,"story"),
+page("analisis-1940","Capítulo III · ¿De dónde surgió el rechazo?","1930–1960 · La belleza «exigía» alisar",`<span class="archive-step">ANÁLISIS HISTÓRICO · LO LISO Y LO PULIDO COMO IDEAL</span><p class="story">La publicidad de Perma-Strate llegó a decir que la moda <strong>«exigía cabello liso»</strong>. A la vez, el cine difundía modelos de belleza mayoritariamente blancos y cuidadosamente peinados.</p><p class="story">Blancanieves y las estrellas de Hollywood no tenían el mismo cabello: algunas llevaban ondas o rizos estilizados. Lo que se repetía era la apariencia pulida como sinónimo de elegancia.</p><p class="story">No podemos atribuir una relación causal directa a una imagen. Pero la repetición de esos ideales ayuda a explicar qué formas de verse eran presentadas como admirables.</p><div class="study-note"><strong>Stuart Hall (1997):</strong> las representaciones participan en la construcción cultural de lo que consideramos normal y deseable.</div><p class="archive-source"><a href="https://kissmyblackads.blogspot.com/2009/03/ebony-june-1960.html" target="_blank" rel="noopener noreferrer">Ver Hair-Strate (1960) ↗</a></p>`,"story"),
 
-page("collage-1970","Capítulo III · Un hechizo muy antiguo","Recortes · los años setenta",`<div class="archive-collage archive-collage--photographic" aria-label="Collage visual del periodo 1970s"><span class="archive-collage__stamp">1970s<br>ARCHIVO</span><a class="scrap-photo scrap-photo--one" href="https://www.pinterest.com/pin/415738609347252904/" target="_blank" rel="noopener noreferrer" aria-label="Ver Perma-Strate · 1971"><span class="scrap-photo__picture"><img src="https://i.pinimg.com/736x/6d/73/ef/6d73efe37825d0cfbbd9a4a19573c299.jpg" alt="Anuncio de Perma-Strate: First Straighten Then Style" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">Perma-Strate · 1971 ↗</span></a><a class="scrap-photo scrap-photo--two" href="https://www.wnyc.org/story/how-black-hair-care-grew-black-power/" target="_blank" rel="noopener noreferrer" aria-label="Ver Afro Sheen · 1971"><span class="scrap-photo__picture"><img src="https://media.wnyc.org/i/1860/1860/l/80/2026/01/._fE5AsPr" alt="Publicidad de Afro Sheen con familia afrodescendiente" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">Afro Sheen · 1971 ↗</span></a><a class="scrap-photo scrap-photo--three" href="https://www.vintag.es/2016/09/vintage-afro-hairstyles-16-fascinating.html" target="_blank" rel="noopener noreferrer" aria-label="Ver Afro Sheen · años 70"><span class="scrap-photo__picture"><img src="https://3.bp.blogspot.com/-Dc3YizJjvHg/V-P5LkP_VXI/AAAAAAACYQU/LHY9WXqHpzc6S7QFBJtj2eJWIDWwYUPtACLcB/s1600/afro-hairstyle-ads-1960s-3.jpg" alt="Publicidad de los años setenta de cabello afro" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">Afro Sheen · años 70 ↗</span></a><span class="archive-collage__scribble" aria-hidden="true">✶</span></div><p class="archive-collage__note">En la misma década coexistían la publicidad del alisado y el orgullo afro de Black Is Beautiful.</p>`,"story"),
+page("collage-1970","Capítulo III · ¿De dónde surgió el rechazo?","1960–1970 · Los recortes",`<span class="archive-step">EL PRIMER GRAN DESAFÍO</span><div class="archive-collage archive-collage--photographic collage-epoca"><span class="archive-collage__stamp">1960–1970<br>ARCHIVO</span><a class="scrap-photo scrap-photo--one image-scrap" href="https://www.wnyc.org/story/how-black-hair-care-grew-black-power/" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://media.wnyc.org/i/1860/1860/l/80/2026/01/._fE5AsPr" alt="Anuncio de madre e hija con afros naturales" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Afro Sheen · madre e hija ↗</span></a><a class="scrap-photo scrap-photo--two image-scrap" href="https://www.vintag.es/2016/09/vintage-afro-hairstyles-16-fascinating.html" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://3.bp.blogspot.com/-Dc3YizJjvHg/V-P5LkP_VXI/AAAAAAACYQU/LHY9WXqHpzc6S7QFBJtj2eJWIDWwYUPtACLcB/s1600/afro-hairstyle-ads-1960s-3.jpg" alt="Pareja con peinados afro en anuncio" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Afro Sheen · años setenta ↗</span></a><a class="scrap-photo scrap-photo--three image-scrap" href="https://www.pinterest.com/pin/415738609347252904/" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://i.pinimg.com/736x/6d/73/ef/6d73efe37825d0cfbbd9a4a19573c299.jpg" alt="Publicidad First Straighten Then Style" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Perma-Strate · 1971 ↗</span></a><span class="archive-collage__scribble" aria-hidden="true">✶</span></div><p class="archive-collage__note">La aceptación del afro convivió con productos que continuaban promoviendo el alisado.</p>`,"story"),
 
-page("analisis-1970","Capítulo III · Un hechizo muy antiguo","1970: dos mensajes enfrentados.",`<span class="archive-step">BLACK IS BEAUTIFUL</span>
-<p class="story">Mientras algunos productos seguían promoviendo el alisado, el movimiento <em>Black Is Beautiful</em> había reivindicado el afro natural como símbolo de orgullo, identidad y resistencia.</p>
-<p class="story">Afro Sheen convirtió ese cabello en protagonista de sus anuncios. En lugar de presentar el afro como un «antes», lo mostraba como una apariencia digna de admiración.</p>
-<p class="narrative-quote">La publicidad empezaba a contar dos cuentos muy distintos sobre un mismo cabello.</p>
-<p class="story">La reivindicación también podía convertirse en negocio. Aun así, estas imágenes evidencian que la aceptación del cabello natural tiene una historia anterior a las redes sociales.</p>
-<p class="archive-source"><a href="https://exhibits.library.duke.edu/exhibits/show/-black-is-beautiful-/the-afro" target="_blank" rel="noopener noreferrer">Archivo universitario Black Is Beautiful ↗</a></p>
-`,"story"),
+page("analisis-1970","Capítulo III · ¿De dónde surgió el rechazo?","1960–1970 · El afro también era bello",`<span class="archive-step">ANÁLISIS HISTÓRICO · EL PRIMER GRAN DESAFÍO</span><p class="story">Con los movimientos por los derechos civiles y el <em>Black Power</em>, el afro natural se convirtió en símbolo de orgullo e identidad. <strong>Black Is Beautiful</strong> cuestionó los ideales eurocéntricos de belleza.</p><p class="story">Afro Sheen comenzó a mostrar afros admirados. Pero Perma-Strate todavía anunciaba en 1971 que primero había que alisar y después elegir el estilo.</p><p class="story">Por eso no existió un cambio repentino: el mensaje de reivindicación y los estándares anteriores coexistieron durante décadas.</p><div class="study-note"><strong>Duke University:</strong> desde 1969 proliferaron anuncios de productos para afros, algunos separados del sentido político del movimiento.</div><p class="archive-source"><a href="https://exhibits.library.duke.edu/exhibits/show/-black-is-beautiful-/the-afro" target="_blank" rel="noopener noreferrer">Archivo Black Is Beautiful ↗</a></p>`,"story"),
 
-page("collage-1990","Capítulo III · Un hechizo muy antiguo","Recortes · los años noventa",`<div class="archive-collage archive-collage--photographic" aria-label="Collage visual del periodo 1990s"><span class="archive-collage__stamp">1990s<br>ARCHIVO</span><a class="scrap-photo scrap-photo--one scrapbook-pdf" href="https://dl.tufts.edu/downloads/47429m65d?filename=ht24ww119.pdf#page=8" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><object type="application/pdf" data="https://dl.tufts.edu/downloads/47429m65d?filename=ht24ww119.pdf#page=8" aria-label="Documento original escaneado">Frizz-Ease original · 1994</object></span><span class="scrap-photo__label">Frizz-Ease original · 1994 ↗</span></a><a class="scrap-photo scrap-photo--two" href="https://www.campaignlive.co.uk/article/john-frieda-primed-host-live-digital-show/1071489" target="_blank" rel="noopener noreferrer" aria-label="Ver John Frieda · campaña posterior"><span class="scrap-photo__picture"><img src="https://cached.imagescaler.hbpl.co.uk/resize/scaleWidth/815/cached.offlinehbpl.hbpl.co.uk/news/OMC/26E4E16D-A9F2-016F-1820A9DDF86B4451.jpg" alt="Imagen de John Frieda, posterior al anuncio de 1994, usada para contraste" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">John Frieda · campaña posterior ↗</span></a><a class="scrap-photo scrap-photo--three scrap-photo--clipping" href="https://dl.tufts.edu/downloads/47429m65d?filename=ht24ww119.pdf#page=8" target="_blank" rel="noopener noreferrer"><span class="scrap-clipping__headline">NO MORE FRIZZ!</span><span class="scrap-clipping__quote">La campaña de 1994 prometía una «cura».</span><span class="scrap-photo__label">Periódico The Tufts Daily · p. 8 ↗</span></a><span class="archive-collage__scribble" aria-hidden="true">✶</span></div><p class="archive-collage__note">El PDF escaneado de 1994 puede ampliarse al abrirlo. La fotografía de John Frieda es posterior, no de esa década.</p>`,"story"),
+page("collage-1990","Capítulo III · ¿De dónde surgió el rechazo?","1990s · Los recortes",`<span class="archive-step">AHORA HABÍA QUE CONTROLAR</span><div class="archive-collage archive-collage--photographic collage-epoca"><span class="archive-collage__stamp">1990s<br>ARCHIVO</span><a class="scrap-photo scrap-photo--one image-scrap" href="https://dl.tufts.edu/downloads/47429m65d?filename=ht24ww119.pdf#page=8" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="assets/images/frizz-ease-1994-original.png" alt="Anuncio original de John Frieda No More Frizz" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Frizz-Ease · 1994 ↗</span></a><a class="scrap-photo scrap-photo--two image-scrap" href="https://www.pinterest.com/pin/just-seventeen--826410600351775951/" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://i.pinimg.com/564x/03/6a/51/036a512a8d286f334b0899e02a93e8e2.jpg" alt="Anuncio noventero de rizos definidos y control del frizz" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">L.A. Looks · 1994 ↗</span></a><span class="archive-collage__scribble" aria-hidden="true">✶</span></div><p class="archive-collage__note">Dos anuncios de la década: los rizos podían gustar, pero el frizz se presentaba como un problema.</p>`,"story"),
 
-page("analisis-1990","Capítulo III · Un hechizo muy antiguo","1990: otra palabra, el mismo ideal.",`<span class="archive-step">EL LENGUAJE DEL «CONTROL»</span>
-<p class="story">En 1994, un anuncio de <em>John Frieda Frizz-Ease</em> prometía una «cura» inmediata para el frizz.</p>
-<p class="story">El lenguaje parecía más técnico y menos explícito que el de las primeras décadas: ya no hablaba de cabello «feo», sino de <em>control</em>, suavidad o manejabilidad.</p>
-<p class="story">Sin embargo, hay un matiz decisivo: la campaña también proponía rizos definidos como un resultado atractivo. <strong>El frizz, el cabello crespo y el cabello afro no son lo mismo.</strong></p>
-<div class="study-note"><strong>Hall (1997):</strong> es importante analizar no solo lo que dice el anuncio, sino cómo su montaje y su vocabulario producen significados.</div>
-`,"story"),
+page("analisis-1990","Capítulo III · ¿De dónde surgió el rechazo?","1990s · De «feo» a «frizz»",`<span class="archive-step">ANÁLISIS HISTÓRICO · AHORA HABÍA QUE CONTROLAR</span><p class="story">En los años noventa, la publicidad adoptó palabras como <em>frizz</em>, control y definición. Un anuncio de Frizz-Ease (1994) prometía una «cura» para el encrespamiento.</p><p class="story">Era un lenguaje menos explícito que llamar «feo» al cabello crespo, pero podía mantener la idea de que algunas apariencias necesitaban corrección.</p><p class="story"><strong>No todo rizo era rechazado:</strong> las campañas también mostraban rizos definidos como resultado deseable. El frizz no es sinónimo de pelo afro ni de pelo crespo.</p><div class="study-note"><strong>Interpretación:</strong> el problema pasó de «tener rizos» a «no llevarlos suficientemente controlados».</div><p class="archive-source"><a href="https://dl.tufts.edu/downloads/47429m65d?filename=ht24ww119.pdf#page=8" target="_blank" rel="noopener noreferrer">Ver anuncio de 1994 en Tufts ↗</a></p>`,"story"),
 
-page("collage-2000","Capítulo III · Un hechizo muy antiguo","Recortes · Colombia y la región",`<div class="archive-collage archive-collage--photographic" aria-label="Collage visual del periodo 2000s"><span class="archive-collage__stamp">2000s<br>ARCHIVO</span><a class="scrap-photo scrap-photo--one" href="https://thevisualcommunicationguy.com/2017/09/15/the-humor-appeal-advertising/" target="_blank" rel="noopener noreferrer" aria-label="Ver Seda Anti-Sponge · el león"><span class="scrap-photo__picture"><img src="https://thevisualcommunicationguy.com/wp-content/uploads/2017/09/Humor-Appeal-Advertising-3.jpg" alt="Publicidad de champú contra el cabello esponjado con un león" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">Seda Anti-Sponge · el león ↗</span></a><a class="scrap-photo scrap-photo--two" href="https://entretenimientoplus.com/musica/sedal-teens-llenate-de-musica/" target="_blank" rel="noopener noreferrer" aria-label="Ver Sedal Teens · Bogotá, 2008"><span class="scrap-photo__picture"><img src="https://i0.wp.com/entretenimientoplus.com/wp-content/uploads/2008/09/sedal-teens-concierto-citytv-302x137.jpg?resize=302%2C137" alt="Fotografía promocional Sedal Teens en Colombia" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">Sedal Teens · Bogotá, 2008 ↗</span></a><a class="scrap-photo scrap-photo--three scrap-photo--clipping" href="https://www.yumpu.com/es/document/view/8565342/con-sedal-teens-el-pelo-perfecto-esta-cada-vez-mas-cerca-unilever" target="_blank" rel="noopener noreferrer"><span class="scrap-clipping__headline">BYE BYE FRIZZ</span><span class="scrap-clipping__quote">«El pelo perfecto está cada vez más cerca»</span><span class="scrap-photo__label">Unilever Colombia · 2008 ↗</span></a><span class="archive-collage__scribble" aria-hidden="true">✶</span></div><p class="archive-collage__note">Anti-Sponge se documenta en la región (incluido Brasil); Sedal Teens tuvo una campaña colombiana en 2008.</p>`,"story"),
+page("collage-2000","Capítulo III · ¿De dónde surgió el rechazo?","2000–2009 · Los recortes",`<span class="archive-step">EL DISCURSO LLEGÓ A LAS NIÑAS</span><div class="archive-collage archive-collage--photographic collage-epoca"><span class="archive-collage__stamp">2000–2009<br>ARCHIVO</span><a class="scrap-photo scrap-photo--one image-scrap" href="https://pepsic.bvsalud.org/scielo.php?pid=S2359-07692017000200008&script=sci_arttext" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://pepsic.bvsalud.org/img/revistas/rs/v17n2/08f02.jpg" alt="Anuncio del león con melena antes y después" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Seda Anti-Sponge · Brasil ↗</span></a><a class="scrap-photo scrap-photo--two image-scrap" href="https://entretenimientoplus.com/musica/sedal-teens-llenate-de-musica/" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://i0.wp.com/entretenimientoplus.com/wp-content/uploads/2008/09/sedal-teens-concierto-citytv-302x137.jpg?resize=302%2C137" alt="Material promocional de Sedal Teens en Colombia" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Sedal Teens · Colombia, 2008 ↗</span></a><a class="scrap-photo scrap-photo--three image-scrap" href="https://amuellergds102.blogspot.com/2010/10/dove-anti-frizz-cream.html" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://1.bp.blogspot.com/_4lfcuwvyo4M/TLtKbHmBhVI/AAAAAAAAABQ/YBmrailjocI/s1600/dove.jpg" alt="Ilustración publicitaria comparativa de antes y después" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Antes / después · anti-frizz ↗</span></a><span class="archive-collage__scribble" aria-hidden="true">✶</span></div><p class="archive-collage__note">La campaña del león es brasileña; Sedal Teens sí está documentada en Colombia en 2008.</p>`,"story"),
 
-page("analisis-2000","Capítulo III · Un hechizo muy antiguo","2000: la promesa llegó a las niñas.",`<span class="archive-step">SEDAL Y LA BELLEZA ADOLESCENTE</span>
-<p class="story">En 2005, Sedal utilizó la imagen de un león con la melena «esponjada» para representar un supuesto problema que un producto podía solucionar.</p>
-<p class="story">En 2008, <strong>Sedal Teens – Bye Bye Frizz</strong> se promocionó en Bogotá para adolescentes, con la promesa de acercarse al «pelo perfecto».</p>
-<p class="story">Estas imágenes importan para mi historia: «esponjado» y «rebelde» son palabras que escuchaba al hablar de mi propio pelo.</p>
-<p class="narrative-quote">No solo vendían champú. También ofrecían una idea de cómo debía verse una niña arreglada.</p>
-<p class="small">El anuncio del león se documenta originalmente fuera de Colombia; aquí distinguimos ambas campañas.</p>
-`,"story"),
+page("analisis-2000","Capítulo III · ¿De dónde surgió el rechazo?","2000–2009 · El pelo «esponjado» que yo conocí",`<span class="archive-step">ANÁLISIS HISTÓRICO · EL DISCURSO LLEGÓ A LAS NIÑAS</span><p class="story">El volumen se transformó en una preocupación cotidiana. Seda Anti-Sponge utilizó la melena de un león como ejemplo de lo que un producto debía «domar».</p><p class="story">En Colombia, <strong>Sedal Teens – Bye Bye Frizz</strong> se dirigió a adolescentes en 2008 con promesas de «pelo perfecto» y control del cabello «rebelde».</p><p class="story">Yo crecí llamando a mi propio cabello <em>esponjado</em>. La transformación de Mia en <em>El diario de la princesa</em> (2001) también me enseñó a asociar el alisado con verse mejor.</p><div class="study-note"><strong>Lectura personal:</strong> no fue un anuncio aislado; fue la repetición de palabras e imágenes lo que hizo familiar la idea de tener que arreglar mi textura.</div><p class="archive-source"><a href="https://www.yumpu.com/es/document/view/8565342/con-sedal-teens-el-pelo-perfecto-esta-cada-vez-mas-cerca-unilever" target="_blank" rel="noopener noreferrer">Unilever, Sedal Teens en Colombia ↗</a></p>`,"story"),
 
-page("collage-2010","Capítulo III · Un hechizo muy antiguo","Recortes · 2010–2017",`<div class="archive-collage archive-collage--photographic" aria-label="Collage visual del periodo 2010–2017"><span class="archive-collage__stamp">2010–2017<br>ARCHIVO</span><a class="scrap-photo scrap-photo--one" href="https://www.campaignlive.co.uk/article/john-frieda-primed-host-live-digital-show/1071489" target="_blank" rel="noopener noreferrer" aria-label="Ver John Frieda · cabello «antes»"><span class="scrap-photo__picture"><img src="https://cached.imagescaler.hbpl.co.uk/resize/scaleWidth/815/cached.offlinehbpl.hbpl.co.uk/news/OMC/26E4E16D-A9F2-016F-1820A9DDF86B4451.jpg" alt="Campaña de John Frieda donde una imagen de cabello con volumen aparece en llamas" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">John Frieda · cabello «antes» ↗</span></a><a class="scrap-photo scrap-photo--two" href="https://shortyawards.com/8th/dove-hair-love-your-curls" target="_blank" rel="noopener noreferrer" aria-label="Ver Dove · Love Your Curls, 2015"><span class="scrap-photo__picture"><img src="https://dp6mhagng1yw3.cloudfront.net/entries/8th/dove-hair-lyc.jpg" alt="Imagen de campaña Dove que celebra los rizos" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">Dove · Love Your Curls, 2015 ↗</span></a><a class="scrap-photo scrap-photo--three" href="https://www.kozikyles.com/content-producer/2016/12/20/pantene-gold-series-advertorial" target="_blank" rel="noopener noreferrer" aria-label="Ver Pantene · Gold Series, 2017"><span class="scrap-photo__picture"><img src="https://static1.squarespace.com/static/5521a2a2e4b0b038c6c9b504/5a39976424a69404d80e202f/5a3a901dc8302509260539db/1513787595590/Pantene-Advertorial-Example-2-2.jpg?format=1500w" alt="Campaña Pantene Gold Series con mujer de cabello afro natural" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">Pantene · Gold Series, 2017 ↗</span></a><span class="archive-collage__scribble" aria-hidden="true">✶</span></div><p class="archive-collage__note">De la idea de borrar el «antes» a campañas que celebran la diversidad de texturas.</p>`,"story"),
+page("collage-2010","Capítulo III · ¿De dónde surgió el rechazo?","2010–2019 · Los recortes",`<span class="archive-step">EL GIRO HACIA LA ACEPTACIÓN</span><div class="archive-collage archive-collage--photographic collage-epoca"><span class="archive-collage__stamp">2010–2019<br>ARCHIVO</span><a class="scrap-photo scrap-photo--one image-scrap" href="https://www.campaignlive.co.uk/article/john-frieda-primed-host-live-digital-show/1071489" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://cached.imagescaler.hbpl.co.uk/resize/scaleWidth/815/cached.offlinehbpl.hbpl.co.uk/news/OMC/26E4E16D-A9F2-016F-1820A9DDF86B4451.jpg" alt="Campaña donde se quema la fotografía del cabello voluminoso" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">John Frieda · 2011 ↗</span></a><a class="scrap-photo scrap-photo--two image-scrap" href="https://lareclame.fr/ogilvyparis/realisations/dove-love-your-curls-emojis" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://d9m1iyeq935g9.cloudfront.net/lyc-emojis-poster-21447954496.jpeg" alt="Campaña que representa emojis con cabello crespo" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Dove · Love Your Curls, 2015 ↗</span></a><a class="scrap-photo scrap-photo--three image-scrap" href="https://movies.disney.com/brave" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://d.ibtimes.co.uk/en/full/261749/brave-official-movie-poster.jpg?f=20b40ca81f1a02a7d5de059b88c9f0da&w=1440" alt="Póster de Mérida con su melena rizada" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Valiente · 2012 ↗</span></a><a class="scrap-photo scrap-photo--four image-scrap" href="https://movies.disney.com/moana" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://artofthemovies.co.uk/cdn/shop/files/IMG_0403-1_47361b2e-424f-436d-8b34-3fae440489c6.jpg?v=1684515925" alt="Póster de Moana con cabello ondulado" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Moana · 2016 ↗</span></a><span class="archive-collage__scribble" aria-hidden="true">✶</span></div><p class="archive-collage__note">Publicidad y cine muestran un cambio de mensajes: de borrar el volumen a celebrar otras texturas.</p>`,"story"),
 
-page("analisis-2010","Capítulo III · Un hechizo muy antiguo","2010–2015: empezó a cambiar el mensaje.",`<span class="archive-step">DE BORRAR EL «ANTES» A AMAR LOS RIZOS</span>
-<p class="story">En una campaña de John Frieda, la imagen de una mujer quemando la fotografía de su cabello con volumen permite interpretar ese «antes» como algo que debía dejarse atrás.</p>
-<p class="story">En 2015, <em>Dove Love Your Curls</em> promovió el mensaje contrario: aprender a querer el cabello rizado.</p>
-<p class="story">Los discursos publicitarios no avanzan siempre en la misma dirección. Las marcas pueden cuestionar estereotipos y, al mismo tiempo, obtener beneficios económicos de la reivindicación.</p>
-<div class="study-note"><strong>Idea central:</strong> lo que el mercado presenta como «problema» o «solución» puede transformarse con los cambios culturales.</div>
-`,"story"),
+page("analisis-2010","Capítulo III · ¿De dónde surgió el rechazo?","2010–2019 · 2015: empezó a contarse otra historia",`<span class="archive-step">ANÁLISIS HISTÓRICO · EL GIRO HACIA LA ACEPTACIÓN</span><p class="story">Una campaña de John Frieda todavía podía presentar el pelo con volumen como un «antes» que había que dejar atrás. Pero en <strong>2015 Dove lanzó Love Your Curls</strong> para animar a niñas y mujeres a valorar sus rizos.</p><p class="story">En el cine, <em>Valiente</em> (2012) y <em>Moana</em> (2016) mostraban protagonistas que no necesitaban alisar su cabello para ser heroínas.</p><p class="story">El 2015 es un <strong>punto de inflexión visible en este archivo comercial</strong>, no el nacimiento de la aceptación. Esa lucha tenía antecedentes mucho más antiguos, como Black Is Beautiful.</p><div class="study-note"><strong>Contradicción:</strong> una marca puede combatir un estereotipo y al mismo tiempo convertir ese mensaje en una estrategia de venta.</div><p class="archive-source"><a href="https://www.prnewswire.com/news-releases/dove-hair-launches-poetic-tribute-to-curls-inspired-by-stories-from-real-women-300084598.html" target="_blank" rel="noopener noreferrer">Dove: Love Your Curls, 2015 ↗</a></p>`,"story"),
 
-page("collage-2020","Capítulo III · Un hechizo muy antiguo","Recortes · 2023–2025",`<div class="archive-collage archive-collage--photographic" aria-label="Collage visual del periodo 2023–2025"><span class="archive-collage__stamp">2023–2025<br>ARCHIVO</span><a class="scrap-photo scrap-photo--one" href="https://www.dove.com/us/en/campaigns/purpose/my-hair-a-mi-modo.html" target="_blank" rel="noopener noreferrer" aria-label="Ver Dove · Mi Pelo a Mi Modo, 2023"><span class="scrap-photo__picture"><img src="https://www.creativemoment.co/images/uploads/features/dove-champions-hair-positivity-for-latinas-through-a-vibrant-music-video-myhairamimodo/_1200x630_crop_center-center_82_none/dove-lead.jpg?mtime=1698148249" alt="Campaña de Dove con mujeres latinas de diversas texturas de cabello" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">Dove · Mi Pelo a Mi Modo, 2023 ↗</span></a><a class="scrap-photo scrap-photo--two" href="https://www.dove.com/us/es/campaigns/purpose/code-my-crown.html" target="_blank" rel="noopener noreferrer" aria-label="Ver Dove · Code My Crown, 2024"><span class="scrap-photo__picture"><img src="https://cloudfront-us-east-1.images.arcpublishing.com/crain/VWAEWOETYVDRBNQHA2TR5QFTA4.jpg" alt="Campaña Dove para representar peinados afro en personajes de videojuegos" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">Dove · Code My Crown, 2024 ↗</span></a><a class="scrap-photo scrap-photo--three" href="https://bwretailworld.com/beauty/taapsee-pannu-leads-doves-reclaim-your-curls-campaign" target="_blank" rel="noopener noreferrer" aria-label="Ver Dove · Reclaim Your Curls, 2025"><span class="scrap-photo__picture"><img src="https://i0.wp.com/bwretailworld.com/wp-content/uploads/2025/10/KV-V2.jpg?fit=960%2C640&ssl=1" alt="Anuncio Reclaim Your Curls de Dove con mujer de cabello rizado" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">Dove · Reclaim Your Curls, 2025 ↗</span></a><span class="archive-collage__scribble" aria-hidden="true">✶</span></div><p class="archive-collage__note">Campañas en Estados Unidos, videojuegos e India: no son todas colombianas, pero muestran el cambio global de mensaje.</p>`,"story"),
+page("collage-2020","Capítulo III · ¿De dónde surgió el rechazo?","2020–2025 · Los recortes",`<span class="archive-step">EL CRESPO EN PANTALLAS Y REDES</span><div class="archive-collage archive-collage--photographic collage-epoca"><span class="archive-collage__stamp">2020–2025<br>ARCHIVO</span><a class="scrap-photo scrap-photo--one image-scrap" href="https://movies.disney.com/encanto" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://lumiere-a.akamaihd.net/v1/images/au_disney_encanto_payoff_movie_poster_1e7be9e9.jpeg" alt="Póster de Encanto y su familia con texturas capilares diversas" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Encanto · 2021 ↗</span></a><a class="scrap-photo scrap-photo--two image-scrap" href="https://www.dove.com/us/en/campaigns/purpose/my-hair-a-mi-modo.html" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://www.creativemoment.co/images/uploads/features/dove-champions-hair-positivity-for-latinas-through-a-vibrant-music-video-myhairamimodo/_1200x630_crop_center-center_82_none/dove-lead.jpg?mtime=1698148249" alt="Mujeres latinas de diferentes estilos en campaña Dove" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Mi Pelo a Mi Modo · 2023 ↗</span></a><a class="scrap-photo scrap-photo--three image-scrap" href="https://shortyawards.com/9th-impact/code-my-crown" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://dp6mhagng1yw3.cloudfront.net/entries/9th-impact/f709c46a-a9df-4324-a1de-b000c89700c2.jpg" alt="Campaña de cabello afro en videojuegos" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Code My Crown · 2024 ↗</span></a><a class="scrap-photo scrap-photo--four image-scrap" href="https://bwretailworld.com/beauty/taapsee-pannu-leads-doves-reclaim-your-curls-campaign" target="_blank" rel="noopener noreferrer"><span class="scrap-photo__picture"><img src="https://i0.wp.com/bwretailworld.com/wp-content/uploads/2025/10/KV-V2.jpg?fit=960%2C640&ssl=1" alt="Campaña Dove India con actriz de rizos naturales" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.scrap-photo').remove()"></span><span class="scrap-photo__label">Reclaim Your Curls · 2025 ↗</span></a><span class="archive-collage__scribble" aria-hidden="true">✶</span></div><p class="archive-collage__note">Películas, redes y videojuegos amplían los modelos de belleza. Las campañas proceden de distintos países.</p>`,"story"),
 
-page("analisis-2020","Capítulo III · Un hechizo muy antiguo","2023–2025: «Mi pelo, mis reglas».",`
-<span class="archive-step">NUEVOS MEDIOS · NUEVAS REPRESENTACIONES</span>
-<p class="story">La publicidad reciente comenzó a hablar de <strong>autoexpresión</strong> en lugar de proponer únicamente alisar o controlar.</p>
-<p class="story">En 2023, Dove lanzó <em>#MyHairAMiModo</em> con Li Saumet, cantante colombiana de Bomba Estéreo, para cuestionar estereotipos sobre el pelo de las latinas. La campaña se orientó principalmente al mercado latino de Estados Unidos.</p>
-<p class="story">En 2024, <em>Code My Crown</em> trasladó la conversación a la representación del cabello afro en videojuegos. En 2025, <em>Reclaim Your Curls</em> celebró el cabello rizado en India.</p>
-<div class="study-note"><strong>Conclusión del periodo:</strong> el discurso comercial cambió, pero sigue siendo publicidad. Celebrar una textura también puede formar parte de una estrategia de marca.</div>
-<p class="narrative-quote">La pregunta ya no es solo qué cabello vemos, sino quién puede decidir cómo llevar el suyo.</p>
-`,"story"),
+page("analisis-2020","Capítulo III · ¿De dónde surgió el rechazo?","2020–2025 · Más representación, nuevos ideales",`<span class="archive-step">ANÁLISIS HISTÓRICO · EL CRESPO EN PANTALLAS Y REDES</span><p class="story"><em>Encanto</em> (2021) representó diversas texturas en una familia colombiana. En 2023, Dove lanzó <strong>#MyHairAMiModo</strong> con Li Saumet, de Bomba Estéreo, para el mercado latino de Estados Unidos.</p><p class="story">En 2024, <em>Code My Crown</em> llevó la conversación a los peinados afro en los videojuegos. El cabello natural ganó espacio en medios donde antes era poco visible.</p><p class="story">Pero tendencias como el <strong>Clean Girl Look</strong> vuelven a privilegiar peinados perfectamente pulidos. El estilo no es malo: el problema aparece cuando se presenta como la única forma de estar arreglada.</p><div class="study-note"><strong>McLuhan (1964):</strong> los medios transforman cómo circulan los ideales. Más diversidad no elimina automáticamente la presión por encajar.</div><p class="archive-source"><a href="https://www.dove.com/us/en/campaigns/purpose/my-hair-a-mi-modo.html" target="_blank" rel="noopener noreferrer">Dove: Mi Pelo a Mi Modo (2023) ↗</a></p>`,"story"),
 
-page("archivo-cierre","Capítulo III · Un hechizo muy antiguo","Y la pregunta regresó a Juliana.",`
-<p class="story dropcap">Al observar anuncios de distintas épocas, descubrimos que la belleza nunca había tenido una sola definición.</p>
-<p class="story">Algunos mensajes exigían alisar, otros prometían controlar y otros celebraban el cabello natural. Pero todos participaban en una conversación sobre cómo debía verse una mujer.</p>
-<div class="ornament-line">✦</div>
-<p class="narrative-quote">¿Cuántas de las ideas que yo tenía sobre mi pelo habían sido aprendidas antes de que siquiera pudiera cuestionarlas?</p>
-<p class="story">Había llegado el momento de volver a la niña de nuestro cuento.</p>
-`,"story"),
+page("archivo-cierre","Capítulo III · ¿De dónde surgió el rechazo?","¿De dónde salió lo que yo sentía?",`<p class="story dropcap">La respuesta no era una película, una princesa o un champú.</p><div class="era-summary"><p><strong>1900–1960:</strong> el cabello afro fue presentado en anuncios como un defecto, y lo liso como un ideal de moda.</p><p><strong>1960–1970:</strong> Black Is Beautiful defendió el cabello natural, aunque el alisado seguía anunciándose.</p><p><strong>1990–2009:</strong> aparecieron nuevas palabras: frizz, control, esponjado y pelo rebelde.</p><p><strong>2010–2025:</strong> crecieron las representaciones de aceptación, mientras surgían nuevas exigencias estéticas.</p></div><p class="narrative-quote">El rechazo que aprendí a sentir por mis crespos no surgió de la nada. Era una idea repetida durante generaciones.</p>`,"story"),
 
-page("otra-nina","Capítulo IV · Volver a la niña","Y ahora volvamos a Juliana.",`
-<div class="chapter-opener"><span class="num">✧</span><h2>¿Recuerdas a la niña<br>que solo quería<br>ser una princesa?</h2><p>Mientras los anuncios repetían sus propias promesas, yo crecía en otro país y en otra época. Pero la idea de que mi cabello debía cambiar ya me parecía familiar.</p><span class="ornament">❦</span></div>
-`,"chapter"),
+page("otra-nina","Capítulo IV · Volver a la niña","Volvamos a la niña del cuento.",`<div class="chapter-opener"><span class="num">✧</span><h2>Ahora entiendo de dónde venían<br>algunas de mis ideas.</h2><p>Mi historia no equivale a la discriminación que enfrentaron las mujeres negras en los primeros anuncios. Pero crecí en un contexto donde lo «esponjado» parecía algo que debía arreglarse.</p><span class="ornament">❦</span></div>`,"chapter"),
 
-page("princesas-clasicas","Capítulo IV · Volver a la niña","El ideal que aprendimos a admirar.",`
-<span class="archive-step">1937–1960 · PRINCESAS, HOLLYWOOD Y PUBLICIDAD</span>
-<div class="archive-collage archive-collage--photographic collage-imaginario" aria-label="Collage de princesas clásicas, estrellas de Hollywood y publicidad capilar con fotografías originales y cinta adhesiva">
-  <span class="archive-collage__stamp">BELLEZA<br>DE ÉPOCA</span>
-  <a class="scrap-photo scrap-photo--one" href="https://labdicasjornalismo.com/noticia/4173/evolucao-dos-estereotipos-das-princesas-da-disney" target="_blank" rel="noopener noreferrer" aria-label="Ver ilustración de princesas clásicas">
-    <span class="scrap-photo__picture">
-      <img src="https://labdicasjornalismo.com/images/ck/images/WhatsApp%20Image%202020-08-14%20at%2000_47_40%20%281%29.jpeg" alt="Blancanieves, Cenicienta y Aurora, princesas clásicas de Disney" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/1/1d/1950_is_the_Cinderella_year.jpg'">
-    </span>
-    <span class="scrap-photo__label">Princesas clásicas · 1937–1959 ↗</span>
-  </a>
-  <a class="scrap-photo scrap-photo--two" href="https://commons.wikimedia.org/wiki/File:Hepburn_Kelly_Publicity_Photo_1956.jpg" target="_blank" rel="noopener noreferrer" aria-label="Ver fotografía de Audrey Hepburn y Grace Kelly">
-    <span class="scrap-photo__picture">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Hepburn_Kelly_Publicity_Photo_1956.jpg" alt="Audrey Hepburn y Grace Kelly en 1956, fotografía de archivo" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://m.netinfo.bg/media/images/50849/50849721/orig-orig-krasivi-aktrisi.jpg'">
-    </span>
-    <span class="scrap-photo__label">Audrey Hepburn y Grace Kelly · 1956 ↗</span>
-  </a>
-  <a class="scrap-photo scrap-photo--three" href="https://commons.wikimedia.org/wiki/File:Monroe_1953_publicity_(cropped).jpg" target="_blank" rel="noopener noreferrer" aria-label="Ver retrato de Marilyn Monroe de 1953">
-    <span class="scrap-photo__picture">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Monroe_1953_publicity_%28cropped%29.jpg" alt="Marilyn Monroe en un retrato publicitario de 1953, con ondas rubias cuidadosamente peinadas" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://m.netinfo.bg/media/images/50849/50849721/orig-orig-krasivi-aktrisi.jpg'">
-    </span>
-    <span class="scrap-photo__label">Marilyn Monroe · 1953 ↗</span>
-  </a>
-  <a class="scrap-photo scrap-photo--four" href="https://medium.com/nappy-head-club/black-at-work-the-struggle-to-navigate-black-hair-in-the-workplace-is-far-from-over-a95330decb4a" target="_blank" rel="noopener noreferrer" aria-label="Ver propaganda histórica de Perma-Strate">
-    <span class="scrap-photo__picture">
-      <img src="https://miro.medium.com/v2/resize%3Afit%3A1214/1%2AfKZgV-FVXegX_vj4Tj2O7Q.jpeg" alt="Publicidad Perma-Strate con la frase Fashion Demands Straight Hair" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.closest('.scrap-photo__picture').innerHTML='<span class=&quot;fallback-clipping&quot;>FASHION DEMANDS<br>STRAIGHT HAIR<br><small>Perma-Strate · abrir anuncio ↗</small></span>'">
-    </span>
-    <span class="scrap-photo__label">Perma-Strate · publicidad ↗</span>
-  </a>
-  <span class="archive-collage__scribble" aria-hidden="true">✶</span>
-</div>
-<p class="story">De las princesas a las estrellas de Hollywood, muchas imágenes difundían una belleza <strong>blanca, pulida y cuidadosamente peinada</strong>. En paralelo, anuncios como Perma-Strate presentaban el cabello liso como una exigencia de la moda.</p>
-<p class="archive-collage__note">No todas tenían el pelo liso: Marilyn llevaba ondas trabajadas. El ideal compartido era verse impecable. Toca un recorte para conocer su fuente.</p>
-`,"story"),
+page("mis-fotos-antes","Capítulo IV · Volver a la niña","Cuando el ideal se hizo costumbre.",`<p class="story dropcap">Mi pelo estaba entre liso y crespo. Como no sabía cuidarlo, empecé a intentar cambiarlo.</p><p class="story">Me hacía trenzas, me alisaba y con el tiempo me hice tratamientos de queratina. Lo repetí durante años, hasta que terminé dañándolo.</p><p class="narrative-quote">No quería otro peinado para una ocasión. Quería otro cabello para sentirme bonita.</p><p class="story">Mirando atrás, la transformación de Mia tenía un significado que yo nunca había cuestionado: ella ya era princesa antes de que le alisaran el pelo.</p>`,"story"),
 
-page("mis-fotos-antes","Capítulo IV · Volver a la niña","No era solo un peinado.",`
-<p class="story dropcap">Durante años recurrí a trenzas, alisados y tratamientos de queratina. A veces era más fácil peinarme de esa manera. Otras, solo quería verme como creía que debía verme.</p>
-<div class="ornament-line">✦</div>
-<p class="narrative-quote">Había aprendido a ver mi cabello como una tarea pendiente: algo que debía arreglar antes de mostrarme al mundo.</p>
-<p class="story">No era la misma historia que la de las mujeres negras de los anuncios de 1904. Pero al mirar las imágenes pude reconocer una pregunta parecida: ¿quién había decidido qué pelo era «bonito»?</p>
-<p class="small">Relato autobiográfico. Las experiencias históricas no son equivalentes.</p>
-`,"story"),
+page("eleccion-o-presion","Capítulo IV · Volver a la niña","¿Elección o presión?",`<p class="story">Alisarse no es malo. Puede ser una elección estética, una forma de expresión o una decisión práctica.</p><p class="story">Pero una elección se vuelve problemática cuando sentimos que nuestra textura natural no es suficientemente bonita, femenina o elegante para mostrarse.</p><p class="story">Ingrid Banks (2000) estudia cómo el cabello puede expresar identidad y autonomía, pero también negociar expectativas sociales.</p><p class="narrative-quote">No me arrepiento de haberme alisado. Me pregunto por qué sentí que debía hacerlo durante tantos años.</p>`,"story"),
 
-page("eleccion-o-presion","Capítulo IV · Volver a la niña","¿Elección o presión?",`
-<p class="story">También entendí que el cabello puede tener muchos significados. Puede ser una manera de expresar identidad, seguir la moda o simplemente elegir un peinado que nos guste.</p>
-<p class="narrative-quote">El problema no era alisarme. Era sentir que debía alisarme para ser bonita.</p>
-<p class="story">No todas las mujeres que se alisan rechazan su textura natural, y tampoco llevar los rizos equivale siempre a resistencia. Es el contexto lo que cambia el significado.</p>
-<div class="study-note"><strong>Ingrid Banks (2000):</strong> en <em>Hair Matters</em> estudia el cabello como un lugar de identidad, autonomía y relaciones de poder para las mujeres negras.</div>
-`,"story"),
+page("anne","Capítulo V · Mi propio final","2026 · Mia también volvió a mirarse.",`<span class="archive-step">ANNE HATHAWAY · ABRIL DE 2026</span><p class="story">Veinticinco años después de <em>El diario de la princesa</em>, Anne Hathaway explicó que mostrar su propio cabello tras la transformación de Mia respondió a razones prácticas durante la filmación.</p><p class="story">Sin embargo, parte del público entendió que los rizos de Mia eran menos atractivos. <strong>Yo fui una de esas niñas que se quedó con ese mensaje.</strong></p><p class="narrative-quote">La intención con la que se produce una imagen y el significado que aprende quien la ve no siempre son iguales.</p><p class="archive-source"><a href="https://people.com/anne-hathaway-the-princess-diaries-worlds-most-beautiful-exclusive-11954368" target="_blank" rel="noopener noreferrer">Entrevista completa con Anne Hathaway ↗</a></p>`,"story"),
 
-page(
-    "cuento-cambia",
-    "Capítulo V · Reescribir el cuento",
-    "Pero las historias también pueden cambiar.",
-    `
-    <div class="chapter-opener chapter-opener--midnight">
-      <span class="num">✦</span>
+page("yo-hoy","Capítulo V · Mi propio final","La niña del cuento creció.",`<img src="assets/illustrations/curly-portrait.svg" class="story-portrait story-portrait--small" alt="Ilustración editorial de una mujer de cabello rizado"><p class="story">Hoy sé que mi pelo no estaba mal. Simplemente no había aprendido a mirarlo ni a cuidarlo sin intentar convertirlo en otro.</p><p class="story">Puedo llevar mis crespos sueltos y también alisarme un día si quiero. Lo que cambió fue el significado de esa decisión.</p><p class="narrative-quote">Ya no necesito parecerme a una princesa para sentirme bonita.</p>`,"story"),
 
-      <h2>
-        Y, poco a poco,<br>
-        el cuento comenzó<br>
-        a reescribirse.
-      </h2>
-
-      <p>
-        No sucedió en un solo año.
-        No fue una transformación perfecta.
-        Pero aparecieron más imágenes que desafiaban
-        el ideal único.
-      </p>
-
-      <span class="ornament">✧</span>
-    </div>
-    `,
-    "chapter"
-  ),
-
-page("valiente","Capítulo V · Reescribir el cuento","2012: una princesa que no se alisó.",`
-<span class="archive-step">2012 · VALIENTE / BRAVE · PIXAR</span>
-<figure class="cinema-scrap"><a href="https://www.pixar.com/feature-films/brave" target="_blank" rel="noopener noreferrer"><img class="cinema-scrap__image" src="https://d.ibtimes.co.uk/en/full/261749/brave-official-movie-poster.jpg?f=20b40ca81f1a02a7d5de059b88c9f0da&w=1440" alt="Póster de Mérida con una gran melena de rizos pelirrojos" referrerpolicy="no-referrer" loading="lazy"></a><figcaption>Póster de Valiente (2012) · <a href="https://www.pixar.com/feature-films/brave" target="_blank" rel="noopener noreferrer">Abrir original ↗</a></figcaption></figure>
-<p class="story">Mérida tiene una enorme melena rizada. Su historia no exige que ese cabello desaparezca para convertirla en heroína.</p>
-<p class="story">No es que los ideales de belleza terminaran en 2012, pero para las niñas aparecieron otras imágenes posibles de una princesa.</p>
-`,"story"),
-
-page("moana-2016","Capítulo V · Reescribir el cuento","2016: Moana también podía ser heroína.",`
-<span class="archive-step">2016 · MOANA · DISNEY</span>
-<figure class="cinema-scrap"><a href="https://artofthemovies.co.uk/products/moana-2016-ds-os-adv-902" target="_blank" rel="noopener noreferrer"><img class="cinema-scrap__image" src="https://artofthemovies.co.uk/cdn/shop/files/IMG_0403-1_47361b2e-424f-436d-8b34-3fae440489c6.jpg?v=1684515925" alt="Moana sobre una canoa, con su pelo oscuro y ondulado al viento" referrerpolicy="no-referrer" loading="lazy"></a><figcaption>Póster original de Moana (2016) · <a href="https://artofthemovies.co.uk/products/moana-2016-ds-os-adv-902" target="_blank" rel="noopener noreferrer">Abrir original ↗</a></figcaption></figure>
-<p class="story">Moana muestra una protagonista con cabello oscuro, ondulado y lleno de movimiento. No es una película sobre el pelo, y justamente por eso importa: su apariencia no se presenta como un obstáculo para liderar su propia historia.</p>
-<p class="story">Junto con Mérida y Mirabel, amplía la variedad de protagonistas que una niña puede imaginar.</p>
-`,"story"),
-
-page("dove","Capítulo V · Reescribir el cuento","2015: «ama tus rizos».",`
-<span class="archive-step">2015 · DOVE · LOVE YOUR CURLS</span>
-<figure class="cinema-scrap"><a href="https://www.etanbednarsh.com/dove-love-your-curls" target="_blank" rel="noopener noreferrer"><img class="cinema-scrap__image" src="https://images.squarespace-cdn.com/content/v1/59d84906f9a61eab9bb024e0/1507380188497-0AKAS16ZB62NFGI8KLIA/54811-DoveHair-LYC-PerfectlyNourishedHair-V8.png?format=1000w" alt="Publicidad Love Your Curls que celebra el cabello rizado" referrerpolicy="no-referrer" loading="lazy"></a><figcaption>Campaña auténtica Dove Love Your Curls (2015) · <a href="https://www.etanbednarsh.com/dove-love-your-curls" target="_blank" rel="noopener noreferrer">Abrir original ↗</a></figcaption></figure>
-<p class="story">Ahora algunas campañas afirmaban que los rizos podían ser bellos y merecían aceptación. Era una ruptura con los anuncios que ofrecían «arreglarlos».</p>
-<p class="story">Pero la contradicción continúa: la aceptación también puede vender productos. Una marca puede desafiar un prejuicio y obtener beneficios comerciales de ese cambio.</p>
-`,"story"),
-
-page("encanto","Capítulo V · Reescribir el cuento","2021: más rizos en una historia colombiana.",`
-<span class="archive-step">2021 · ENCANTO · DISNEY</span>
-<figure class="cinema-scrap"><a href="https://www.disney.com.au/movies/encanto" target="_blank" rel="noopener noreferrer"><img class="cinema-scrap__image" src="https://lumiere-a.akamaihd.net/v1/images/au_disney_encanto_payoff_movie_poster_1e7be9e9.jpeg" alt="Póster de Encanto con Mirabel y su familia, con distintas texturas de cabello" referrerpolicy="no-referrer" loading="lazy"></a><figcaption>Póster de Encanto (2021), película ambientada en Colombia · <a href="https://www.disney.com.au/movies/encanto" target="_blank" rel="noopener noreferrer">Abrir original ↗</a></figcaption></figure>
-<p class="story">Mirabel y su familia muestran distintos peinados y texturas naturales. La diversidad de cabello no es aquello que las personajes deben arreglar para ser dignas de una historia.</p>
-<div class="study-note"><strong>Stuart Hall:</strong> la representación importa porque las imágenes participan en la construcción de lo que entendemos como normal y bello.</div>
-`,"story"),
-
-page(
-    "nuevos-hechizos",
-    "Capítulo VI · Los nuevos hechizos",
-    "Pero algo del viejo hechizo sobrevivió.",
-    `
-    <p class="story">
-      El cuento parecía ir hacia un final feliz:
-      más personajes, más campañas, más conversaciones
-      sobre el pelo natural.
-    </p>
-
-    <p class="story">
-      Y, sin embargo, llegó una nueva pregunta.
-    </p>
-
-    <div class="ornament-line">✦</div>
-
-    <p class="narrative-quote">
-      ¿Qué ocurre cuando los estándares de belleza
-      no desaparecen, sino que se disfrazan
-      de una nueva tendencia?
-    </p>
-
-    <p class="story">
-      Esta vez el cuento ya no se contaba en la televisión.
-      Se contaba en nuestros teléfonos.
-    </p>
-    `
-  ),
-
-page("clean-girl","Capítulo VI · Los nuevos hechizos","Un nuevo hechizo: Clean Girl Look.",`
-<span class="archive-step">2020s · TIKTOK E INSTAGRAM</span>
-<div class="social-card clean-girl-display"><div class="social-card__top"><span>✧ estética «Clean Girl»</span><span>♡</span></div><img src="assets/illustrations/bun-portrait.svg" alt="Ilustración editorial de una mujer con el cabello recogido en un moño pulido"><div class="social-card__bottom">Ilustración, no publicación real</div></div>
-<p class="story">Un moño estirado, el cabello perfectamente recogido y una apariencia que promete verse impecable sin esfuerzo.</p>
-<p class="story">El peinado no tiene nada de malo. La pregunta es por qué lo «limpio» o lo «elegante» puede asociarse con una sola textura o presentación del cabello.</p>
-`,"story"),
-
-page("que-cambio","Capítulo VI · Los nuevos hechizos","La misma presión, una nueva pantalla.",`
-<p class="story">En las redes sociales, los ideales ya no aparecen únicamente como anuncios: también se repiten en tutoriales, tendencias y videos cotidianos.</p>
-<p class="story">Para <strong>Marshall McLuhan (1964)</strong>, el medio influye en la manera en que circulan los mensajes. En plataformas digitales, la repetición y la comparación pueden volver un estilo especialmente visible.</p>
-<p class="narrative-quote">No se trata de que un moño sea malo. Se trata de no convertirlo en la única forma de verse arreglada.</p>
-<p class="small">La tendencia <em>Clean Girl</em> no es uniforme y no todas sus creadoras promueven las mismas ideas. Esta es una lectura crítica de sus representaciones.</p>
-`,"story"),
-
-page("anne","Capítulo VII · El final que yo elijo","2026: hasta Mia volvió a mirar atrás.",`
-<span class="archive-step">21 DE ABRIL DE 2026 · PEOPLE</span>
-<p class="story">Veinticinco años después de <em>El diario de la princesa</em>, Anne Hathaway habló sobre la transformación del cabello de Mia.</p>
-<p class="story">Explicó que su propio pelo era bastante liso. El contraste con los rizos de Mia se creó por razones prácticas durante la producción, pero tuvo una consecuencia que no habían previsto: parte del público interpretó que el cabello rizado era poco atractivo.</p>
-<p class="narrative-quote">La intención de una escena no es siempre el significado que recibe quien la mira.</p>
-<p class="story">Yo era una de esas niñas que se quedó con aquel mensaje. Tal vez Mia nunca necesitó cambiar para ser princesa.</p>
-<p class="archive-source"><a href="https://people.com/anne-hathaway-the-princess-diaries-worlds-most-beautiful-exclusive-11954368" target="_blank" rel="noopener noreferrer">Leer entrevista original de Anne Hathaway ↗</a></p>
-`,"story"),
-
-page("yo-hoy","Capítulo VII · El final que yo elijo","La niña del cuento también había crecido.",`
-<img src="assets/illustrations/curly-portrait.svg" class="story-portrait story-portrait--small" alt="Ilustración original de una joven con cabello rizado">
-<p class="story">Durante años llevé trenzas, me alisé y me hice queratina. Parte de aquello parecía más práctico, pero también me acostumbré a creer que mi pelo natural necesitaba cambiar para verse bonito.</p>
-<p class="story">Hoy puedo mirar mis crespos con otros ojos. Mi cabello no tiene que parecerse al de mi mamá, al de Mia ni al de ninguna tendencia para merecer admiración.</p>
-<p class="narrative-quote">La belleza que buscaba no estaba en un tratamiento. Estaba en aprender a mirar mi propio pelo.</p>
-`,"story"),
-
-page("moraleja","Capítulo VII · El final que yo elijo","La conclusión de mi cuento.",`
-<p class="story">Esta investigación muestra que ciertos anuncios, películas y tendencias han difundido modelos de belleza que privilegian el cabello liso, controlado o ajustado a unas reglas de presentación. También muestra que siempre existieron alternativas y resistencias, especialmente en las comunidades negras.</p>
-<p class="story">Las representaciones han cambiado y hoy vemos más diversidad, pero algunas presiones continúan transformadas en nuevas tendencias.</p>
-<div class="promise"><p class="story"><strong>El cabello liso es bonito. El pelo crespo también.</strong></p><div class="ornament-line">✦</div><strong>El problema nunca fue alisarse, sino sentir que había que hacerlo para ser bella o aceptada.</strong></div>
-<p class="story">Mi final feliz no es llevar los rizos todos los días. Es elegir: poder alisarme, hacerme trenzas o dejar mis crespos sueltos porque yo quiero, no porque una película o una publicidad me enseñó a esconderlos.</p>
-`,"story"),
+page("moraleja","Capítulo V · Mi propio final","Conclusión · La belleza que escondimos.",`<p class="story">El recorrido muestra cómo, durante décadas, la publicidad y los medios asociaron algunas texturas de cabello con problemas que debían corregirse. También muestra que estas representaciones encontraron resistencia y empezaron a cambiar.</p><p class="story">El discurso pasó de exigir el alisado a promover el control del frizz y, más recientemente, a celebrar rizos y texturas naturales. Pero esa diversidad aún convive con tendencias que imponen nuevos ideales.</p><p class="narrative-quote">El problema no es llevar el pelo liso. Es crecer creyendo que solo con el pelo liso podemos ser bonitas.</p><p class="story">Mi deseo es que ninguna niña tenga que esconder sus crespos para imaginarse protagonista de su propio cuento.</p>`,"story"),
 
 page(
     "yo-princesa",
@@ -820,43 +630,13 @@ page(
   // BIBLIOGRAFÍA
   // ==================================================
 
-page("autores-1","Apéndice · Notas del cuento","Las voces detrás del cuento.",`
-<p class="story">Esta historia personal se interpreta con teorías de representación, medios e identidad. Los argumentos son lecturas críticas de las piezas, no pruebas de que todos los espectadores recibieran el mismo mensaje.</p>
-<ol class="refs">
-<li>Hall, S. (Ed.). (1997). <cite>Representation: Cultural Representations and Signifying Practices</cite>. SAGE.</li>
-<li>McLuhan, M. (1964). <cite>Understanding Media: The Extensions of Man</cite>. McGraw-Hill.</li>
-<li>Dabiri, E. (2019). <cite>Don't Touch My Hair</cite>. Allen Lane.</li>
-<li>Banks, I. (2000). <cite>Hair Matters: Beauty, Power, and Black Women's Consciousness</cite>. NYU Press.</li>
-<li>González Herrera, M. P. (2019). <cite>Entre rizo y rizo</cite>. Universidad de La Sabana.</li>
-<li>Ezquerra Fernández, M. (2026). Estudio de la estética <em>Clean Girl</em> en TikTok. <cite>First Monday</cite>.</li>
-</ol>
-`,"story"),
+page("metodo","Apéndice · Las fuentes del cuento","Cómo analicé estas imágenes.",`<p class="story">Este ensayo presenta una lectura <strong>cualitativa e histórica de representaciones</strong>: compara titulares, imágenes y promesas de anuncios, películas y campañas digitales de distintas épocas.</p><p class="story">No busca demostrar que una publicidad causó una reacción específica en todas las personas. Identifica patrones de belleza, control, resistencia y aceptación para comprender mi experiencia.</p><div class="study-note"><strong>Marco teórico:</strong> Stuart Hall, Ingrid Banks, Emma Dabiri y Marshall McLuhan. <strong>Fuentes primarias:</strong> anuncios históricos y campañas fechadas.</div><p class="story">Las presiones raciales que afrontaron mujeres negras en Estados Unidos no son equivalentes a mi experiencia colombiana.</p>`,"story"),
 
-page("fuentes-2","Apéndice · Notas del cuento","Archivos que nos permitieron viajar.",`
-<ol class="refs">
-<li><a href="https://dangerouspress.org/papers/colored-american/1904-09-17" target="_blank">The Colored American</a> (1904), <em>Magic Hair Straightener</em>.</li>
-<li><a href="https://dangerouspress.org/papers/chicago-defender/1919-07-12?page=11" target="_blank">Chicago Defender</a> (1919), <em>Plough's Hair Dressing</em>.</li>
-<li><a href="https://msa.maryland.gov/megafile/ecpdata/webroot/msaref14/msa_sc5458_000045_000253/pdf/msa_afro_1948_01-0491.pdf" target="_blank">Baltimore Afro-American</a> (1948), <em>Perma-Strate</em>.</li>
-<li><a href="https://kissmyblackads.blogspot.com/2009/03/ebony-june-1960.html" target="_blank">Ebony</a> (1960), <em>Hair-Strate</em>.</li>
-<li><a href="https://exhibits.library.duke.edu/exhibits/show/-black-is-beautiful-/the-afro" target="_blank">Duke University</a>, archivo <em>Black Is Beautiful</em>.</li>
-<li><a href="https://www.vintag.es/2016/09/vintage-afro-hairstyles-16-fascinating.html" target="_blank">Colección Afro Sheen</a> (años 70).</li>
-<li><a href="https://dl.tufts.edu/downloads/47429m65d?filename=ht24ww119.pdf" target="_blank">Tufts Daily</a> (1994), <em>No More Frizz!</em>.</li>
-<li><a href="https://superbrands.s3.amazonaws.com/AAA%20MASTER%202%20PAGE%20PDF%20Case%20Studies/Mexico/Mexico%20Edition%202/Mexico%20Edition%202%20Sedal.pdf" target="_blank">Superbrands</a>, Sedal Anti-Sponge (2005).</li>
-<li><a href="https://www.campaignlive.co.uk/article/john-frieda-primed-host-live-digital-show/1071489" target="_blank">Campaign</a>, John Frieda Frizz-Ease (2010–11).</li>
-<li><a href="https://www.prnewswire.com/news-releases/dove-hair-launches-poetic-tribute-to-curls-inspired-by-stories-from-real-women-300084598.html" target="_blank">Dove</a> (2015), <em>Love Your Curls</em>.</li>
-<li><a href="https://people.com/anne-hathaway-the-princess-diaries-worlds-most-beautiful-exclusive-11954368" target="_blank">PEOPLE</a> (2026), entrevista con Anne Hathaway.</li>
-<li><a href="https://entretenimientoplus.com/musica/sedal-teens-llenate-de-musica/" target="_blank">Sedal Teens Colombia</a> (2008), campaña con Citytv y Bye Bye Frizz.</li><li><a href="https://www.yumpu.com/es/document/view/8565342/con-sedal-teens-el-pelo-perfecto-esta-cada-vez-mas-cerca-unilever" target="_blank">Unilever Colombia</a> (2008), comunicado de lanzamiento de Sedal Teens.</li><li><a href="https://artofthemovies.co.uk/products/moana-2016-ds-os-adv-902" target="_blank">Disney</a> (2016), póster de Moana.</li></ol>
-`,"story"),
+page("autores-1","Apéndice · Las fuentes del cuento","Autores y perspectiva histórica.",`<ol class="refs"><li>Hall, S. (Ed.). (1997). <cite>Representation: Cultural Representations and Signifying Practices</cite>. SAGE.</li><li>Banks, I. (2000). <cite>Hair Matters: Beauty, Power, and Black Women's Consciousness</cite>. NYU Press.</li><li>Dabiri, E. (2019). <cite>Don't Touch My Hair</cite>. Allen Lane.</li><li>McLuhan, M. (1964). <cite>Understanding Media: The Extensions of Man</cite>. McGraw-Hill.</li><li><a href="https://exhibits.library.duke.edu/exhibits/show/-black-is-beautiful-/the-afro" target="_blank">Duke University</a>. <em>Black Is Beautiful: The Afro</em>.</li><li><a href="https://nmaahc.si.edu/explore/stories/strands-of-inspiration" target="_blank">Smithsonian NMAAHC</a>. <em>Strands of Inspiration</em>.</li></ol>`,"story"),
 
-page("declaracion","Apéndice · Notas del cuento","Cómo se construyó este cuento.",`
-<p class="story">El libro interactivo combina memoria personal, imágenes comerciales, cine e investigación. El paso de páginas reproduce la experiencia de revisar las historias que aprendimos de niños.</p>
-<div class="paper-note">
-<p><strong>Herramientas:</strong> HTML, CSS y JavaScript; StPageFlip para la animación de hojas.</p>
-<p><strong>Inteligencia artificial:</strong> se utilizó ChatGPT como apoyo para estructurar el argumento, redactar versiones, buscar y contrastar fuentes, y desarrollar código; un generador de imágenes se utilizó para ilustraciones editoriales identificadas como tales. La autora revisó las decisiones narrativas y el contenido.</p>
-<p><strong>Archivos históricos:</strong> las imágenes de publicidad enlazan a sus repositorios; las composiciones tipográficas se identifican como transcripciones, nunca como originales.</p>
-</div>
-<p class="small">La experiencia personal corresponde a la autora. La interpretación académica no atribuye una misma motivación a todas las mujeres que eligen alisarse.</p>
-`,"story"),
+page("fuentes-2","Apéndice · Las fuentes del cuento","Anuncios y películas del archivo.",`<ol class="refs"><li><a href="https://dangerouspress.org/papers/colored-american/1903-11-14" target="_blank">Ozonized Ox Marrow (1903)</a>.</li><li><a href="https://dangerouspress.org/papers/chicago-defender/1919-08-02" target="_blank">Plough's Hair Dressing (1919)</a>.</li><li><a href="https://kissmyblackads.blogspot.com/2009/03/ebony-june-1960.html" target="_blank">Hair-Strate, Ebony (1960)</a>.</li><li><a href="https://www.wnyc.org/story/how-black-hair-care-grew-black-power/" target="_blank">Afro Sheen (años 70)</a>.</li><li><a href="https://dl.tufts.edu/downloads/47429m65d?filename=ht24ww119.pdf#page=8" target="_blank">Frizz-Ease (1994)</a>.</li><li><a href="https://pepsic.bvsalud.org/scielo.php?pid=S2359-07692017000200008&script=sci_arttext" target="_blank">Seda Anti-Sponge (Brasil)</a>.</li><li><a href="https://www.yumpu.com/es/document/view/8565342/con-sedal-teens-el-pelo-perfecto-esta-cada-vez-mas-cerca-unilever" target="_blank">Sedal Teens, Colombia (2008)</a>.</li><li><a href="https://www.prnewswire.com/news-releases/dove-hair-launches-poetic-tribute-to-curls-inspired-by-stories-from-real-women-300084598.html" target="_blank">Dove, Love Your Curls (2015)</a>.</li><li><a href="https://www.dove.com/us/en/campaigns/purpose/my-hair-a-mi-modo.html" target="_blank">Dove, #MyHairAMiModo (2023)</a>.</li><li><a href="https://shortyawards.com/9th-impact/code-my-crown" target="_blank">Dove, Code My Crown (2024)</a>.</li><li><a href="https://movies.disney.com/brave" target="_blank">Brave (2012)</a>, <a href="https://movies.disney.com/moana" target="_blank">Moana (2016)</a> y <a href="https://movies.disney.com/encanto" target="_blank">Encanto (2021)</a>.</li><li><a href="https://people.com/anne-hathaway-the-princess-diaries-worlds-most-beautiful-exclusive-11954368" target="_blank">Anne Hathaway, PEOPLE (2026)</a>.</li></ol>`,"story"),
+
+page("declaracion","Apéndice · Las fuentes del cuento","Sobre este ensayo multimedia.",`<p class="story">El libro combina memoria personal, imágenes históricas, cine e investigación. Cada doble página corresponde a una época y presenta sus imágenes junto al análisis.</p><div class="paper-note"><p><strong>Desarrollo:</strong> HTML, CSS, JavaScript y StPageFlip.</p><p><strong>Fuentes visuales:</strong> cada recorte enlaza a su archivo. Las imágenes externas que no carguen se ocultan; no se presentan transcripciones como fotos originales.</p><p><strong>IA:</strong> ChatGPT apoyó investigación, redacción, edición y desarrollo web; un generador de imágenes se utilizó para ilustraciones editoriales.</p></div><p class="small">La experiencia autobiográfica es de la autora. Las interpretaciones de los anuncios no atribuyen una misma motivación a todas las mujeres.</p>`,"story"),
 
 page(
     "contraportada",
@@ -887,22 +667,22 @@ export const chapters = [
   {
     "page": 0,
     "number": "00",
-    "label": "La portada"
+    "label": "Portada"
   },
   {
     "page": 1,
     "number": "01",
-    "label": "Había una vez..."
+    "label": "Mi historia"
   },
   {
     "page": 3,
     "number": "02",
-    "label": "Mi transformación"
+    "label": "La transformación"
   },
   {
     "page": 6,
     "number": "03",
-    "label": "Un hechizo muy antiguo"
+    "label": "Una historia de los crespos"
   },
   {
     "page": 22,
@@ -910,23 +690,13 @@ export const chapters = [
     "label": "Volver a la niña"
   },
   {
-    "page": 26,
+    "page": 25,
     "number": "05",
-    "label": "Reescribir el cuento"
+    "label": "Mi conclusión"
   },
   {
-    "page": 31,
+    "page": 29,
     "number": "06",
-    "label": "Los nuevos hechizos"
-  },
-  {
-    "page": 34,
-    "number": "07",
-    "label": "El final que yo elijo"
-  },
-  {
-    "page": 38,
-    "number": "08",
-    "label": "Las notas del cuento"
+    "label": "Fuentes y bibliografía"
   }
 ];
