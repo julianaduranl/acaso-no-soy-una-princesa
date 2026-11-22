@@ -169,6 +169,66 @@ page(
 #flipbook .page[data-page-id^="collage-"] .scrap-photo:hover,#flipbook .page[data-page-id^="collage-"] .scrap-photo:focus-visible{z-index:12}
 @media (max-height:800px){#flipbook .archive-collage--photographic{height:300px;max-height:300px}#flipbook .page[data-page-id="princesas-clasicas"] .archive-collage,#flipbook .page[data-page-id="estrellas-hollywood"] .archive-collage{height:280px}#flipbook .cinema-scrap>a,#flipbook .cinema-scrap img.cinema-scrap__image{height:165px;max-height:165px}}
 @media (max-width:760px){#flipbook .archive-collage--photographic{height:285px;max-height:285px}#flipbook .cinema-scrap{width:88%;max-width:88%}#flipbook .cinema-scrap>a,#flipbook .cinema-scrap img.cinema-scrap__image{height:175px;max-height:175px}}
+
+/* 2026-11 · una sola página: princesas, actrices y publicidad */
+#flipbook .page[data-page-id="princesas-clasicas"] .archive-collage.collage-imaginario {
+  width:100%;height:355px;max-height:355px;margin:8px auto 11px;position:relative;
+}
+#flipbook .page[data-page-id="princesas-clasicas"] .collage-imaginario .scrap-photo{
+  box-sizing:border-box;overflow:visible;border:4px solid #eee0c6;padding:4px 4px 9px;
+  box-shadow:4px 7px 15px #533b3266;background:#f3e5cf;
+}
+#flipbook .page[data-page-id="princesas-clasicas"] .collage-imaginario .scrap-photo--one{
+  left:1%;top:4%;width:56%;height:58%;z-index:2;transform:rotate(-8deg);
+}
+#flipbook .page[data-page-id="princesas-clasicas"] .collage-imaginario .scrap-photo--two{
+  right:0%;top:12%;width:51%;height:59%;z-index:3;transform:rotate(9deg);
+}
+#flipbook .page[data-page-id="princesas-clasicas"] .collage-imaginario .scrap-photo--three{
+  left:7%;top:48%;width:48%;height:50%;z-index:4;transform:rotate(5deg);
+}
+#flipbook .page[data-page-id="princesas-clasicas"] .collage-imaginario .scrap-photo--four{
+  right:1%;bottom:0%;width:49%;height:46%;z-index:5;transform:rotate(-8deg);
+}
+#flipbook .page[data-page-id="princesas-clasicas"] .collage-imaginario .scrap-photo__picture{
+  overflow:hidden;background:#ede0cb;width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+}
+#flipbook .page[data-page-id="princesas-clasicas"] .collage-imaginario img{
+  width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;filter:none;
+}
+#flipbook .page[data-page-id="princesas-clasicas"] .collage-imaginario .scrap-photo__label{
+  font-size:7px;line-height:1.15;margin-top:3px;padding:0 2px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;
+}
+#flipbook .page[data-page-id="princesas-clasicas"] .collage-imaginario .scrap-photo--four::before{
+  top:-8px;left:32%;transform:rotate(-10deg);
+}
+#flipbook .page[data-page-id="princesas-clasicas"] .collage-imaginario .scrap-photo:focus-visible,
+#flipbook .page[data-page-id="princesas-clasicas"] .collage-imaginario .scrap-photo:hover{
+  z-index:15;transform:rotate(0deg) scale(1.06);
+}
+#flipbook .page[data-page-id="princesas-clasicas"] .fallback-clipping{
+  display:block;color:#513738;text-align:center;font:bold 15px/1.2 Georgia,serif;padding:6px;
+}
+#flipbook .page[data-page-id="princesas-clasicas"] .fallback-clipping small{
+  display:block;font-size:9px;line-height:1.3;margin-top:5px;
+}
+#flipbook .page[data-page-id="princesas-clasicas"] .page-title{font-size:27px;line-height:1.12}
+#flipbook .page[data-page-id="princesas-clasicas"] .story{font-size:12px;line-height:1.45;margin-bottom:5px}
+#flipbook .page[data-page-id="princesas-clasicas"] .archive-collage__note{
+  font-size:10px;line-height:1.3;margin:2px 0;
+}
+@media(max-height:790px){
+  #flipbook .page[data-page-id="princesas-clasicas"] .archive-collage.collage-imaginario{
+    height:285px;max-height:285px;margin:5px auto;
+  }
+  #flipbook .page[data-page-id="princesas-clasicas"] .page-title{font-size:23px}
+}
+@media(max-width:760px){
+  #flipbook .page[data-page-id="princesas-clasicas"] .archive-collage.collage-imaginario{
+    height:280px;max-height:280px;
+  }
+}
+
 </style>
 
       <span class="cover-tiny">
@@ -553,16 +613,38 @@ page("otra-nina","Capítulo IV · Volver a la niña","Y ahora volvamos a Juliana
 <div class="chapter-opener"><span class="num">✧</span><h2>¿Recuerdas a la niña<br>que solo quería<br>ser una princesa?</h2><p>Mientras los anuncios repetían sus propias promesas, yo crecía en otro país y en otra época. Pero la idea de que mi cabello debía cambiar ya me parecía familiar.</p><span class="ornament">❦</span></div>
 `,"chapter"),
 
-page("princesas-clasicas","Capítulo IV · Volver a la niña","¿De qué estaban hechas las princesas?",`
-<span class="archive-step">1937–1991 · LOS CUENTOS QUE VIMOS</span>
-<div class="archive-collage archive-collage--photographic" aria-label="Collage visual del periodo PRINCESAS"><span class="archive-collage__stamp">PRINCESAS<br>ARCHIVO</span><a class="scrap-photo scrap-photo--one" href="https://www.disneyplus.com/explore/articles/disney-princess-movies" target="_blank" rel="noopener noreferrer" aria-label="Ver Blancanieves · 1937"><span class="scrap-photo__picture"><img src="https://disneydorks.weebly.com/uploads/3/1/8/6/31863561/1354865_orig.jpg" alt="Póster original de Blancanieves y los siete enanitos" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">Blancanieves · 1937 ↗</span></a><a class="scrap-photo scrap-photo--two" href="https://www.disneyplus.com/explore/articles/disney-princess-movies" target="_blank" rel="noopener noreferrer" aria-label="Ver Cenicienta · Aurora · Bella"><span class="scrap-photo__picture"><img src="https://i.ebayimg.com/images/g/F-MAAOSwWgdiQjDE/s-l1200.jpg" alt="Arte promocional con princesas clásicas, incluida Jasmine" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">Cenicienta · Aurora · Bella ↗</span></a><a class="scrap-photo scrap-photo--three" href="https://princess.disney.com/" target="_blank" rel="noopener noreferrer" aria-label="Ver La imagen de princesa cambia"><span class="scrap-photo__picture"><img src="https://www.sanity.com.au/media/Images/fullimage/440597/SDC_2374802_2018-15-5--15-34-16.jpg" alt="Póster grupal Disney Princess que también incluye personajes diversos" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">La imagen de princesa cambia ↗</span></a><span class="archive-collage__scribble" aria-hidden="true">✶</span></div><p class="archive-collage__note">Imágenes oficiales o promocionales. No todas las princesas tienen el pelo liso ni todas son blancas.</p>
-<p class="story">Durante décadas, gran parte de las primeras princesas representó un canon de belleza bastante homogéneo: tez clara, juventud y cabello cuidadosamente peinado.</p>
-`,"story"),
-
-page("estrellas-hollywood","Capítulo IV · Volver a la niña","¿Y quiénes eran consideradas hermosas?",`
-<span class="archive-step">1940–1960 · EL CINE Y SUS ÍCONOS</span>
-<div class="archive-collage archive-collage--photographic" aria-label="Collage visual del periodo HOLLYWOOD"><span class="archive-collage__stamp">HOLLYWOOD<br>ARCHIVO</span><a class="scrap-photo scrap-photo--one" href="https://www.quien.com/moda/2015/09/10/style-icons-las-mujeres-que-marcaron-los-anos-en-la-moda" target="_blank" rel="noopener noreferrer" aria-label="Ver Monroe · Kelly · Hepburn"><span class="scrap-photo__picture"><img src="https://cdn-3.expansion.mx/dims4/default/8ebddc9/2147483647/strip/true/crop/620x480%2B0%2B0/resize/800x619%21/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2Fmedia%2F2015%2F09%2F10%2Festilocincuentas.jpg" alt="Retratos de Marilyn Monroe, Grace Kelly y Audrey Hepburn" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">Monroe · Kelly · Hepburn ↗</span></a><a class="scrap-photo scrap-photo--two" href="https://www.vietnamplus.vn/phong-cach-trang-diem-old-hollywood-bi-quyet-toa-sang-nhu-bieu-tu-sac-dep-post938059.vnp" target="_blank" rel="noopener noreferrer" aria-label="Ver Audrey Hepburn · Grace Kelly"><span class="scrap-photo__picture"><img src="https://media.vietnamplus.vn/images/7255a701687d11cb8c6bbc58a6c8078530f2614a695e409189142594d44932d56f95a50c80a0d958454e8d04939fcc03ec78aae43c734f949466859f36a3ca2e/horizontal-1-1731.png" alt="Fotografías de Audrey Hepburn y Grace Kelly con peinados pulidos" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">Audrey Hepburn · Grace Kelly ↗</span></a><a class="scrap-photo scrap-photo--three" href="https://www.vogue.com/article/the-history-and-impact-of-old-hollywood-glamour" target="_blank" rel="noopener noreferrer" aria-label="Ver Estrellas de Hollywood"><span class="scrap-photo__picture"><img src="https://pres.upmedia.cz/media/k2/items/cache/0482fc77902d0b4c9a449d5d1e0345a8_XL.jpg" alt="Retratos de actrices famosas de Hollywood de mediados del siglo XX" loading="lazy" referrerpolicy="no-referrer"></span><span class="scrap-photo__label">Estrellas de Hollywood ↗</span></a><span class="archive-collage__scribble" aria-hidden="true">✶</span></div><p class="archive-collage__note">Marilyn Monroe llevaba ondas y rizos trabajados, Audrey cortes pulidos y Grace ondas suaves: el ideal era la elaboración, no solo el alisado.</p>
-<p class="story">La imagen de belleza dominante en Hollywood destacaba a estrellas mayoritariamente blancas con peinados muy estilizados. No eran todos lisos: muchos eran ondulados, pero siempre cuidadosamente construidos.</p>
+page("princesas-clasicas","Capítulo IV · Volver a la niña","El ideal que aprendimos a admirar.",`
+<span class="archive-step">1937–1960 · PRINCESAS, HOLLYWOOD Y PUBLICIDAD</span>
+<div class="archive-collage archive-collage--photographic collage-imaginario" aria-label="Collage de princesas clásicas, estrellas de Hollywood y publicidad capilar con fotografías originales y cinta adhesiva">
+  <span class="archive-collage__stamp">BELLEZA<br>DE ÉPOCA</span>
+  <a class="scrap-photo scrap-photo--one" href="https://labdicasjornalismo.com/noticia/4173/evolucao-dos-estereotipos-das-princesas-da-disney" target="_blank" rel="noopener noreferrer" aria-label="Ver ilustración de princesas clásicas">
+    <span class="scrap-photo__picture">
+      <img src="https://labdicasjornalismo.com/images/ck/images/WhatsApp%20Image%202020-08-14%20at%2000_47_40%20%281%29.jpeg" alt="Blancanieves, Cenicienta y Aurora, princesas clásicas de Disney" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/1/1d/1950_is_the_Cinderella_year.jpg'">
+    </span>
+    <span class="scrap-photo__label">Princesas clásicas · 1937–1959 ↗</span>
+  </a>
+  <a class="scrap-photo scrap-photo--two" href="https://commons.wikimedia.org/wiki/File:Hepburn_Kelly_Publicity_Photo_1956.jpg" target="_blank" rel="noopener noreferrer" aria-label="Ver fotografía de Audrey Hepburn y Grace Kelly">
+    <span class="scrap-photo__picture">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Hepburn_Kelly_Publicity_Photo_1956.jpg" alt="Audrey Hepburn y Grace Kelly en 1956, fotografía de archivo" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://m.netinfo.bg/media/images/50849/50849721/orig-orig-krasivi-aktrisi.jpg'">
+    </span>
+    <span class="scrap-photo__label">Audrey Hepburn y Grace Kelly · 1956 ↗</span>
+  </a>
+  <a class="scrap-photo scrap-photo--three" href="https://commons.wikimedia.org/wiki/File:Monroe_1953_publicity_(cropped).jpg" target="_blank" rel="noopener noreferrer" aria-label="Ver retrato de Marilyn Monroe de 1953">
+    <span class="scrap-photo__picture">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Monroe_1953_publicity_%28cropped%29.jpg" alt="Marilyn Monroe en un retrato publicitario de 1953, con ondas rubias cuidadosamente peinadas" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://m.netinfo.bg/media/images/50849/50849721/orig-orig-krasivi-aktrisi.jpg'">
+    </span>
+    <span class="scrap-photo__label">Marilyn Monroe · 1953 ↗</span>
+  </a>
+  <a class="scrap-photo scrap-photo--four" href="https://medium.com/nappy-head-club/black-at-work-the-struggle-to-navigate-black-hair-in-the-workplace-is-far-from-over-a95330decb4a" target="_blank" rel="noopener noreferrer" aria-label="Ver propaganda histórica de Perma-Strate">
+    <span class="scrap-photo__picture">
+      <img src="https://miro.medium.com/v2/resize%3Afit%3A1214/1%2AfKZgV-FVXegX_vj4Tj2O7Q.jpeg" alt="Publicidad Perma-Strate con la frase Fashion Demands Straight Hair" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.closest('.scrap-photo__picture').innerHTML='<span class=&quot;fallback-clipping&quot;>FASHION DEMANDS<br>STRAIGHT HAIR<br><small>Perma-Strate · abrir anuncio ↗</small></span>'">
+    </span>
+    <span class="scrap-photo__label">Perma-Strate · publicidad ↗</span>
+  </a>
+  <span class="archive-collage__scribble" aria-hidden="true">✶</span>
+</div>
+<p class="story">De las princesas a las estrellas de Hollywood, muchas imágenes difundían una belleza <strong>blanca, pulida y cuidadosamente peinada</strong>. En paralelo, anuncios como Perma-Strate presentaban el cabello liso como una exigencia de la moda.</p>
+<p class="archive-collage__note">No todas tenían el pelo liso: Marilyn llevaba ondas trabajadas. El ideal compartido era verse impecable. Toca un recorte para conocer su fuente.</p>
 `,"story"),
 
 page("mis-fotos-antes","Capítulo IV · Volver a la niña","No era solo un peinado.",`
@@ -828,22 +910,22 @@ export const chapters = [
     "label": "Volver a la niña"
   },
   {
-    "page": 27,
+    "page": 26,
     "number": "05",
     "label": "Reescribir el cuento"
   },
   {
-    "page": 32,
+    "page": 31,
     "number": "06",
     "label": "Los nuevos hechizos"
   },
   {
-    "page": 35,
+    "page": 34,
     "number": "07",
     "label": "El final que yo elijo"
   },
   {
-    "page": 39,
+    "page": 38,
     "number": "08",
     "label": "Las notas del cuento"
   }
