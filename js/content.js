@@ -46,30 +46,41 @@ function page(
   return { id, chapter, title, body, kind, ...opts };
 }
 
-export const chapters = [
-  { page: 0, number: "00", label: "La portada" },
-  { page: 1, number: "01", label: "Había una vez..." },
-  { page: 3, number: "02", label: "La princesa y el espejo" },
-  { page: 6, number: "03", label: "Un hechizo muy antiguo" },
-  { page: 11, number: "04", label: "La otra niña" },
-  { page: 14, number: "05", label: "El cuento empieza a cambiar" },
-  { page: 18, number: "06", label: "¿Y si el hechizo sigue vivo?" },
-  { page: 21, number: "07", label: "El final que yo elijo" },
-  { page: 24, number: "08", label: "Las notas del cuento" }
-];
 
+// HISTORIA COMPLETA · edición documentada
 export const pages = [
-
-  // ==================================================
-  // PORTADA
-  // ==================================================
-
-  page(
+page(
     "portada",
     "Portada",
     "¿Acaso no soy una princesa?",
     `
-    <div class="cover-inner cover-redesign">
+    <div class="cover-inner cover-redesign"><style>
+/* Archivo histórico y hojas continuas */
+#flipbook .page--story,#flipbook .page--regular,#flipbook .page--story .paper-inner,#flipbook .page--regular .paper-inner {
+  background-color:#f8eddb!important;background-image:none!important;
+}
+#flipbook .page--chapter .paper-inner {background:#39283c!important}
+#flipbook .archive-ad {margin:8px auto 9px;width:93%;text-align:center}
+#flipbook .archive-ad__image {display:block;max-height:177px;min-height:116px;margin:auto;object-fit:contain;max-width:100%;width:auto;border:1px solid #d5bea5;box-shadow:0 5px 14px #3c26341a;background:#eee3d4}
+#flipbook .archive-ad figcaption {font-size:9px;line-height:1.4;font-family:var(--font-sans),sans-serif;font-style:italic;color:#76645c;margin-top:5px}
+#flipbook .archive-ad a,#flipbook .archive-excerpt a,#flipbook .archive-link {color:#87536f;text-decoration:underline;text-underline-offset:2px}
+#flipbook .archive-excerpt {border:1px solid #a98d68;outline:1px solid #d8c5aa;outline-offset:-5px;background:#ead9bb;padding:14px 18px 12px;margin:10px auto 12px;text-align:center;max-width:100%;box-shadow:2px 4px 10px #65493213}
+#flipbook .archive-excerpt__label {display:block;font:700 8px/1.4 var(--font-sans),sans-serif;letter-spacing:.13em;color:#76583f;margin-bottom:7px}
+#flipbook .archive-excerpt__headline {font:600 22px/1.08 Georgia,serif;letter-spacing:-.02em;color:#4d372e;margin:0 0 8px}
+#flipbook .archive-excerpt__quote {font:italic 14px/1.28 Georgia,serif;color:#5a4037;margin:0 0 6px}
+#flipbook .archive-excerpt__note {font:9px/1.45 var(--font-sans),sans-serif;color:#765e50;margin:0}
+#flipbook .archive-source {font:10px/1.5 var(--font-sans),sans-serif;margin:6px 0!important}
+#flipbook .archive-source a {color:#87536f;text-decoration:underline;text-underline-offset:2px}
+#flipbook .study-note {background:#eedecd;border-left:2px solid #b17e94;padding:9px 12px;font-size:12px;line-height:1.48;margin:9px 0}
+#flipbook .study-note strong {color:#74415b}
+#flipbook .archive-step {font:700 9px/1.4 var(--font-sans),sans-serif;color:#a27360;letter-spacing:.18em}
+#flipbook .cuento-imagen--sin-marco {width:100%;margin:5px auto;padding:0;background:transparent;border:0}
+#flipbook .cuento-imagen--sin-marco img {display:block;height:145px;max-height:145px;max-width:100%;width:100%;object-fit:contain;margin:0 auto;box-shadow:none;border:0}
+#flipbook .cuento-cierre {font:italic 15px/1.4 var(--font-display),Georgia,serif;color:#955c77;text-align:center;margin:8px 0}
+#flipbook .cuento-video iframe {aspect-ratio:16/9;width:100%;height:auto}
+#flipbook .refs a {color:#87536f;text-decoration:underline}
+@media(max-height:720px){#flipbook .archive-ad__image{max-height:135px;min-height:95px}#flipbook .archive-excerpt{padding:10px 14px;margin:6px auto}}
+</style>
 
       <span class="cover-tiny">
         ÉRASE UNA VEZ...
@@ -115,262 +126,7 @@ export const pages = [
           La belleza que nos enseñaron a esconder
         </p>
 
-        <div class="cover-princesses">
-
-         
-            
-            <img
-            class="cover-princesses-image"
-            src="assets/illustrations/princesas-lineas.png"
-            alt="Dos princesas mirándose, una crespa y otra lisa"
-            />
-
-
-
-
-            <!-- Decoraciones -->
-
-            <g
-              fill="none"
-              stroke="#d6ac73"
-              stroke-width="1.6"
-              opacity=".65"
-            >
-              <path d="M17 120 Q39 106 64 120 M576 120 Q600 106 624 120"/>
-              <path d="M290 115 Q320 90 350 115"/>
-              <path d="M301 157 Q320 177 339 157"/>
-              <path d="M309 135 L320 118 L331 135 L320 150 Z"/>
-              <circle
-                cx="320" cy="134" r="3"
-                fill="#dfc08c" stroke="none"
-              />
-              <path d="M320 63 V82 M311 72 H329 M320 187 V201 M313 194 H327"/>
-              <path d="M38 177 l4 -9 4 9 9 4 -9 4 -4 9 -4 -9 -9 -4z"/>
-              <path d="M593 43 l3 -7 3 7 7 3 -7 3 -3 7 -3 -7 -7 -3z"/>
-            </g>
-
-            <!-- PRINCESA CRESPA -->
-
-            <g transform="translate(55 5)">
-
-              <path
-                d="M72 226 Q65 195 101 184 L139 171 L191 183 Q230 194 227 226"
-                fill="#a36b8e"
-                stroke="#e3be91"
-                stroke-width="2"
-              />
-
-              <path
-                d="M125 180 Q145 209 168 179"
-                fill="#ead2bf"
-                stroke="#e3be91"
-                stroke-width="2"
-              />
-
-              <path
-                d="M129 145 H167 V187 Q147 199 129 185 Z"
-                fill="#ae745c"
-              />
-
-              <!-- Crespos -->
-
-              <g
-                fill="#261c30"
-                stroke="#bb8b82"
-                stroke-width="1.05"
-              >
-                <circle cx="91" cy="108" r="29"/>
-                <circle cx="88" cy="77" r="26"/>
-                <circle cx="111" cy="51" r="30"/>
-                <circle cx="141" cy="40" r="28"/>
-                <circle cx="173" cy="47" r="28"/>
-                <circle cx="195" cy="69" r="26"/>
-                <circle cx="210" cy="97" r="23"/>
-                <circle cx="201" cy="127" r="27"/>
-                <circle cx="189" cy="158" r="23"/>
-                <circle cx="97" cy="144" r="28"/>
-                <circle cx="114" cy="166" r="24"/>
-                <circle cx="164" cy="164" r="24"/>
-              </g>
-
-              <!-- Rostro -->
-
-              <path
-                d="M116 85 Q135 65 166 78 Q185 86 189 108 Q193 123 205 132 L214 138 Q209 144 199 145 Q198 166 180 174 Q155 184 135 162 Q111 137 116 85Z"
-                fill="#bb8167"
-                stroke="#e4b58f"
-                stroke-width="2"
-              />
-
-              <path
-                d="M113 84 Q124 69 151 68 M155 67 Q179 67 190 88"
-                fill="none"
-                stroke="#2b1d2f"
-                stroke-width="14"
-                stroke-linecap="round"
-              />
-
-              <!-- Textura de rizos -->
-
-              <g
-                fill="none"
-                stroke="#b98a91"
-                stroke-width="1.5"
-                opacity=".65"
-              >
-                <circle cx="90" cy="106" r="11"/>
-                <circle cx="105" cy="55" r="13"/>
-                <circle cx="168" cy="44" r="13"/>
-                <circle cx="200" cy="103" r="10"/>
-                <circle cx="114" cy="160" r="11"/>
-              </g>
-
-              <!-- Ojo y sonrisa -->
-
-              <path
-                d="M181 115 Q190 112 196 117"
-                stroke="#51303c"
-                stroke-width="2"
-                fill="none"
-                stroke-linecap="round"
-              />
-              <circle cx="189" cy="117" r="2.5" fill="#31202d"/>
-              <path
-                d="M190 153 Q198 157 204 152"
-                stroke="#743a52"
-                stroke-width="2.4"
-                fill="none"
-                stroke-linecap="round"
-              />
-
-              <!-- Corona -->
-
-              <path
-                d="M112 34 L118 8 L139 23 L153 0 L167 23 L188 8 L195 34 Z"
-                fill="none"
-                stroke="#f1cd89"
-                stroke-width="3.3"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M113 39 H195"
-                stroke="#f1cd89"
-                stroke-width="3"
-              />
-              <circle cx="153" cy="4" r="4" fill="#f1cd89"/>
-
-              <path
-                d="M106 194 Q146 214 192 193"
-                fill="none"
-                stroke="#e8c796"
-                stroke-width="2"
-              />
-
-            </g>
-
-            <!-- PRINCESA LISA -->
-
-            <g transform="translate(585 5) scale(-1 1)">
-
-              <path
-                d="M72 226 Q65 195 101 184 L139 171 L191 183 Q230 194 227 226"
-                fill="#a36b8e"
-                stroke="#e3be91"
-                stroke-width="2"
-              />
-
-              <path
-                d="M125 180 Q145 209 168 179"
-                fill="#ead2bf"
-                stroke="#e3be91"
-                stroke-width="2"
-              />
-
-              <path
-                d="M129 145 H167 V187 Q147 199 129 185 Z"
-                fill="#b47d67"
-              />
-
-              <!-- Cabello liso -->
-
-              <path
-                d="M79 190 Q62 145 79 84 Q85 44 121 36 Q165 22 194 51 Q223 79 210 129 L216 189 Q198 209 178 197 L175 107 Q170 80 149 76 Q115 73 105 104 L109 189Z"
-                fill="#2a202d"
-                stroke="#bd8e83"
-                stroke-width="2"
-              />
-
-              <path
-                d="M116 85 Q135 65 166 78 Q185 86 189 108 Q193 123 205 132 L214 138 Q209 144 199 145 Q198 166 180 174 Q155 184 135 162 Q111 137 116 85Z"
-                fill="#c79278"
-                stroke="#e8b698"
-                stroke-width="2"
-              />
-
-              <path
-                d="M113 83 Q124 54 154 59 Q197 58 203 94 Q191 73 166 75 Q145 71 113 99Z"
-                fill="#302432"
-              />
-
-              <path
-                d="M99 98 Q89 134 104 192 M183 90 Q189 143 183 195"
-                fill="none"
-                stroke="#a88283"
-                stroke-width="2"
-                opacity=".75"
-              />
-
-              <!-- Ojo y sonrisa -->
-
-              <path
-                d="M181 115 Q190 112 196 117"
-                stroke="#583b43"
-                stroke-width="2"
-                fill="none"
-                stroke-linecap="round"
-              />
-              <circle cx="189" cy="117" r="2.5" fill="#31202d"/>
-
-              <path
-                d="M190 153 Q198 157 204 152"
-                stroke="#80485b"
-                stroke-width="2.4"
-                fill="none"
-                stroke-linecap="round"
-              />
-
-              <!-- Corona -->
-
-              <path
-                d="M112 34 L118 8 L139 23 L153 0 L167 23 L188 8 L195 34 Z"
-                fill="none"
-                stroke="#f1cd89"
-                stroke-width="3.3"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M113 39 H195"
-                stroke="#f1cd89"
-                stroke-width="3"
-              />
-              <circle cx="153" cy="4" r="4" fill="#f1cd89"/>
-
-              <path
-                d="M106 194 Q146 214 192 193"
-                fill="none"
-                stroke="#e8c796"
-                stroke-width="2"
-              />
-
-            </g>
-
-          </svg>
-
-          <span class="cover-princesses__caption">
-            DOS CORONAS. LA MISMA BELLEZA.
-          </span>
-
-        </div>
+        <div class="cover-princesses"><img class="cover-princesses-image" src="assets/illustrations/princesas-lineas.png" alt="Dos princesas, una crespa y otra lisa, con igual dignidad y belleza"><span class="cover-princesses__caption">DOS CORONAS. LA MISMA BELLEZA.</span></div>
       </div>
 
       <div class="cover-signature">
@@ -389,7 +145,6 @@ export const pages = [
 
   
   // PÁGINA 1 — ÉRASE UNA VEZ JULIANA
-
 
 page(
   'erase-una-vez',
@@ -435,7 +190,7 @@ page(
 
   // PÁGINA 2 — LA PELÍCULA
 
-  page(
+page(
     'princesa-mia',
     'Capítulo I · Había una vez',
     'La película que cambió mi cuento.',
@@ -505,7 +260,7 @@ page(
   // PÁGINA 3 — MI PROPIA TRANSFORMACIÓN
   // ==========================================
 
-  page(
+page(
     'el-espejo',
     'Capítulo II · La transformación',
     'Y así comenzó mi transformación.',
@@ -558,7 +313,7 @@ page(
   // PÁGINA 4 — NO ERA LA ÚNICA
   // ==========================================
 
-  page(
+page(
     'transformacion',
     'Capítulo II · La transformación',
     'Pero yo no era la única...',
@@ -615,354 +370,126 @@ page(
   // CAPÍTULO II
   // ==================================================
 
-  page(
-    "el-espejo",
-    "Capítulo II · La princesa y el espejo",
-    "Pero había un problema.",
-    `
-    <p class="story">
-      Mia ya era una princesa. Sin embargo, antes de
-      que el mundo pudiera reconocerla como tal,
-      la película nos muestra que debía pasar
-      por un cambio de imagen.
-    </p>
+page("la-tesis","Capítulo II · Lo que aprendimos","La pregunta que cambió el cuento.",`
+<p class="story">Aquel recuerdo dejaba una pregunta que ya no podía ignorar:</p>
+<p class="narrative-quote">Si Mia ya era princesa, ¿por qué parecía necesitar otro pelo para que el mundo la viera así?</p>
+<div class="thesis-page"><h3>La tesis de este cuento</h3><p>El cine, la publicidad y las redes sociales han contribuido a privilegiar determinados estilos y texturas de cabello. Aunque las representaciones cambian, algunas presiones permanecen. El pelo liso y el crespo pueden ser igual de bellos: lo importante es elegir sin sentir que una textura vale menos.</p></div>
+<p class="small">Para comprenderlo, viajaremos por anuncios, películas e investigaciones. No todas las mujeres vivieron estos ideales de la misma manera.</p>
+`,"story"),
 
-    <div class="ornament-line">✦</div>
+page("reloj-atras","Capítulo III · Un hechizo muy antiguo","1904: la promesa de un peine.",`
+<span class="archive-step">1904 · ESTADOS UNIDOS</span>
+<p class="story dropcap">Nuestro cuento retrocede casi un siglo. En <em>The Colored American</em>, una publicidad ya ofrecía transformar el cabello.</p>
+<div class="archive-excerpt"><span class="archive-excerpt__label">TRANSCRIPCIÓN PARCIAL DEL ANUNCIO ORIGINAL · 1904</span><div class="archive-excerpt__headline">The Magic Hair Straightener</div><p class="archive-excerpt__quote">«Lo alisa mientras se peina»</p><p class="archive-excerpt__note">Extracto traducido del texto publicitario. No es un facsímil ni una recreación de la publicidad visual.</p></div>
+<p class="story">El producto era un <strong>hot comb</strong>: un peine de metal calentado que alisaba el cabello mediante calor. El aviso prometía rapidez y una apariencia «natural».</p>
+<p class="story">Aquí empieza una pregunta: ¿por qué lo liso era presentado como la apariencia que había que conseguir?</p>
+<p class="archive-source"><a href="https://dangerouspress.org/papers/colored-american/1904-09-17" target="_blank" rel="noopener noreferrer">Ver periódico de 1904 y la propaganda completa ↗</a></p>
+`,"story"),
 
-    <p class="story">
-      Nuevas gafas. Otra ropa. Las cejas arregladas.
-      Y, como parte de aquella transformación...
-    </p>
+page("primeros-anuncios","Capítulo III · Un hechizo muy antiguo","¿Para quién eran esas promesas?",`
+<p class="story dropcap">Aquellos anuncios circulaban en la prensa afroamericana, dentro de una sociedad marcada por el racismo y la segregación.</p>
+<p class="story">Durante décadas, los ideales eurocéntricos privilegiaron el cabello liso. Para algunas mujeres negras, modificar su textura podía relacionarse con prejuicios, oportunidades laborales y la necesidad de ser tomadas en serio.</p>
+<p class="narrative-quote">No era solo una moda: el cabello también podía condicionar la forma en que otras personas las trataban.</p>
+<p class="story">Eso no significa que todas se alisaran por presión. Peinarse también podía ser creatividad, cuidado, gusto personal o una fuente de independencia económica.</p>
+<div class="study-note"><strong>Emma Dabiri e Ingrid Banks:</strong> el cabello afro debe leerse desde su historia, su identidad y las relaciones de poder, sin reducir cada decisión individual a una sola causa.</div>
+`,"story"),
 
-    <p class="narrative-quote">
-      <strong>Le alisaron el pelo.</strong>
-    </p>
+page("plough-1919","Capítulo III · Un hechizo muy antiguo","1919: cuando la palabra era «feo».",`
+<span class="archive-step">1919 · THE CHICAGO DEFENDER</span>
+<p class="story">Quince años después, un anuncio de <strong>Plough's Hair Dressing</strong> fue mucho más explícito.</p>
+<div class="archive-excerpt"><span class="archive-excerpt__label">TRANSCRIPCIÓN PARCIAL DEL ANUNCIO ORIGINAL · 1919</span><div class="archive-excerpt__headline">PLOUGH'S HAIR DRESSING</div><p class="archive-excerpt__quote">«kinky, snarly, ugly, curly Hair»</p><p class="archive-excerpt__note">Fragmento en inglés de la pieza publicada en julio de 1919. No es un facsímil ni una recreación de la publicidad visual.</p></div>
+<p class="story">La enumeración juntaba «crespo», «enredado» y «feo» para convertir una textura natural en un problema al que el producto prometía poner remedio.</p>
+<p class="story">El anuncio no prueba cómo se sintió cada lectora, pero sí revela qué prejuicios podían utilizarse para vender belleza.</p>
+<p class="archive-source"><a href="https://dangerouspress.org/papers/chicago-defender/1919-07-12?page=11" target="_blank" rel="noopener noreferrer">Abrir facsímil y texto del anuncio ↗</a></p>
+`,"story"),
 
-    <p class="story">
-      ¿Era ese el secreto para parecer elegante?
-    </p>
-    `
-  ),
+page("perma-1948","Capítulo III · Un hechizo muy antiguo","1948: un resultado que debía durar.",`
+<span class="archive-step">1948 · THE BALTIMORE AFRO-AMERICAN</span>
+<p class="story">Llegó una nueva promesa comercial: no solo alisar el pelo, sino mantenerlo así durante meses.</p>
+<div class="archive-excerpt"><span class="archive-excerpt__label">TRANSCRIPCIÓN PARCIAL DEL ANUNCIO ORIGINAL · 1948</span><div class="archive-excerpt__headline">PERMA-STRATE</div><p class="archive-excerpt__quote">«HAIR STRAIGHT · 3 to 6 MONTHS»</p><p class="archive-excerpt__note">Titular de la publicidad del 14 de agosto de 1948. No es un facsímil ni una recreación de la publicidad visual.</p></div>
+<p class="story">El producto anunciaba un cabello liso que resistiría varios meses, incluso después de lavarlo o peinarlo de otras maneras.</p>
+<p class="story">La publicidad asociaba ese resultado con verse atractiva y bien presentada. Su idea central era que la transformación valía la pena si se mantenía.</p>
+<p class="archive-source"><a href="https://msa.maryland.gov/megafile/ecpdata/webroot/msaref14/msa_sc5458_000045_000253/pdf/msa_afro_1948_01-0491.pdf" target="_blank" rel="noopener noreferrer">Ver periódico histórico y anuncio Perma-Strate ↗</a></p>
+`,"story"),
 
-  page(
-    "transformacion",
-    "Capítulo II · La princesa y el espejo",
-    "La magia del «antes y después».",
-    `
-    <div class="media-duo">
-      <figure>
-        ${img(
-          "curly-portrait",
-          "",
-          "Ilustración conceptual del cabello crespo"
-        )}
-        <figcaption>ANTES</figcaption>
-      </figure>
+page("hair-strate-1960","Capítulo III · Un hechizo muy antiguo","1960: que los rizos no regresen.",`
+<span class="archive-step">1960 · EBONY · HAIR-STRATE</span>
+<figure class="archive-ad"><a href="https://kissmyblackads.blogspot.com/2009/03/ebony-june-1960.html" target="_blank" rel="noopener noreferrer"><img class="archive-ad__image" src="https://1.bp.blogspot.com/_4ebKDFxiia8/ScelnGZzt5I/AAAAAAAACUo/ikRzDTFKHx0/s1600/Picture%2B24.png" alt="Anuncio histórico de Hair-Strate con modelos afroamericanas" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Reproducción de un anuncio de <em>Ebony</em>, junio de 1960 · <a href="https://kissmyblackads.blogspot.com/2009/03/ebony-june-1960.html" target="_blank" rel="noopener noreferrer">Ver fuente ↗</a></figcaption></figure>
+<p class="story">El anuncio celebraba que, después de nadar, ducharse o lavarse el pelo, el cabello no volviera a su textura anterior.</p>
+<p class="narrative-quote">¿Por qué el regreso de los rizos parecía algo que había que evitar?</p>
+<p class="small">El mensaje era comercial, no una descripción de lo que todas las mujeres negras deseaban.</p>
+`,"story"),
 
-      <figure>
-        ${img(
-          "straight-portrait",
-          "",
-          "Ilustración conceptual del cabello liso"
-        )}
-        <figcaption>DESPUÉS</figcaption>
-      </figure>
-    </div>
+page("black-is-beautiful","Capítulo III · Un hechizo muy antiguo","Pero otras mujeres dijeron que no.",`
+<span class="archive-step">AÑOS 60 · BLACK IS BEAUTIFUL</span>
+<p class="story dropcap">Mientras unos anuncios vendían el alisado como ideal, muchas mujeres negras estaban contando otra historia.</p>
+<p class="story">En el contexto de los movimientos por los derechos civiles y el <em>Black Power</em>, el afro natural se convirtió en símbolo de orgullo racial, identidad y resistencia.</p>
+<p class="narrative-quote">No necesitaban cambiar su textura para afirmar su belleza.</p>
+<div class="study-note"><strong>Historia no lineal:</strong> la aceptación del cabello natural no empezó con TikTok ni con las campañas actuales. Ya había luchas y representaciones alternativas desde mucho antes.</div>
+<p class="archive-source"><a href="https://exhibits.library.duke.edu/exhibits/show/-black-is-beautiful-/the-afro" target="_blank" rel="noopener noreferrer">Archivo «Black Is Beautiful», Duke University ↗</a></p>
+`,"story"),
 
-    <span class="media-caption">
-      Ilustraciones provisionales. Reemplazar por
-      fotogramas reales de la transformación de Mia.
-    </span>
+page("perma-1971","Capítulo III · Un hechizo muy antiguo","1971: primero alisa, luego decide.",`
+<span class="archive-step">1971 · PERMA-STRATE</span>
+<figure class="archive-ad"><a href="https://www.pinterest.com/pin/415738609347252904/" target="_blank" rel="noopener noreferrer"><img class="archive-ad__image" src="https://i.pinimg.com/736x/6d/73/ef/6d73efe37825d0cfbbd9a4a19573c299.jpg" alt="Publicidad vintage Perma-Strate, mujer con pelo alisado" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Reproducción de publicidad Perma-Strate atribuida a 1971 · <a href="https://www.pinterest.com/pin/415738609347252904/" target="_blank" rel="noopener noreferrer">Ver fuente ↗</a></figcaption></figure>
+<p class="story">El anuncio sugiere que, antes de elegir un estilo, el primer paso es alisar la textura del cabello.</p>
+<p class="story">Lo interesante es la fecha: mientras crecía la reivindicación del afro, la industria todavía vendía el alisado como punto de partida de la belleza.</p>
+<p class="small">La imagen está reproducida en un archivo secundario; año atribuido por el coleccionista.</p>
+`,"story"),
 
-    <p class="story">
-      Nadie pronuncia necesariamente la frase
-      «el pelo crespo es feo». El cambio ocurre
-      frente a nuestros ojos, acompañado por una
-      nueva forma de presentar al personaje.
-    </p>
+page("afro-sheen","Capítulo III · Un hechizo muy antiguo","1972: el afro entra en la publicidad.",`
+<span class="archive-step">1972 · AFRO SHEEN</span>
+<figure class="archive-ad"><a href="https://www.vintag.es/2016/09/vintage-afro-hairstyles-16-fascinating.html" target="_blank" rel="noopener noreferrer"><img class="archive-ad__image" src="https://3.bp.blogspot.com/-Dc3YizJjvHg/V-P5LkP_VXI/AAAAAAACYQU/LHY9WXqHpzc6S7QFBJtj2eJWIDWwYUPtACLcB/s1600/afro-hairstyle-ads-1960s-3.jpg" alt="Publicidad Afro Sheen de los años setenta con dos personas de cabello afro natural" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Anuncio de Afro Sheen, colección de publicidades de época · <a href="https://www.vintag.es/2016/09/vintage-afro-hairstyles-16-fascinating.html" target="_blank" rel="noopener noreferrer">Ver fuente ↗</a></figcaption></figure>
+<p class="story">Una pareja aparece con afros grandes y visibles. En lugar de esconder la textura, el producto la convierte en protagonista.</p>
+<p class="story">Pero hay otra contradicción: una reivindicación política también podía convertirse en un argumento de venta.</p>
+<div class="study-note"><strong>Duke University:</strong> las campañas de productos para afro se multiplicaron desde 1969, a veces dejando en segundo plano el significado político del movimiento.</div>
+`,"story"),
 
-    ${margin(
-      "Stuart Hall (1997) permite leer esta escena desde la teoría de la representación: las imágenes participan en la construcción de significados culturales. Aquí analizamos una interpretación del montaje, no una intención demostrada de sus creadores."
-    )}
-    `
-  ),
+page("frizz-1994","Capítulo III · Un hechizo muy antiguo","1994: el frizz necesita una «cura».",`
+<span class="archive-step">1994 · FRIZZ-EASE · JOHN FRIEDA</span>
+<p class="story">La publicidad cambió su vocabulario. Ahora, el enemigo podía llamarse <strong>frizz</strong>.</p>
+<div class="archive-excerpt"><span class="archive-excerpt__label">TRANSCRIPCIÓN PARCIAL DEL ANUNCIO ORIGINAL · 1994</span><div class="archive-excerpt__headline">NO MORE FRIZZ!</div><p class="archive-excerpt__quote">«No More Frizz!»</p><p class="archive-excerpt__note">Titular del anuncio publicado en The Tufts Daily. No es un facsímil ni una recreación de la publicidad visual.</p></div>
+<p class="story">La pieza mostraba comparaciones de antes y después y presentaba un sérum como solución. También ofrecía rizos definidos: no era simplemente una campaña contra todo cabello rizado.</p>
+<p class="story">El frizz no es sinónimo de pelo crespo. Sin embargo, palabras como «domar» y «controlar» podían seguir transmitiendo que el volumen natural necesitaba corrección.</p>
+<p class="archive-source"><a href="https://dl.tufts.edu/downloads/47429m65d?filename=ht24ww119.pdf" target="_blank" rel="noopener noreferrer">Ver publicidad de 1994 en la página 8 ↗</a></p>
+`,"story"),
 
-  page(
-    "la-tesis",
-    "Capítulo II · La princesa y el espejo",
-    "La pregunta que cambió el cuento.",
-    `
-    <p class="story">
-      Entonces una pregunta quedó suspendida
-      entre las páginas:
-    </p>
+page("sedal-2005","Capítulo III · Un hechizo muy antiguo","2005: «yo ya no me esponjo».",`
+<span class="archive-step">2005 · SEDAL ANTI-SPONGE · MÉXICO</span>
+<figure class="archive-ad"><a href="https://superbrands.s3.amazonaws.com/AAA%20MASTER%202%20PAGE%20PDF%20Case%20Studies/Mexico/Mexico%20Edition%202/Mexico%20Edition%202%20Sedal.pdf" target="_blank" rel="noopener noreferrer"><img class="archive-ad__image" src="https://www.liceodelsur.com/images/2020/juventino/fd5ed7408aaa5d9f19be1e24a332979e.jpg" alt="Anuncio verde de Sedal Anti-Sponge con león de melena peinada" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Campaña Sedal Anti-Sponge, documentación de Superbrands · <a href="https://superbrands.s3.amazonaws.com/AAA%20MASTER%202%20PAGE%20PDF%20Case%20Studies/Mexico/Mexico%20Edition%202/Mexico%20Edition%202%20Sedal.pdf" target="_blank" rel="noopener noreferrer">Ver fuente ↗</a></figcaption></figure>
+<p class="story">Un león con la melena alisada anunciaba que había dejado de «esponjarse».</p>
+<p class="story">Esa palabra me resulta familiar: <em>esponjado</em> era como yo describía el pelo que no sabía manejar cuando era pequeña.</p>
+<div class="study-note"><strong>Mi lectura:</strong> un producto podía resolver una necesidad práctica y, al mismo tiempo, reforzar la idea de que el volumen era un defecto.</div>
+`,"story"),
 
-    <p class="narrative-quote">
-      Si Mia ya era princesa antes de su transformación,
-      ¿por qué parecía necesario cambiar su cabello
-      para que los demás la vieran como tal?
-    </p>
+page("john-frieda-2010","Capítulo III · Un hechizo muy antiguo","2010: borrar el «antes».",`
+<span class="archive-step">2010–2011 · JOHN FRIEDA · FRIZZ-EASE</span>
+<figure class="archive-ad"><a href="https://www.campaignlive.co.uk/article/john-frieda-primed-host-live-digital-show/1071489" target="_blank" rel="noopener noreferrer"><img class="archive-ad__image" src="https://cached.imagescaler.hbpl.co.uk/resize/scaleWidth/815/cached.offlinehbpl.hbpl.co.uk/news/OMC/26E4E16D-A9F2-016F-1820A9DDF86B4451.jpg" alt="Mujer de pelo alisado sostiene una fotografía de cabello voluminoso en llamas" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Imagen de campaña Frizz-Ease, reproducida por Campaign · <a href="https://www.campaignlive.co.uk/article/john-frieda-primed-host-live-digital-show/1071489" target="_blank" rel="noopener noreferrer">Ver fuente ↗</a></figcaption></figure>
+<p class="story">Una mujer con el cabello liso sostiene una foto de su versión con volumen, mientras la imagen arde.</p>
+<p class="story">La metáfora visual es radical: el «antes» parece algo que debe desaparecer para poder mostrar el «después».</p>
+<p class="small">Interpretación de la imagen; no afirmación sobre la intención personal de quienes la diseñaron.</p>
+`,"story"),
 
-    <div class="thesis-page">
-      <h3>La tesis de este cuento</h3>
+page("otra-nina","Capítulo IV · Volver a la niña","Y ahora volvamos a Juliana.",`
+<div class="chapter-opener"><span class="num">✧</span><h2>¿Recuerdas a la niña<br>que solo quería<br>ser una princesa?</h2><p>Mientras los anuncios repetían sus propias promesas, yo crecía en otro país y en otra época. Pero la idea de que mi cabello debía cambiar ya me parecía familiar.</p><span class="ornament">❦</span></div>
+`,"chapter"),
 
-      <p>
-        El cine, la publicidad y las redes sociales han
-        contribuido a construir ideales de belleza que
-        han privilegiado determinadas texturas y estilos
-        de cabello. Aunque muchas representaciones han
-        empezado a cuestionarlos, los estándares reaparecen
-        bajo nuevas formas. La belleza y la elegancia no
-        dependen de llevar el pelo liso o crespo; poder
-        elegir sin presión debería ser lo importante.
-      </p>
-    </div>
+page("mis-fotos-antes","Capítulo IV · Volver a la niña","No era solo un peinado.",`
+<p class="story dropcap">Durante años recurrí a trenzas, alisados y tratamientos de queratina. A veces era más fácil peinarme de esa manera. Otras, solo quería verme como creía que debía verme.</p>
+<div class="ornament-line">✦</div>
+<p class="narrative-quote">Había aprendido a ver mi cabello como una tarea pendiente: algo que debía arreglar antes de mostrarme al mundo.</p>
+<p class="story">No era la misma historia que la de las mujeres negras de los anuncios de 1904. Pero al mirar las imágenes pude reconocer una pregunta parecida: ¿quién había decidido qué pelo era «bonito»?</p>
+<p class="small">Relato autobiográfico. Las experiencias históricas no son equivalentes.</p>
+`,"story"),
 
-    <p class="small">
-      Esta tesis se discutirá con imágenes,
-      investigaciones y una experiencia autobiográfica.
-    </p>
-    `
-  ),
+page("eleccion-o-presion","Capítulo IV · Volver a la niña","¿Elección o presión?",`
+<p class="story">También entendí que el cabello puede tener muchos significados. Puede ser una manera de expresar identidad, seguir la moda o simplemente elegir un peinado que nos guste.</p>
+<p class="narrative-quote">El problema no era alisarme. Era sentir que debía alisarme para ser bonita.</p>
+<p class="story">No todas las mujeres que se alisan rechazan su textura natural, y tampoco llevar los rizos equivale siempre a resistencia. Es el contexto lo que cambia el significado.</p>
+<div class="study-note"><strong>Ingrid Banks (2000):</strong> en <em>Hair Matters</em> estudia el cabello como un lugar de identidad, autonomía y relaciones de poder para las mujeres negras.</div>
+`,"story"),
 
-  // ==================================================
-  // CAPÍTULO III
-  // ==================================================
-
-  page(
-    "reloj-atras",
-    "Capítulo III · Un hechizo muy antiguo",
-    "Pero el hechizo no empezó con Mia.",
-    `
-    <div class="chapter-opener chapter-opener--midnight">
-      <span class="num">✦ 1900 ✦</span>
-      <h2>Había otra historia<br>antes de este cuento.</h2>
-
-      <p>
-        Para entender la transformación de una princesa
-        en 2001, debemos volver muchas décadas atrás.
-      </p>
-
-      <span class="ornament">❦</span>
-    </div>
-    `,
-    "chapter"
-  ),
-
-  page(
-    "primeros-anuncios",
-    "Capítulo III · Un hechizo muy antiguo",
-    "Los anuncios también contaban cuentos.",
-    `
-    <p class="story">
-      En el siglo XX, la publicidad capilar no solo
-      ofrecía productos: también hablaba de aspiraciones,
-      presentación personal y maneras de encajar en
-      una sociedad que no recibía de la misma forma
-      todas las apariencias.
-    </p>
-
-    ${pending("Una promesa de belleza", "1915")}
-
-    <p class="small">
-      El archivo de Poro College (1915) sirve para
-      estudiar los negocios capilares afroamericanos
-      en su contexto histórico.
-    </p>
-
-    <a
-      class="small"
-      href="https://nmaahc.si.edu/object/nmaahc_2011.170.2"
-      target="_blank"
-      rel="noopener noreferrer"
-    >Consultar archivo del Smithsonian ↗</a>
-    `
-  ),
-
-  page(
-    "historia-y-poder",
-    "Capítulo III · Un hechizo muy antiguo",
-    "Había algo más que moda.",
-    `
-    <p class="story">
-      La textura del cabello se relacionó, en distintos
-      contextos históricos, con juicios sobre belleza,
-      respetabilidad, raza y pertenencia.
-    </p>
-
-    <p class="story">
-      Y sin embargo, la historia no era igual para todas
-      las mujeres, ni cada decisión de alisarse
-      significaba lo mismo.
-    </p>
-
-    ${margin(
-      "<strong>Emma Dabiri (2019)</strong>, en <cite>Don't Touch My Hair</cite>, estudia el cabello afro como un asunto de identidad, historia y poder."
-    )}
-
-    <div class="ornament-line">✦</div>
-
-    <p class="story">
-      Los ideales parecían fijos. Pero ya había mujeres
-      decididas a discutirlos.
-    </p>
-    `
-  ),
-
-  page(
-    "resistencia",
-    "Capítulo III · Un hechizo muy antiguo",
-    "Las princesas también podían resistirse.",
-    `
-    <p class="historic-year">1960s</p>
-
-    <p class="story">
-      Con movimientos de reivindicación como
-      <em>Black Is Beautiful</em>, el cabello afro natural
-      se convirtió también en símbolo de orgullo,
-      identidad y resistencia cultural.
-    </p>
-
-    <p class="story">
-      La aceptación del cabello natural no comenzó
-      en las redes sociales. Tiene una historia
-      mucho más profunda.
-    </p>
-
-    <p class="small">
-      PENDIENTE: insertar una fotografía o campaña
-      de época con fecha, autoría y contexto verificados.
-    </p>
-    `
-  ),
-
-  page(
-    "el-frizz",
-    "Capítulo III · Un hechizo muy antiguo",
-    "Después vino la promesa del «control».",
-    `
-    <p class="story">
-      A finales del siglo XX y comienzos del XXI,
-      muchos anuncios prometían controlar el volumen,
-      dominar el frizz o dejar el cabello
-      perfectamente manejable.
-    </p>
-
-    <div class="magazine-ad" role="img"
-      aria-label="Ilustración editorial, no anuncio original">
-      <span class="ad-small">
-        ESTÉTICA RECREADA · NO ANUNCIO REAL
-      </span>
-      <span class="ad-headline">
-        ¿Y si tu pelo<br>
-        necesitara una<br>
-        <em>solución?</em>
-      </span>
-      <span class="ad-small">
-        UNA PREGUNTA SOBRE EL LENGUAJE PUBLICITARIO
-      </span>
-    </div>
-
-    <p class="small">
-      El frizz y el cabello crespo no son lo mismo.
-      El análisis deberá comparar mensajes de anuncios
-      específicos.
-    </p>
-
-    ${margin(
-      "Marshall McLuhan (1964) ayuda a pensar cómo los medios y sus formatos influyen en la forma en que circulan estas ideas."
-    )}
-    `
-  ),
-
-  // ==================================================
-  // CAPÍTULO IV
-  // ==================================================
-
-  page(
-    "otra-nina",
-    "Capítulo IV · La otra niña",
-    "Y mientras tanto...",
-    `
-    <div class="chapter-opener">
-      <span class="num">✧</span>
-
-      <h2>En otra parte del mundo<br>había otra niña.</h2>
-
-      <p>
-        No vivía en un castillo ni había descubierto
-        ningún reino secreto. Pero también crecía
-        rodeada de películas, anuncios y mensajes
-        sobre lo que significaba ser bonita.
-      </p>
-
-      <span class="ornament">❦</span>
-      <p class="small">Esa niña era yo.</p>
-    </div>
-    `,
-    "chapter"
-  ),
-
-  page(
-    "mis-fotos-antes",
-    "Capítulo IV · La otra niña",
-    "Yo también quería cambiar.",
-    `
-    <div class="photo-hole">
-      <strong>
-        Aquí irá una foto mía<br>
-        cuando me alisaba<br>
-        el pelo.
-      </strong>
-
-      <small>FOTOGRAFÍA PERSONAL · POR AGREGAR</small>
-    </div>
-
-    <p class="story">
-      Durante una etapa de mi vida me alisaba
-      el cabello porque no me gustaban mis crespos.
-    </p>
-
-    <p class="small">
-      PENDIENTE: completar con un recuerdo real,
-      una fecha aproximada y cómo me sentía entonces.
-    </p>
-    `
-  ),
-
-  page(
-    "eleccion-o-presion",
-    "Capítulo IV · La otra niña",
-    "Pero esta historia no es contra el pelo liso.",
-    `
-    <p class="story">
-      Hoy sé que no hay nada malo con alisarse el cabello.
-      Tampoco con llevarlo rizado, crespo, recogido
-      o como cada quien prefiera.
-    </p>
-
-    <p class="narrative-quote">
-      El problema nunca fue alisarme el pelo.
-      Fue sentir que debía hacerlo para ser bonita.
-    </p>
-
-    ${margin(
-      "Ingrid Banks (2000), en <cite>Hair Matters</cite>, examina las relaciones entre cabello, identidad y elecciones personales. Su trabajo ayuda a cuestionar la idea simplista de que alisarse siempre equivale a rechazo de la textura natural."
-    )}
-
-    <p class="story">
-      Entonces comprendí que el verdadero hechizo
-      no estaba en los rizos: estaba en la idea de
-      que solo una apariencia merecía admiración.
-    </p>
-    `
-  ),
-
-  // ==================================================
-  // CAPÍTULO V
-  // ==================================================
-
-  page(
+page(
     "cuento-cambia",
     "Capítulo V · Reescribir el cuento",
     "Pero las historias también pueden cambiar.",
@@ -989,111 +516,31 @@ page(
     "chapter"
   ),
 
-  page(
-    "valiente",
-    "Capítulo V · Reescribir el cuento",
-    "Otra princesa apareció.",
-    `
-    <span class="page-kicker">2012 · VALIENTE</span>
+page("valiente","Capítulo V · Reescribir el cuento","2012: una princesa diferente.",`
+<span class="archive-step">2012 · BRAVE / VALIENTE · PIXAR</span>
+<img src="assets/illustrations/curly-portrait.svg" class="story-portrait story-portrait--small" alt="Ilustración editorial de una protagonista de cabello crespo">
+<p class="story">Mérida no necesitaba alisar su gran melena pelirroja para ser valiente ni para protagonizar una historia de princesas.</p>
+<p class="story">Su personaje no borró décadas de ideales de belleza, pero abrió espacio para otro tipo de representación dentro de un medio que yo había amado desde niña.</p>
+<p class="small">Ilustración editorial, no fotograma de la película. Película: <em>Brave</em> (Pixar, 2012).</p>
+`,"story"),
 
-    ${img(
-      "curly-portrait",
-      "story-portrait",
-      "Ilustración conceptual provisional de una princesa con rizos"
-    )}
+page("dove","Capítulo V · Reescribir el cuento","2015: «ama tus rizos».",`
+<span class="archive-step">2015 · DOVE · LOVE YOUR CURLS</span>
+<figure class="archive-ad"><a href="https://shortyawards.com/8th/dove-hair-love-your-curls" target="_blank" rel="noopener noreferrer"><img class="archive-ad__image" src="https://dp6mhagng1yw3.cloudfront.net/entries/8th/dove-hair-lyc.jpg" alt="Arte publicitario Dove con mujer sonriente de rizos y flores" loading="lazy" referrerpolicy="no-referrer"></a><figcaption>Imagen de la campaña Love Your Curls, Dove (2015) · <a href="https://shortyawards.com/8th/dove-hair-love-your-curls" target="_blank" rel="noopener noreferrer">Ver fuente ↗</a></figcaption></figure>
+<p class="story">Esta vez el mensaje no era «alisa» ni «controla», sino aprender a querer los rizos.</p>
+<p class="story">El cambio era importante. Pero también hay una contradicción: la autoestima se convertía en parte de la estrategia de una marca que vendía productos para el cabello.</p>
+<p class="archive-source"><a href="https://www.prnewswire.com/news-releases/dove-hair-launches-poetic-tribute-to-curls-inspired-by-stories-from-real-women-300084598.html" target="_blank" rel="noopener noreferrer">Leer comunicado de lanzamiento de Dove ↗</a></p>
+`,"story"),
 
-    <p class="story">
-      Mérida tenía una gran melena de rizos.
-      Su cabello no necesitaba una transformación
-      para convertirla en protagonista
-      de su propia historia.
-    </p>
+page("encanto","Capítulo V · Reescribir el cuento","2021: rizos en una historia colombiana.",`
+<span class="archive-step">2021 · ENCANTO · COLOMBIA</span>
+<img src="assets/illustrations/curly-portrait.svg" class="story-portrait story-portrait--small" alt="Ilustración editorial de cabello rizado, no fotograma">
+<p class="story">En <em>Encanto</em>, Mirabel y otros personajes muestran diversas texturas de cabello en un cuento ambientado en Colombia. Ya no hacía falta esconder todos los rizos bajo el mismo peinado.</p>
+<p class="story">No basta una película para cambiar un ideal. Pero sí importa que una niña pueda verse representada de otra manera.</p>
+<div class="study-note"><strong>Stuart Hall:</strong> las representaciones no son espejos neutrales; contribuyen a producir significados culturales.</div>
+`,"story"),
 
-    <p class="small">
-      Fotograma pendiente de <cite>Valiente</cite> (2012).
-    </p>
-    `
-  ),
-
-  page(
-    "dove",
-    "Capítulo V · Reescribir el cuento",
-    "Y algunas marcas cambiaron su discurso.",
-    `
-    <span class="page-kicker">2015 · LOVE YOUR CURLS</span>
-
-    <div class="magazine-ad" role="img"
-      aria-label="Recreación conceptual, no anuncio real">
-      <span class="ad-small">
-        ESPACIO PARA ANUNCIO ORIGINAL
-      </span>
-      <span class="ad-headline">
-        Tus rizos<br>
-        <em>también</em><br>
-        merecen amor.
-      </span>
-      <span class="ad-small">
-        DOVE 2015 · INSERTAR PIEZA DOCUMENTADA
-      </span>
-    </div>
-
-    <p class="story">
-      La campaña <cite>Love Your Curls</cite> promovió
-      una mirada más positiva del cabello rizado.
-      Era un cambio visible en el mensaje publicitario.
-    </p>
-
-    ${margin(
-      "Pero aquí aparece una contradicción: la aceptación también puede convertirse en una estrategia de venta. Una campaña puede cuestionar un estereotipo y comercializar esa reivindicación."
-    )}
-
-    <a class="small"
-      href="https://www.prnewswire.com/news-releases/dove-hair-launches-poetic-tribute-to-curls-inspired-by-stories-from-real-women-300084598.html"
-      target="_blank"
-      rel="noopener noreferrer"
-    >Fuente sobre la campaña ↗</a>
-    `
-  ),
-
-  page(
-    "encanto",
-    "Capítulo V · Reescribir el cuento",
-    "Y la historia llegó más cerca de casa.",
-    `
-    <span class="page-kicker">
-      2021 · ENCANTO · COLOMBIA
-    </span>
-
-    ${img(
-      "curly-portrait",
-      "story-portrait story-portrait--small",
-      "Ilustración conceptual provisional"
-    )}
-
-    <p class="story">
-      Mirabel, protagonista de <cite>Encanto</cite>,
-      lleva sus rizos naturales. La película permite
-      reconocer distintas texturas de cabello en
-      una historia situada en Colombia.
-    </p>
-
-    ${margin(
-      "María Paula González Herrera (2019), en <cite>Entre rizo y rizo</cite>, investiga percepciones del cabello afro y rizado en Colombia a partir de medios y testimonios."
-    )}
-
-    <a class="small"
-      href="https://intellectum.unisabana.edu.co/entities/publication/4f61ed3e-6c40-4f83-93f4-ee7e6a35af96"
-      target="_blank"
-      rel="noopener noreferrer"
-    >Leer investigación colombiana ↗</a>
-    `
-  ),
-
-  // ==================================================
-  // CAPÍTULO VI
-  // ==================================================
-
-  page(
+page(
     "nuevos-hechizos",
     "Capítulo VI · Los nuevos hechizos",
     "Pero algo del viejo hechizo sobrevivió.",
@@ -1123,7 +570,7 @@ page(
     `
   ),
 
-  page(
+page(
     "clean-girl",
     "Capítulo VI · Los nuevos hechizos",
     "El nuevo ideal tenía un nombre.",
@@ -1162,112 +609,31 @@ page(
     `
   ),
 
-  page(
-    "que-cambio",
-    "Capítulo VI · Los nuevos hechizos",
-    "¿Y si no todo había cambiado?",
-    `
-    <p class="story">
-      No se trata de decir que el
-      <em>Clean Girl Look</em> está mal.
-      Se trata de preguntarnos por qué expresiones
-      como «limpio», «arreglado» o «elegante»
-      todavía pueden asociarse con tener
-      cada cabello bajo control.
-    </p>
+page("que-cambio","Capítulo VI · Los nuevos hechizos","¿Y si el hechizo cambió de nombre?",`
+<p class="story">En redes sociales, el <em>Clean Girl Look</em> popularizó recogidos tirantes, cabellos pulidos y una apariencia de esfuerzo invisible.</p>
+<p class="story">No hay nada malo en llevar ese estilo. Lo que podemos preguntar es por qué palabras como «limpia», «arreglada» o «elegante» a veces parecen describir una sola clase de cabello.</p>
+<p class="narrative-quote">El problema no es un moño. Es convertir una estética en la definición de la belleza.</p>
+<div class="study-note"><strong>Marta Ezquerra Fernández (2026):</strong> analiza la feminidad y la estandarización estética en videos de TikTok sobre la tendencia <em>Clean Girl</em>.</div>
+<p class="archive-source"><a href="https://firstmonday.org/ojs/index.php/fm/article/view/14323" target="_blank" rel="noopener noreferrer">Leer investigación sobre TikTok ↗</a></p>
+`,"story"),
 
-    ${margin(
-      "Marta Ezquerra Fernández (2026) analiza cien videos de TikTok relacionados con la estética <em>Clean Girl</em> y estudia la estandarización visual de ciertas expectativas de feminidad."
-    )}
+page("anne","Capítulo VII · El final que yo elijo","2026: hasta Mia volvió a mirar atrás.",`
+<span class="archive-step">21 DE ABRIL DE 2026 · PEOPLE</span>
+<p class="story">Veinticinco años después de <em>El diario de la princesa</em>, Anne Hathaway habló sobre la transformación del cabello de Mia.</p>
+<p class="story">Explicó que su propio pelo era bastante liso. El contraste con los rizos de Mia se creó por razones prácticas durante la producción, pero tuvo una consecuencia que no habían previsto: parte del público interpretó que el cabello rizado era poco atractivo.</p>
+<p class="narrative-quote">La intención de una escena no es siempre el significado que recibe quien la mira.</p>
+<p class="story">Yo era una de esas niñas que se quedó con aquel mensaje. Tal vez Mia nunca necesitó cambiar para ser princesa.</p>
+<p class="archive-source"><a href="https://people.com/anne-hathaway-the-princess-diaries-worlds-most-beautiful-exclusive-11954368" target="_blank" rel="noopener noreferrer">Leer entrevista original de Anne Hathaway ↗</a></p>
+`,"story"),
 
-    <p class="narrative-quote">
-      El problema nunca fue elegir un peinado.
-      Fue creer que solo uno podía ser bonito.
-    </p>
+page("yo-hoy","Capítulo VII · El final que yo elijo","La niña del cuento también creció.",`
+<img src="assets/illustrations/curly-portrait.svg" class="story-portrait story-portrait--small" alt="Ilustración conceptual de cabello rizado">
+<p class="story">Tardé mucho tiempo en entender algo que hoy me parece sencillo: mis crespos no eran un defecto que debía corregir. Había belleza en un cabello que durante años intenté esconder.</p>
+<p class="story">Hoy puedo querer mis rizos y también alisarlos si un día lo deseo, sin sentir que ninguna de esas elecciones define mi valor.</p>
+<p class="narrative-quote">La diferencia es que ahora quiero elegir yo.</p>
+`,"story"),
 
-    <a class="small"
-      href="https://firstmonday.org/ojs/index.php/fm/article/view/14323"
-      target="_blank"
-      rel="noopener noreferrer"
-    >Leer estudio sobre TikTok ↗</a>
-    `
-  ),
-
-  // ==================================================
-  // CAPÍTULO VII
-  // ==================================================
-
-  page(
-    "anne",
-    "Capítulo VII · El final que yo elijo",
-    "Veinticinco años después...",
-    `
-    <span class="page-kicker">
-      2026 · EL DIARIO DE LA PRINCESA
-    </span>
-
-    <p class="story">
-      La historia regresó al principio.
-      En una entrevista de 2026, Anne Hathaway
-      reflexionó sobre el contraste que habían
-      construido entre el cabello rizado
-      y el cabello liso de Mia.
-    </p>
-
-    ${img(
-      "curly-portrait",
-      "story-portrait story-portrait--small",
-      "Ilustración conceptual provisional"
-    )}
-
-    <p class="story">
-      Reconoció que aquella decisión transmitió
-      una interpretación negativa que no habían buscado.
-    </p>
-
-    <p class="small">
-      La entrevista permite distinguir la intención
-      de la producción del significado que puede
-      recibir el público.
-    </p>
-
-    <a class="small"
-      href="https://people.com/anne-hathaway-the-princess-diaries-worlds-most-beautiful-exclusive-11954368"
-      target="_blank"
-      rel="noopener noreferrer"
-    >Entrevista en PEOPLE ↗</a>
-    `
-  ),
-
-  page(
-    "yo-hoy",
-    "Capítulo VII · El final que yo elijo",
-    "Y la otra niña también había crecido.",
-    `
-    <div class="photo-hole photo-hole--now">
-      <strong>
-        Mi fotografía actual<br>
-        con mis crespos<br>
-        naturales
-      </strong>
-
-      <small>FOTOGRAFÍA PERSONAL · POR AGREGAR</small>
-    </div>
-
-    <p class="story">
-      Hoy quiero poder llevar mis crespos porque
-      me gustan, no porque una tendencia
-      me obligue a reivindicarlos.
-    </p>
-
-    <p class="story">
-      Y quiero poder alisarlos, si un día me provoca,
-      sin que eso signifique que rechazo quién soy.
-    </p>
-    `
-  ),
-
-  page(
+page(
     "moraleja",
     "Capítulo VII · El final que yo elijo",
     "La moraleja nunca fue tener rizos.",
@@ -1301,7 +667,7 @@ page(
     `
   ),
 
-  page(
+page(
     "yo-princesa",
     "Capítulo VII · El final que yo elijo",
     "Y así terminó el cuento...",
@@ -1337,152 +703,45 @@ page(
   // BIBLIOGRAFÍA
   // ==================================================
 
-  page(
-    "autores-1",
-    "Apéndice · Notas del cuento",
-    "Las voces detrás de la historia.",
-    `
-    <p class="story">
-      Este cuento es también un ensayo:
-      las escenas y anuncios se interpretan
-      a partir de teorías y fuentes que pueden
-      respaldar, cuestionar o matizar el argumento.
-    </p>
+page("autores-1","Apéndice · Notas del cuento","Las voces detrás del cuento.",`
+<p class="story">Esta historia personal se interpreta con teorías de representación, medios e identidad. Los argumentos son lecturas críticas de las piezas, no pruebas de que todos los espectadores recibieran el mismo mensaje.</p>
+<ol class="refs">
+<li>Hall, S. (Ed.). (1997). <cite>Representation: Cultural Representations and Signifying Practices</cite>. SAGE.</li>
+<li>McLuhan, M. (1964). <cite>Understanding Media: The Extensions of Man</cite>. McGraw-Hill.</li>
+<li>Dabiri, E. (2019). <cite>Don't Touch My Hair</cite>. Allen Lane.</li>
+<li>Banks, I. (2000). <cite>Hair Matters: Beauty, Power, and Black Women's Consciousness</cite>. NYU Press.</li>
+<li>González Herrera, M. P. (2019). <cite>Entre rizo y rizo</cite>. Universidad de La Sabana.</li>
+<li>Ezquerra Fernández, M. (2026). Estudio de la estética <em>Clean Girl</em> en TikTok. <cite>First Monday</cite>.</li>
+</ol>
+`,"story"),
 
-    <ol class="refs">
-      <li>
-        Hall, S. (Ed.). (1997).
-        <cite>Representation: Cultural Representations
-        and Signifying Practices</cite>. SAGE.
-      </li>
+page("fuentes-2","Apéndice · Notas del cuento","Archivos que nos permitieron viajar.",`
+<ol class="refs">
+<li><a href="https://dangerouspress.org/papers/colored-american/1904-09-17" target="_blank">The Colored American</a> (1904), <em>Magic Hair Straightener</em>.</li>
+<li><a href="https://dangerouspress.org/papers/chicago-defender/1919-07-12?page=11" target="_blank">Chicago Defender</a> (1919), <em>Plough's Hair Dressing</em>.</li>
+<li><a href="https://msa.maryland.gov/megafile/ecpdata/webroot/msaref14/msa_sc5458_000045_000253/pdf/msa_afro_1948_01-0491.pdf" target="_blank">Baltimore Afro-American</a> (1948), <em>Perma-Strate</em>.</li>
+<li><a href="https://kissmyblackads.blogspot.com/2009/03/ebony-june-1960.html" target="_blank">Ebony</a> (1960), <em>Hair-Strate</em>.</li>
+<li><a href="https://exhibits.library.duke.edu/exhibits/show/-black-is-beautiful-/the-afro" target="_blank">Duke University</a>, archivo <em>Black Is Beautiful</em>.</li>
+<li><a href="https://www.vintag.es/2016/09/vintage-afro-hairstyles-16-fascinating.html" target="_blank">Colección Afro Sheen</a> (años 70).</li>
+<li><a href="https://dl.tufts.edu/downloads/47429m65d?filename=ht24ww119.pdf" target="_blank">Tufts Daily</a> (1994), <em>No More Frizz!</em>.</li>
+<li><a href="https://superbrands.s3.amazonaws.com/AAA%20MASTER%202%20PAGE%20PDF%20Case%20Studies/Mexico/Mexico%20Edition%202/Mexico%20Edition%202%20Sedal.pdf" target="_blank">Superbrands</a>, Sedal Anti-Sponge (2005).</li>
+<li><a href="https://www.campaignlive.co.uk/article/john-frieda-primed-host-live-digital-show/1071489" target="_blank">Campaign</a>, John Frieda Frizz-Ease (2010–11).</li>
+<li><a href="https://www.prnewswire.com/news-releases/dove-hair-launches-poetic-tribute-to-curls-inspired-by-stories-from-real-women-300084598.html" target="_blank">Dove</a> (2015), <em>Love Your Curls</em>.</li>
+<li><a href="https://people.com/anne-hathaway-the-princess-diaries-worlds-most-beautiful-exclusive-11954368" target="_blank">PEOPLE</a> (2026), entrevista con Anne Hathaway.</li>
+</ol>
+`,"story"),
 
-      <li>
-        McLuhan, M. (1964).
-        <cite>Understanding Media:
-        The Extensions of Man</cite>.
-      </li>
+page("declaracion","Apéndice · Notas del cuento","Cómo se construyó este cuento.",`
+<p class="story">El libro interactivo combina memoria personal, imágenes comerciales, cine e investigación. El paso de páginas reproduce la experiencia de revisar las historias que aprendimos de niños.</p>
+<div class="paper-note">
+<p><strong>Herramientas:</strong> HTML, CSS y JavaScript; StPageFlip para la animación de hojas.</p>
+<p><strong>Inteligencia artificial:</strong> se utilizó ChatGPT como apoyo para estructurar el argumento, redactar versiones, buscar y contrastar fuentes, y desarrollar código; un generador de imágenes se utilizó para ilustraciones editoriales identificadas como tales. La autora revisó las decisiones narrativas y el contenido.</p>
+<p><strong>Archivos históricos:</strong> las imágenes de publicidad enlazan a sus repositorios; las composiciones tipográficas se identifican como transcripciones, nunca como originales.</p>
+</div>
+<p class="small">La experiencia personal corresponde a la autora. La interpretación académica no atribuye una misma motivación a todas las mujeres que eligen alisarse.</p>
+`,"story"),
 
-      <li>
-        Dabiri, E. (2019).
-        <cite>Don't Touch My Hair</cite>.
-      </li>
-
-      <li>
-        Banks, I. (2000).
-        <cite>Hair Matters: Beauty, Power,
-        and Black Women's Consciousness</cite>.
-        NYU Press.
-      </li>
-
-      <li>
-        González Herrera, M. P. (2019).
-        <cite>Entre rizo y rizo</cite>.
-        Universidad de La Sabana.
-      </li>
-
-      <li>
-        Ezquerra Fernández, M. (2026).
-        <cite>Clean Girl aesthetic and neoliberal
-        femininity performance on TikTok</cite>.
-        First Monday.
-      </li>
-    </ol>
-    `
-  ),
-
-  page(
-    "fuentes-2",
-    "Apéndice · Notas del cuento",
-    "Las imágenes detrás del cuento.",
-    `
-    <p class="page-kicker">
-      FUENTES PRIMARIAS Y AUDIOVISUALES
-    </p>
-
-    <ol class="refs">
-      <li>
-        Marshall, G. (Dir.). (2001).
-        <cite>The Princess Diaries</cite>.
-        Walt Disney Pictures.
-      </li>
-
-      <li>
-        Andrews, M. y Chapman, B. (Dirs.). (2012).
-        <cite>Brave</cite>.
-        Pixar Animation Studios.
-      </li>
-
-      <li>
-        Bush, J. y Howard, B. (Dirs.). (2021).
-        <cite>Encanto</cite>.
-        Walt Disney Animation Studios.
-      </li>
-
-      <li>
-        Dove (2015).
-        <cite>Love Your Curls</cite> [Campaña].
-      </li>
-
-      <li>
-        Smithsonian / National Museum of African
-        American History and Culture.
-        Documento de Poro College (1915).
-      </li>
-
-      <li>
-        Hathaway, A. (2026).
-        Entrevista en <cite>PEOPLE</cite>.
-      </li>
-    </ol>
-
-    <p class="small">
-      PENDIENTE: completar las referencias de cada
-      anuncio histórico, los créditos de los fotogramas
-      y sus enlaces antes de la entrega.
-    </p>
-    `
-  ),
-
-  page(
-    "declaracion",
-    "Apéndice · Notas del cuento",
-    "Cómo se hizo este cuento.",
-    `
-    <p class="story">
-      El formato de libro interactivo es una decisión
-      narrativa: permite que el lector avance de una
-      historia aparentemente inocente hacia una pregunta
-      histórica, social y personal.
-    </p>
-
-    <div class="paper-note">
-      <p>
-        <strong>Herramientas:</strong>
-        HTML, CSS y JavaScript para la estructura,
-        el diseño y el paso de páginas.
-      </p>
-
-      <p>
-        <strong>Uso de inteligencia artificial:</strong>
-        antes de la entrega final, añadir aquí las
-        herramientas utilizadas, los prompts exactos
-        y una reflexión crítica sobre posibles sesgos,
-        errores y limitaciones.
-      </p>
-    </div>
-
-    <p class="small">
-      Los créditos y la investigación son tan importantes
-      como el diseño del cuento.
-    </p>
-    `
-  ),
-
-  // ==================================================
-  // CONTRAPORTADA
-  // ==================================================
-
-  page(
+page(
     "contraportada",
     "Contraportada",
     "El final del libro",
@@ -1505,5 +764,52 @@ page(
     `,
     "backcover"
   )
+];
 
+export const chapters = [
+  {
+    "page": 0,
+    "number": "00",
+    "label": "La portada"
+  },
+  {
+    "page": 1,
+    "number": "01",
+    "label": "Había una vez..."
+  },
+  {
+    "page": 3,
+    "number": "02",
+    "label": "Mi transformación"
+  },
+  {
+    "page": 6,
+    "number": "03",
+    "label": "Un hechizo muy antiguo"
+  },
+  {
+    "page": 17,
+    "number": "04",
+    "label": "Volver a la niña"
+  },
+  {
+    "page": 20,
+    "number": "05",
+    "label": "Reescribir el cuento"
+  },
+  {
+    "page": 24,
+    "number": "06",
+    "label": "Los nuevos hechizos"
+  },
+  {
+    "page": 27,
+    "number": "07",
+    "label": "El final que yo elijo"
+  },
+  {
+    "page": 31,
+    "number": "08",
+    "label": "Las notas del cuento"
+  }
 ];
