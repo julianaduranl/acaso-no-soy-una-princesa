@@ -3,7 +3,7 @@
  * content.js sigue siendo la única fuente del ensayo.
  * La portada 3D original permanece como entrada cinematográfica.
  */
-import { pages, chapters } from './content.js?v=20261122h3';
+import { pages, chapters } from './content.js?v=20261122h5';
 import { hydrateMedia } from './media.js';
 import { fitLeaf } from './page-fit.js?v=20261122h5';
 
