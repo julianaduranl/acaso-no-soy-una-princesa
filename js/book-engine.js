@@ -3,7 +3,7 @@
  * content.js sigue siendo la única fuente del ensayo.
  * La portada 3D original permanece como entrada cinematográfica.
  */
-import { pages, chapters } from './content.js';
+import { pages, chapters } from './content.js?v=20261122h2';
 import { hydrateMedia } from './media.js';
 import { fitLeaf } from './page-fit.js';
 
@@ -214,6 +214,17 @@ export function initBook() {
     if (event.target.closest('a,button,input,textarea,select,[contenteditable="true"]')) return;
     if (event.key === 'ArrowRight') { event.preventDefault(); turn(1); }
     if (event.key === 'ArrowLeft') { event.preventDefault(); turn(-1); }
+  });
+  // Preserve overlapping-photo hover even after the flipbook rebuilds its pages.
+  flipbookElement.addEventListener('pointerover', (event) => {
+    const photo = event.target.closest('.archive-collage .scrap-photo');
+    if (photo) photo.classList.add('is-hovered');
+  });
+  flipbookElement.addEventListener('pointerout', (event) => {
+    const photo = event.target.closest('.archive-collage .scrap-photo');
+    if (photo && (!event.relatedTarget || !photo.contains(event.relatedTarget))) {
+      photo.classList.remove('is-hovered');
+    }
   });
   flipbookElement.addEventListener('click', (event) => {
     const trigger = event.target.closest('.note-trigger');
