@@ -58,9 +58,11 @@ function getSize() {
   const mobile = viewportWidth < 800;
   // Use the ACTUAL visible reader area, not a fixed subtraction from
   // innerHeight: browser bars, Teams, projectors and zoom all change it.
-  const area = reader.getBoundingClientRect();
-  const stageWidth = Math.round(area.width);
-  const stageHeight = Math.round(area.height);
+  // clientWidth/clientHeight are unaffected by the stage's opening
+  // scale(.93) animation; getBoundingClientRect() would underestimate
+  // both dimensions before the book was opened.
+  const stageWidth = reader.clientWidth;
+  const stageHeight = reader.clientHeight;
   const safeWidth = Math.max(150, stageWidth - (mobile ? 24 : 48));
   const safeHeight = Math.max(150, stageHeight - 14);
   const ratio = .74; // Each paper leaf keeps the same width/height ratio.
