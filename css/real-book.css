@@ -1062,3 +1062,30 @@ body.is-opening .book-frame {
   text-align: center;
   margin: 8px 0 0;
 }
+
+
+/* Archivo de los noventa: sustituto tipográfico si alguna fuente externa no carga. */
+#flipbook .scrap-photo .scrap-archive-fallback {
+  display: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: 12px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  background: #ead8bb;
+  color: #51374b;
+  font: 700 clamp(13px, 1.8vw, 22px)/1.15 Georgia, serif;
+  letter-spacing: .03em;
+}
+#flipbook .scrap-photo .scrap-archive-fallback small {
+  color: #795b54;
+  font: italic 11px/1.45 Georgia, serif;
+  letter-spacing: 0;
+}
+#flipbook .scrap-photo.is-missing .scrap-photo__picture img { display: none !important; }
+#flipbook .scrap-photo.is-missing .scrap-archive-fallback { display: flex; }
