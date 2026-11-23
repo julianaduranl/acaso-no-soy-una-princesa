@@ -3,7 +3,7 @@
  * content.js sigue siendo la única fuente del ensayo.
  * La portada 3D original permanece como entrada cinematográfica.
  */
-import { pages, chapters } from './content.js?v=20261122h2';
+import { pages, chapters } from './content.js?v=20261122h3';
 import { hydrateMedia } from './media.js';
 import { fitLeaf } from './page-fit.js';
 
@@ -215,17 +215,63 @@ export function initBook() {
     if (event.key === 'ArrowRight') { event.preventDefault(); turn(1); }
     if (event.key === 'ArrowLeft') { event.preventDefault(); turn(-1); }
   });
-  // Preserve overlapping-photo hover even after the flipbook rebuilds its pages.
-  flipbookElement.addEventListener('pointerover', (event) => {
-    const photo = event.target.closest('.archive-collage .scrap-photo');
-    if (photo) photo.classList.add('is-hovered');
-  });
-  flipbookElement.addEventListener('pointerout', (event) => {
-    const photo = event.target.closest('.archive-collage .scrap-photo');
-    if (photo && (!event.relatedTarget || !photo.contains(event.relatedTarget))) {
-      photo.classList.remove('is-hovered');
-    }
-  });
+  // Keep the hovered archival clipping in front of its neighbors.
+  // StPageFlip can put a transparent interaction layer above the paper,
+  // so pointerover on the clipping itself is not reliable on every browser.
+  let raisedScrap = null;
+  const containsPoint = (rect, x, y) =>
+    rect.width > 0 && rect.height > 0 &&
+    x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+  const stackLevel = (element) => parseInt(getComputedStyle(element).zIndex, 10) || 0;
+
+  function raiseScrap(scrap) {
+    if (scrap === raisedScrap) return;
+    raisedScrap?.classList.remove('is-hovered');
+    raisedScrap = scrap;
+    raisedScrap?.classList.add('is-hovered');
+  }
+
+  function photoUnderPointer(x, y) {
+    if (!reader.classList.contains('is-visible') ||
+        !containsPoint(reader.getBoundingClientRect(), x, y)) return null;
+
+    const hit = document.elementFromPoint(x, y);
+    if (hit?.closest('.book-controls, .site-header, .chapter-drawer')) return null;
+
+    // Native hit testing is most precise for overlapping, rotated photos.
+    const direct = hit?.closest('#flipbook .archive-collage .scrap-photo');
+    if (direct) return direct;
+
+    // Fallback: page-flip shadows/overlays can receive the mouse event
+    // instead of the actual photo. Use the photo's rendered screen bounds.
+    const candidates = [...flipbookElement.querySelectorAll('.archive-collage .scrap-photo')]
+      .filter((photo) => {
+        const page = photo.closest('.page');
+        if (!page || !containsPoint(page.getBoundingClientRect(), x, y) ||
+            !containsPoint(photo.getBoundingClientRect(), x, y)) return false;
+        const style = getComputedStyle(page);
+        return style.display !== 'none' && style.visibility !== 'hidden';
+      });
+
+    candidates.sort((a, b) =>
+      stackLevel(b.closest('.page')) - stackLevel(a.closest('.page')) ||
+      stackLevel(b) - stackLevel(a));
+    return candidates[0] || null;
+  }
+
+  let pointerFrame = 0;
+  let pointerPosition = null;
+  document.addEventListener('pointermove', (event) => {
+    if (event.pointerType === 'touch') return;
+    pointerPosition = { x: event.clientX, y: event.clientY };
+    if (pointerFrame) return;
+    pointerFrame = requestAnimationFrame(() => {
+      pointerFrame = 0;
+      if (pointerPosition) raiseScrap(photoUnderPointer(pointerPosition.x, pointerPosition.y));
+    });
+  }, { capture: true, passive: true });
+  reader.addEventListener('pointerleave', () => raiseScrap(null));
+  window.addEventListener('blur', () => raiseScrap(null));
   flipbookElement.addEventListener('click', (event) => {
     const trigger = event.target.closest('.note-trigger');
     if (!trigger) return;
