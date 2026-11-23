@@ -1122,3 +1122,8 @@ body.is-opening .book-frame {
   color: #fff1d8 !important;
   opacity: 1 !important;
 }
+
+/* Dos princesas iguales: ilustración de línea sobre un panel morado. */
+#flipbook .princess-equality-art {margin:8px auto 12px;padding:12px 12px 8px;background:#39283c;border:1px solid #af8968;}
+#flipbook .princess-equality-art img {display:block;width:100%;height:clamp(145px,22vh,235px);object-fit:contain;}
+@media(max-height:720px){#flipbook .princess-equality-art img{height:135px}}

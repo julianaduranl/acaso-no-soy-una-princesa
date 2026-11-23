@@ -8,10 +8,6 @@ const mediaByPage = {
   'anne':['anne-entrevista.jpg'],
   'clean-girl':['clean-girl.jpg']
 };
-const personalByPage = {
-  'mis-fotos-antes':'yo-alisada.jpg',
-  'yo-hoy':'yo-crespos.jpg'
-};
 const imgCache = new Map();
 
 function loadImage(path, callback) {
@@ -41,19 +37,5 @@ export function hydrateMedia(root) {
         pageElement.classList.add('has-real-media');
       });
     });
-    if (personalByPage[id]) {
-      const placeholder=pageElement.querySelector('.photo-hole');
-      if (!placeholder) continue;
-      const path='assets/images/'+personalByPage[id];
-      loadImage(path,ok=>{
-        if (!ok || !placeholder.isConnected) return;
-        const image=document.createElement('img');
-        image.src=path;
-        image.className='personal-insert';
-        image.alt='Fotografía personal: '+(id==='yo-hoy'?'cabello crespo natural':'cabello alisado');
-        placeholder.replaceChildren(image);
-        placeholder.classList.add('photo-hole--loaded');
-      });
-    }
   }
 }
