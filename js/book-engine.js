@@ -5,7 +5,7 @@
  */
 import { pages, chapters } from './content.js?v=20261122h5';
 import { hydrateMedia } from './media.js';
-import { fitLeaf } from './page-fit.js?v=20261122h5';
+import { fitLeaf } from './page-fit.js?v=20261122h7';
 
 const $ = (selector) => document.querySelector(selector);
 const prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -95,6 +95,24 @@ function updateUI() {
   intro.classList.toggle('is-closed', current === 0);
 }
 
+// Verify the contents AFTER StPageFlip has attached each leaf to the DOM.
+// Browser fonts, iframes and the PageFlip wrappers can change text wrapping.
+let fitTimer = null;
+function fitVisiblePages() {
+  if (!activeSize || !flipbookElement.isConnected) return;
+  for (const leaf of flipbookElement.querySelectorAll('.page-leaf')) {
+    if (getComputedStyle(leaf).display !== 'none') {
+      fitLeaf(leaf, activeSize.pageWidth, activeSize.pageHeight);
+    }
+  }
+}
+function queuePageFit(delay = 0) {
+  clearTimeout(fitTimer);
+  fitTimer = setTimeout(() => {
+    requestAnimationFrame(() => requestAnimationFrame(fitVisiblePages));
+  }, delay);
+}
+
 function buildFlipbook({ keepPage = 0 } = {}) {
   if (!window.St?.PageFlip) {
     $('#library-error').hidden = false;
@@ -138,6 +156,8 @@ function buildFlipbook({ keepPage = 0 } = {}) {
     current = event.data;
     busy = false;
     updateUI();
+    // Fit incoming pages after the page-turn animation settles.
+    queuePageFit(prefersReducedMotion.matches ? 290 : 1100);
     if (current === 0 && document.body.classList.contains('is-reading')) {
       // Returning to the original 3D cover closes the reading experience.
       setTimeout(() => {
@@ -151,6 +171,8 @@ function buildFlipbook({ keepPage = 0 } = {}) {
   hydrateMedia(flipbookElement);
   current = Math.min(keepPage, lastIndex);
   updateUI();
+  // CSS/layout is final only after PageFlip has inserted its page wrappers.
+  queuePageFit(0);
 }
 
 async function openBook() {
@@ -166,6 +188,7 @@ async function openBook() {
   document.body.classList.remove('is-opening');
   busy = false;
   pageFlip.flipNext('bottom');
+  queuePageFit(prefersReducedMotion.matches ? 300 : 1120);
 }
 
 export function turn(direction) {
@@ -195,6 +218,8 @@ export function jumpToPage(index) {
     current = pageFlip.getCurrentPageIndex();
   }
   updateUI();
+  // Direct navigation via the index or URL hash has no page-turn animation.
+  queuePageFit(60);
 }
 
 export function initBook() {
@@ -309,17 +334,13 @@ export function initBook() {
   // Fonts can change wrapping after the initial render, especially when
   // the presentation is first opened on a different computer.
   document.fonts?.ready.then(() => {
-    if (!pageFlip || !activeSize) return;
-    flipbookElement.querySelectorAll('.page-leaf').forEach((leaf) => {
-      fitLeaf(leaf, activeSize.pageWidth, activeSize.pageHeight);
-    });
+    if (pageFlip && activeSize) queuePageFit(80);
   });
 
   // Recalculate a page when a lazy historical image finishes loading.
   // The overall page proportions and turn animation stay unchanged.
   flipbookElement.addEventListener('load', (event) => {
     if (!(event.target instanceof HTMLImageElement) || !activeSize) return;
-    const leaf = event.target.closest('.page-leaf');
-    if (leaf) fitLeaf(leaf, activeSize.pageWidth, activeSize.pageHeight);
+    if (event.target.closest('.page-leaf')) queuePageFit(80);
   }, true);
 }
