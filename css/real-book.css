@@ -1089,3 +1089,36 @@ body.is-opening .book-frame {
 }
 #flipbook .scrap-photo.is-missing .scrap-photo__picture img { display: none !important; }
 #flipbook .scrap-photo.is-missing .scrap-archive-fallback { display: flex; }
+
+/* Contraste accesible en las hojas morado oscuro; no cambia el papel crema. */
+#flipbook .page.page--chapter,
+#flipbook .page.page--chapter .paper-inner,
+#flipbook .page.page--chapter .chapter-opener {
+  background-color: #39283c !important;
+  color: #fff4e6 !important;
+}
+#flipbook .page.page--chapter .page-kicker,
+#flipbook .page.page--chapter .page-title,
+#flipbook .page.page--chapter .chapter-opener h2,
+#flipbook .page.page--chapter .chapter-opener p,
+#flipbook .page.page--chapter .chapter-opener strong,
+#flipbook .page.page--chapter .chapter-opener .small {
+  color: #fff4e6 !important;
+  opacity: 1 !important;
+  text-shadow: none;
+}
+#flipbook .page.page--chapter .chapter-opener h2 em,
+#flipbook .page.page--chapter .chapter-opener .num,
+#flipbook .page.page--chapter .chapter-opener .ornament {
+  color: #f5cfa8 !important;
+  opacity: 1 !important;
+}
+#flipbook .page.page--chapter .page-footer {
+  color: #f0dfd0 !important;
+  border-top-color: #baa2b2;
+}
+#flipbook .page.page--backcover .back-cover-text,
+#flipbook .page.page--backcover .back-cover-sub {
+  color: #fff1d8 !important;
+  opacity: 1 !important;
+}
