@@ -104,9 +104,8 @@ page(
 #flipbook .clean-girl-display img {height:140px;object-fit:contain}
 #flipbook .page--story .page-title {color:#442b3d}
 #flipbook .page--story .page-kicker {color:#926452}
-@media (min-width:801px) and (min-height:700px) {body.is-reading .reader-stage.is-visible #flipbook {zoom:1.12}}
-@media (min-width:1100px) and (min-height:900px) {body.is-reading .reader-stage.is-visible #flipbook {zoom:1.16}}
-@media (max-width:800px) {body.is-reading .reader-stage.is-visible #flipbook {zoom:1}}
+/* La escala se calcula en book-engine.js a partir del área disponible.
+   No ampliar el libro con zoom: recortaba hojas en pantallas pequeñas. */
 @media (max-height:750px) {#flipbook .archive-ad--large>a {height:160px}#flipbook .archive-ad--large img.archive-ad__image{max-height:150px}#flipbook .tesis-formal p{font-size:12px}#flipbook .archivo-ficha object{height:115px}}
 
 /* Collage editorial: recortes superpuestos con cinta adhesiva decorativa */
