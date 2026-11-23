@@ -1,21 +1,27 @@
 # ¿Acaso no soy una princesa?
 
-**La belleza que nos enseñaron a esconder** — ensayo multimedia para CBU Nuevos Medios (2026).
+**La belleza que nos enseñaron a esconder.** Ensayo multimedia interactivo para CBU Nuevos Medios (2026).
 
-## Qué incluye esta versión
+Un libro digital sobre cómo el cine, la publicidad y la representación del pelo crespo pueden reforzar o cuestionar los ideales de belleza. Incluye una línea de tiempo, anuncios históricos, análisis y bibliografía.
 
-- **Libro interactivo 3D** con portada que se abre al hacer clic y doble página interior.
-- Prólogo cinematográfico de *El diario de la princesa*.
-- Cronología editorial con composición de archivo.
-- Autores académicos integrados en el argumento.
-- Espacios para fotografías personales y fuentes primarias originales.
-- Cambio de representaciones, *Clean Girl Look* y epílogo circular.
-- Animaciones al desplazarse, detalles decorativos, barra de lectura y adaptación móvil.
-- Soporte para movimiento reducido y navegación con teclado.
+## Abrir el libro publicado
 
-## Ejecutar en el computador
+**https://julianaduranl.github.io/acaso-no-soy-una-princesa/**
 
-Desde la carpeta del proyecto:
+> El enlace estará disponible cuando se active GitHub Pages en los ajustes del repositorio.
+
+## Activar GitHub Pages
+
+1. Abre [Settings → Pages](https://github.com/julianaduranl/acaso-no-soy-una-princesa/settings/pages).
+2. En **Build and deployment → Source**, elige **Deploy from a branch**.
+3. En **Branch**, selecciona **main** y **/(root)**, y guarda con **Save**.
+
+La página usa `index.html` en la raíz y archivos relativos (`css/`, `js/`, `assets/`). No necesita compilación ni un servidor de aplicación. El archivo `.nojekyll` deshabilita el procesamiento con Jekyll para publicar los archivos tal como están. Los cambios posteriores a `main` se publican automáticamente después de activar Pages.
+
+## Probarlo localmente
 
 ```bash
 python3 -m http.server 5500
+```
+
+Visita `http://localhost:5500/`. Usa las flechas o los botones del libro para pasar páginas.
