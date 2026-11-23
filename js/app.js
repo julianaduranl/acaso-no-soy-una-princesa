@@ -1,4 +1,4 @@
-import { initBook, jumpToPage } from './book-engine.js?v=20261122h2';
+import { initBook, jumpToPage } from './book-engine.js?v=20261122h3';
 
 const drawer=document.querySelector('#chapter-drawer');
 const open=document.querySelector('#index-button');
