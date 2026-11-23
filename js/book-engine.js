@@ -224,18 +224,37 @@ export function jumpToPage(index) {
 
 export function initBook() {
   $('#chapter-list').innerHTML = chapters.map((c) => `<button type="button" data-go="${c.page}"><span>${c.number}</span>${c.label}</button>`).join('');
+  // Preserve the requested deep link BEFORE buildFlipbook/updateUI rewrites
+  // the fragment. Otherwise #el-espejo and other links reset to #portada.
+  const requestedHash = decodeURIComponent(location.hash.slice(1));
+  const initialIndex = pages.findIndex((p) => p.id === requestedHash);
+  const initialPage = initialIndex > 0 ? initialIndex : 0;
+
+  // Direct chapter links should start with the reader visible, avoiding a
+  // flash of the front cover and ensuring the pages are fitted at load time.
+  if (initialPage > 0) {
+    document.body.classList.add('is-reading');
+    reader.classList.add('is-visible');
+  }
+
   // Only the intro 3D book needs to be rendered by the old stage.
   introTop.replaceChildren(renderPage(pages[0], 0));
   hydrateMedia(introTop);
   try {
-    buildFlipbook();
+    buildFlipbook({ keepPage: initialPage });
   } catch (error) {
     console.error(error);
     return;
   }
-  const hash = decodeURIComponent(location.hash.slice(1));
-  const direct = pages.findIndex((p) => p.id === hash);
-  if (direct > 0) jumpToPage(direct);
+
+  // A user may open a second #chapter link while the same tab is already
+  // showing this site. Hash navigation must work without reinitializing it.
+  window.addEventListener('hashchange', () => {
+    const requested = decodeURIComponent(location.hash.slice(1));
+    const targetIndex = pages.findIndex((p) => p.id === requested);
+    if (targetIndex >= 0 && targetIndex !== current) jumpToPage(targetIndex);
+  });
+
   $('#next-page').addEventListener('click', () => turn(1));
   $('#prev-page').addEventListener('click', () => turn(-1));
   window.addEventListener('keydown', (event) => {
