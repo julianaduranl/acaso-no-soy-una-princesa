@@ -733,7 +733,7 @@ page("teoria-hall","Capítulo IV · El poder de las imágenes","¿Por qué impor
 <span class="archive-step">UNA CLAVE PARA LEER EL ARCHIVO</span>
 <p class="story dropcap">Al terminar el recorrido histórico, aparece una pregunta: ¿por qué un anuncio de champú o una escena de cine podrían influir en algo tan personal como la relación con nuestro pelo?</p>
 <p class="story">El investigador <strong>Stuart Hall (1997)</strong> ofrece una respuesta: representar no significa solamente mostrar algo que ya existe. Al elegir imágenes, palabras y personajes, los medios también participan en la construcción de lo que una cultura considera normal, deseable o bello.</p>
-<p class="story">Una mujer lisa en un anuncio no es, por sí misma, el problema. El mensaje cambia cuando el pelo liso aparece repetidamente como la solución, mientras el crespo queda asociado con desorden, dificultad o falta de elegancia.</p>
+<p class="story">Una mujer con el pelo liso en un anuncio no es, por sí misma, el problema. El mensaje cambia cuando el pelo liso aparece repetidamente como la solución, mientras el crespo queda asociado con desorden, dificultad o falta de elegancia.</p>
 <div class="study-note"><strong>Lo que tomo de Hall:</strong> no basta con preguntar quién aparece en la imagen. Hay que mirar <strong>qué significado se le da a su apariencia</strong>.</div>
 <p class="archive-source"><a href="https://books.google.com/books/about/Representation.html?id=Vs-BdyhM9JEC" target="_blank" rel="noopener noreferrer">Hall (1997) ↗</a></p>`,"story"),
 
