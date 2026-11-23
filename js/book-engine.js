@@ -5,7 +5,7 @@
  */
 import { pages, chapters } from './content.js?v=20261122h3';
 import { hydrateMedia } from './media.js';
-import { fitLeaf } from './page-fit.js';
+import { fitLeaf } from './page-fit.js?v=20261122h5';
 
 const $ = (selector) => document.querySelector(selector);
 const prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -54,18 +54,23 @@ function renderPage(page, index) {
 }
 
 function getSize() {
-  const viewportWidth = window.innerWidth;
-  const viewportHeight = window.innerHeight;
+  const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
   const mobile = viewportWidth < 800;
-  // Keep a real margin around the book and reserve room for fixed controls.
-  const availableHeight = Math.max(300, viewportHeight - (mobile ? 138 : 196));
-  const availableWidth = Math.max(270, viewportWidth - (mobile ? 28 : 112));
-  const ratio = 0.74; // width / height of a paper leaf
-  const widthByHeight = availableHeight * ratio;
-  const widthByViewport = availableWidth / (mobile ? 1 : 2);
-  const pageWidth = Math.floor(Math.max(180, Math.min(widthByHeight, widthByViewport, 550)));
+  // Use the ACTUAL visible reader area, not a fixed subtraction from
+  // innerHeight: browser bars, Teams, projectors and zoom all change it.
+  const area = reader.getBoundingClientRect();
+  const stageWidth = Math.round(area.width);
+  const stageHeight = Math.round(area.height);
+  const safeWidth = Math.max(150, stageWidth - (mobile ? 24 : 48));
+  const safeHeight = Math.max(150, stageHeight - 14);
+  const ratio = .74; // Each paper leaf keeps the same width/height ratio.
+  const pageWidth = Math.floor(Math.max(105, Math.min(
+    safeHeight * ratio,
+    safeWidth / (mobile ? 1 : 2),
+    550
+  )));
   const pageHeight = Math.round(pageWidth / ratio);
-  return { pageWidth, pageHeight, mobile };
+  return { pageWidth, pageHeight, mobile, stageWidth, stageHeight };
 }
 
 function updateUI() {
@@ -281,12 +286,38 @@ export function initBook() {
     trigger.setAttribute('aria-expanded', String(!expanded));
     body.hidden = expanded;
   });
-  window.addEventListener('resize', () => {
+  const reflowPages = () => {
     clearTimeout(resizing);
     resizing = setTimeout(() => {
       const next = getSize();
-      if (activeSize && next.pageWidth === activeSize.pageWidth && next.mobile === activeSize.mobile) return;
+      if (activeSize && next.pageWidth === activeSize.pageWidth &&
+          next.pageHeight === activeSize.pageHeight &&
+          next.mobile === activeSize.mobile &&
+          next.stageHeight === activeSize.stageHeight &&
+          next.stageWidth === activeSize.stageWidth) return;
       buildFlipbook({ keepPage: current });
-    }, 260);
+    }, 240);
+  };
+
+  // Height is just as important as width: browsers with a bottom toolbar,
+  // different display scaling or a maximized window should refit the book.
+  window.addEventListener('resize', reflowPages, { passive: true });
+  window.visualViewport?.addEventListener('resize', reflowPages, { passive: true });
+
+  // Fonts can change wrapping after the initial render, especially when
+  // the presentation is first opened on a different computer.
+  document.fonts?.ready.then(() => {
+    if (!pageFlip || !activeSize) return;
+    flipbookElement.querySelectorAll('.page-leaf').forEach((leaf) => {
+      fitLeaf(leaf, activeSize.pageWidth, activeSize.pageHeight);
+    });
   });
+
+  // Recalculate a page when a lazy historical image finishes loading.
+  // The overall page proportions and turn animation stay unchanged.
+  flipbookElement.addEventListener('load', (event) => {
+    if (!(event.target instanceof HTMLImageElement) || !activeSize) return;
+    const leaf = event.target.closest('.page-leaf');
+    if (leaf) fitLeaf(leaf, activeSize.pageWidth, activeSize.pageHeight);
+  }, true);
 }
