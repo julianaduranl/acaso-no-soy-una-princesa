@@ -1128,5 +1128,15 @@ body.is-opening .book-frame {
 #flipbook .princess-equality-art img {display:block;width:100%;height:clamp(145px,22vh,235px);object-fit:contain;}
 @media(max-height:720px){#flipbook .princess-equality-art img{height:135px}}
 
-/* Fotografías del archivo no son enlaces: el clic no abre sitios externos. */
-#flipbook .archive-collage .scrap-photo { cursor:default; pointer-events:none; }
+/* Recortes sin enlaces: recuperan la interacción visual al pasar el cursor. */
+#flipbook .archive-collage .scrap-photo {
+  cursor: default;
+  pointer-events: auto;
+  transition: transform .24s ease, box-shadow .24s ease;
+}
+#flipbook .archive-collage .scrap-photo:hover,
+#flipbook .archive-collage .scrap-photo:focus-visible {
+  z-index: 30 !important;
+  transform: rotate(0deg) scale(1.10) !important;
+  box-shadow: 5px 14px 25px #48312c80;
+}
